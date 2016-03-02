@@ -576,9 +576,106 @@ d([k+a,h+b]_\theta) & = & d([k,h]_K+\theta(k,h)+[a,h]-[b,k])\\
  \cqd
  \end{flushright}
 
+\section{Teorema de Jacobson para K-módulos}
+\subsection{Derivação não singular}
+ \begin{df}  Sejam $V$ um espaço vetorial sobre $\F$ e $a \in End(V)$. Se $p \in \F[X]$ então $$V_0(p(a))=\{v \in V | p(a)^mv=0 \mbox{ para algum } m>0\}.$$ Se $p(a)=X-\lambda$ para algum $\lambda \in \F$ então $V(p(a))$ será denotado por $V_\lambda$ e chamado de $\lambda$-autoespaço generalizado de $a$. $\lambda$ será chamado de autovalor generalizado de $a$.
+ \end{df}
 
+\begin{prop} Sejam $V$ um espaço vetorial e $a \in End(V)$. Seja $A$ a álgebra associativa com unidade gerada por $a$. Seja $f_a$ o polinômio minimal de $a$ e suponha que $$f_a=p_1^{k_1}\cdots p_r^{k_r}$$ a fatoração de $f_a$ em fatores mônicos irredutíveis. Então $V$ possui uma decomposição como soma direta de subespaços invariantes por $a$, $$V=V_0(p_1(a))\oplus \cdots \oplus V_0(p_r(a)).$$ 
+\end{prop}
+\prova \textbf{Lema A.2.2}, De Graaf pág. 369.
+
+\begin{flushright}
+\cqd
+\end{flushright}
  
+\begin{prop}{\label{3.1}} Sejam $K$ uma álgebra de Lie, $I$ um $K$-módulo e $(\alpha,\beta) \in Comp(K,I)$ então  
+\begin{equation}{\label{comp2}}
+(\beta-(\lambda+\mu))^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \mbox{ para todo } a \in I,k \in K \mbox{ e } \lambda,\mu \in \F
+\end{equation}
+\end{prop} 
 
+\prova Suponha que $\F$ seja o corpo base de $K$. Vamos provar o resultado por indução sobre $n$. Se $n=1$ então o resultado segue da definição de par compatível. Suponha o resultado válido para $n>0$. Então
+
+\begin{multline}
+(\beta-(\lambda+\mu))^{n+1}[a,k]  =  (\beta-(\lambda+\mu))\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \\
+  = \sum_{i=0}^n\binom{n}{i} \left( [(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^i(k)] 
+  +[(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^{i+1}(k)] \right )  \\
+  =\sum_{i=0}^{n+1}\binom{n+1}{i}[(\beta-\lambda)^{n+1-i}(a), \mbox{ para todo } a \in I,k \in K \mbox{ e } \lambda,\mu \in \F
+\end{multline}
+
+\begin{flushright}
+ \cqd
+ \end{flushright}
+
+
+\begin{prop}{\label{3.2}} Seja $K$ uma álgebra de Lie sobre um corpo $\F$ algebricamente fechado e $I$ um $K$-módulo. Sejam $(\alpha,\beta) \in Comp(K,I)$. Se $\lambda_1, \cdots, \lambda_r$ e $\mu_1, \cdots, \mu_s \in \F$ são autovalores generalizados de $\alpha$ e $\beta$, respectivamente, então  $[I_{\mu_i}, K_{\lambda_j}] \subseteq I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $\beta$. Caso contrário $[I_{\mu_i}, K_{\lambda_j}]=0$.
+\end{prop}
+\prova Sejam $a \in I_{\mu_i}$ e $k \in K_{\lambda_j}$ então pela \textbf{Proposição \ref{3.1}} temos $$(\beta-(\lambda+\mu) I)^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda I)^{n-i}(a),(\alpha-\mu I)^i(k)],$$ que é zero para $n$ suficientemente grande. Portanto, $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $\beta$, caso contrário  $[I_{\mu_i}, K_{\lambda_j}]=0$ pois $(\beta-(\lambda+\mu))$ é não-singular.
+
+\begin{flushright}
+ \cqd
+\end{flushright}
+
+\begin{prop}{\label{rowen}} Suponha que $A$ uma álgebra de dimensão finita sobre um corpo $\F$. Se $S$ é um subconjunto multiplicativamente fechado tal que seus elementos são somas de elementos nilpotentes então $S$ é nilpotente.
+\end{prop}
+\prova Rowen, L. H. Ring Theory, Student Edition,  \textbf{Proposição 2.6.32} pg 178.
+
+\begin{flushright}
+ \cqd
+
+\end{flushright}
+
+\begin{teo} Seja $K$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$ e $I$ um $K$-módulo de dimensão finita. Suponha que $(\alpha, \beta) \in Comp(K,I)$ tal que $\alpha$ é não-singular. Se $car(\F)=0$ ou $car(\F)=p$ e a dimensão de $I$ é menor que $p$ então a ação de $K$ sobre $I$ é nilpotente.
+\end{teo}
+\prova  Sejam $\lambda_1, \cdots, \lambda_r$ e $\mu_1, \cdots, \mu_s \in \F$ autovalores generalizados de $\alpha$ e $\beta$, respectivamente. Se $a \in I_{\mu_i}$ e $k \in K_{\alpha_j}$ então, pela \textbf{Proposição \ref{3.2}}, temos $(\ad{}{k})^n(a) \in I_{\mu_i + n \lambda_j}$, com $\lambda_j\neq 0$, se $\mu_i + n \lambda_j$ é autovalor generalizado de $\beta$ e $(\ad{}{k})^n=0$ se $\mu_i + n \lambda_j$ não é autovalor de $\beta$. Se $car(\F)=0$ então $(\ad{}{k})^n=0$ para algum $n$ pois o conjunto dos autovalores de $\beta$ é finito; e se $car(\F)=p$ o conjunto $\{\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+(p-1)\lambda_j,\mu_i\}$ possui $p$ elementos distintos e $\beta$ possui no máximo $p-1$ autovalores então $(\ad{}{k})^n=0$ para algum $1 \leq n \leq p$. Nos dois casos $\ad{}{k}$ é nilpotente para todo $k \in K_{\lambda_j}$, $1 \leq j \leq r$. Segue que todo elemento de $\ad{K}{}:K \to \mathfrak{gl}(I)$ pode ser escrito como soma de elementos nilpotentes. Então, pela \textbf{Propsição \ref{rowen}}, $\ad{K}{}$ é nilpotente.  
+
+\subsection{Subálgebras nilpotentes sem autovalor nulo}
+
+\begin{df} Sejam $V$ um espaço vetorial sobre um corpo  $\F$ e $D \subseteq \mathfrak{gl}(V)$ uma subálgebra. Seja $\alpha:D \to \F \in D^*$ um funcional linear. Então o subespaço $$V_{\alpha}^K=\{v \in V | \mbox{ para todo } x \in D \mbox{ temos }(x-\alpha(x) I)^N v=0 \mbox{ para algum } N>0 \},$$
+é chamado $\alpha$-autoespaço generalizado de $K$. Se $V_{\alpha}^K \neq 0$ então $\alpha$ é um autovalor generalizado de $D$. 
+\end{df}
+
+\begin{prop}{\label{decompauto}} Seja $K$ uma álgebra de Lie de dimensão finita sobre um corpo algebricamente fechado $\F$ e $D \subset Der(K)$ uma subálgebra nilpotente. Então
+ $K$ possui uma decomposição em autoespaços generalizados $K=\displaystyle \bigoplus_{i=0}^n K_{\alpha_i}$ de $D$;
+ \end{prop} 
+ \prova  Pelo\textbf{ Teorema 3.1.10 }(De Graaf pg.62) $L$ possui uma decomposição primária coletada relativa a $D$. Como $\F$ é algebricamente fechado podemos escrever $K=K_{\alpha_1}\oplus \cdots \oplus K_{\alpha_n}$ tal que cada componente é da forma  $$K_{\alpha_i}=\{v \in K | \mbox{ para todo } x \in K \mbox{ existe um } m>0 \mbox{ tal que } (x-\alpha_i(x)I)^m v=0 \}.$$ \begin{flushright}
+ \cqd
+ \end{flushright}
+ 
+Sejam $K$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$, $I$ um $K$-módulo de dimensão finita. Seja $D \subset Comp(K,I)$ um subconjunto e defina as subálgebras
+
+- $D_K \subset Der(K)$: gerada por $\alpha \in Der(K)$ tal que $(\alpha,\beta) \in D$;
+
+- $D_I \subset Der(I)$: gerada por $\beta \in Der(I)$ tal que $(\alpha,\beta) \in D$.
+
+Se $D_K$ e $D_I$ são nilpotentes então pela \textbf{Proposição \ref{decompauto} } podemos escrever $K$ e $I$ como soma de autoespaços generalizados de $D_K$ e $D_I$, respectivamente. Escreva $K=K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_r}$ e $I=I_{\mu_{1}}\oplus \cdots \oplus I_{\mu_{s}}$.
+
+ Sejam $(\alpha,\beta) \in D$, $a \in I_{\mu_i}$ e $k \in K_{\lambda_j}$ então pela \textbf{Proposição \ref{3.1}} temos
+ 
+ \textcolor{red}{ $$(\beta-(\lambda+\mu)(\beta)I)^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda(\beta)I)^{n-i}(a),(\alpha-\mu(\alpha)I)^i(k)],$$} 
+  
+  que é zero para $n$ suficientemente grande. Portanto, $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $D_I$, caso contrário  $[I_{\mu_i}, K_{\lambda_j}]=0$ pois $(\beta-(\lambda+\mu))$ é não-singular. Podemos resumir esse resultado na proposição abaixo. 
+  
+  \begin{prop} Sejam $K$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$, $I$ um $K$-módulo de dimensão finita. Seja $D \subset Comp(K,I)$. Se  $\lambda_j$ e $\mu_i$ são autovalores generalizados de $D_K$ e $D_I$ então  $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $D_I$. Caso contrário $[I_{\mu_i}, K_{\lambda_j}]=0$.
+  \end{prop}
+
+
+\begin{teo} Sejam $K$ uma álgebra de Lie de dimensão finita sobre um corpo de característica $p$ e $I$ um $K$-módulo de dimensão menor que $p$. Suponha que $Comp(K,I)$ possui um subconjunto $D$ tal que $D_K$ e $D_I$ sejam nilpotentes e $D_K$ não possui autovalor generalizado zero. Então a ação de $K$ sobre $I$ é nilpotente 
+\end{teo} 
+
+\subsection{Subálgebras nilpotentes de $Der(L)$}
+
+\begin{teo} Sejam $L$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$ algebricamente fechado e $I$ um ideal abeliano de $L$ invariante por derivações. Suponha que $Der(L)$ possua uma subálgebra nilpotente $D$ tal que zero não é autovalor generalizado da subálgebra $D_K$, induzida por $D$ em $Der(L/I)$. Se ou $car(\F)=0$ ou $car(\F)=p$ e $dim(I)<p$ então a ação de $K=L/I$ em $I$ induzida pela representação adjunta é nilpotente.
+
+\end{teo}
+\prova Seja $L=L_{\alpha_1}\oplus \cdots \oplus L_{\alpha_n}$ a decomposição de $L$ em autoespaços generalizados de $D$ e $\Phi=\{\alpha_1, \cdots, \alpha_n\}$. Defina $K_{\alpha_i}=L_{\alpha_i}/I$, $I_{\beta_i}=L_{\alpha_i}\cap I$ e  $\Delta=\{\beta_1, \cdots, \beta_r\}$. Pode acontecer que $I_{\beta_i}$ ou $K_{\alpha_i}$ seja zero. Sejam $a \in I_{\beta_i}$ e  $x \in L_{\alpha_j}$ então 
+$$ \begin{cases} [a,x+I] \in I_{\beta_i+\alpha_j}, &  \mbox{ se  }\beta_i+\alpha_j \in \Delta \\ [a,x+I] = 0, & \mbox{ se  } \beta_i+\alpha_j \notin \Delta  \end{cases}.$$ Então  
+$$ \begin{cases} ad_I(x+I)^n(a) \in I_{\beta_i+n \alpha_j}, & \mbox{ se  } \beta_i+n \alpha_j \in \Delta \\ ad_I(x+I)^n(a)=0, & \mbox{ se  } \beta_i+n \alpha_j \notin \Delta  \end{cases}.$$
+
+Se $Car(\F)=0$ então $\alpha_i+ \beta_j, \alpha_i+2 \beta_j, \cdots $ são todos distintos  e $\alpha_i+n \beta_j \notin \Delta$, para $n$ suficientemente grande, pois $\Delta$ é finito. Se $car(\F)=p$ e $dim(I)<p$ então $\alpha_i+n \beta_j \notin \Delta$ para algum $n$, $1 \leq n \leq p$, pois $\alpha_i+ \beta_j, \alpha_i+2 \beta_j, \cdots, \alpha_i+(p-1)\beta_j,\alpha_i$ são todos distintos e $\Delta$ possui no máximo $p-1$ elementos distintos. Em ambos os casos $ad_I(x+I)^n=0$, para algum $n>0$ então $ad_I(x+I)$ é nilpotente, para todo $x +I \in K_{\alpha_i}$. Consequentemente, todo elemento de $ad_I(K)$ pode ser escrito como soma de elementos nilpotentes de $ad_I(K)$. Então, $ad_I(K)$ é nilpotente.  
+
+\newpage
 \section{Aplicações}
 
 \begin{lem}{\label{0.9}} Seja $\F$ um corpo de característica $p$ com $p=0$ ou $p > n$. Suponha que $A \in \mathfrak{gl}_n(\F)$. Então $A$ é nilpotente se, e somente se, $tr(A^r)=0$ para $1 \leq r \leq n.$
@@ -646,7 +743,10 @@ Seja $x_1,...,x_s$ uma base de $K$ tal que a matriz do operador $\alpha$ esteja 
 
 Substitua $k=x_{t1}$  e  $\alpha(x_{t1}) =\lambda_tx_{t1}$ em $(\ref{1.1})$  para obter $$[\beta,ad(x_{t1})]=\lambda_tad(x_{t1}).$$ Podemos aplicar o Lema {\ref{1.2}} nessa última equação para $A=\beta$, $B=ad(x_{t1})$, $C=0$ e  $\lambda=\lambda_t\neq 0$ para concluir que $ad(x_{t1})$ é nilpotente.
 
- Suponha por indução que $ad(x_{t(j-1)})$ é nilpotente. Substitua $k=x_{tj}$  e  $\alpha(x_{tj}) =ad(x_{t(j-1)})+\lambda_tx_{tj}$ em $(\ref{1.1})$  para obter  $$[\beta,ad(x_{tj})]=ad(x_{t(j-1)})+\lambda_tad(x_{tj}).$$
+ Suponha por indução que $ad(x_{t(j-1)})$ é nilpotente. Substitua $k=x_{tj}$  e
+ 
+   
+ $\alpha(x_{tj}) = ad(x_{t(j-1)}) + \lambda_tx_{tj}$ em $(\ref{1.1})$  para obter  $$[\beta,ad(x_{tj})]=ad(x_{t(j-1)})+\lambda_tad(x_{tj}).$$
   
    Novamente, podemos usar o Lema {\ref{1.2}} com $A=\beta$, $B=ad(x_{tj})$, $\lambda=\lambda_t\neq 0$ e $C=ad(x_{t(j-1)})$ para concluir que $ad(x_{tj})$ é nilpotente.
 
