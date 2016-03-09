@@ -47,7 +47,7 @@
 \newcommand{\vazio}{\emptyset}
 \newcommand{\x}{\mathcal{X}}
 \newcommand{\cqd}{\rule{2mm}{2mm}}
-\newcommand{\prova}{\noindent \textbf{Prova: }}
+\newcommand{\prova}{\noindent \textbf{Proof: }}
 
 \renewcommand{\S}{\ensuremath{{\mathcal{S}}}}
 \newcommand{\E}{\ensuremath{{\mathcal{E}}}}
@@ -77,397 +77,358 @@
 %\newcommand{\txt}[1]{\mbox{ #1 }}
 \newcommand{\til}[1]{\widetilde{#1}}
 
-\newtheorem{teo}{Teorema}
-\newtheorem{cor}{Corolário}
-\newtheorem{lem}{Lema}
-\newtheorem{obs}{Observação}
+\newtheorem{teo}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{lem}{Lemma}
+\newtheorem{obs}{Observation}
 
 \newtheorem{af}{Afirmação}
-\newtheorem{prop}{Proposição}
+\newtheorem{prop}{Proposition}
 
 \theoremstyle{definition}
-\newtheorem{df}{Definição}
-\newtheorem{ex}{Exemplo}
+\newtheorem{df}{Definition}
+\newtheorem{ex}{Example}
 
 \newcommand{\ad}[2]{ad^{#1}_{#2}}
 
 
 
 
-
+\makeindex
 
 \begin{document}
-\title{Extensões de Álgebras de Lie}
 
-\section{Extensões de Álgebras de Lie}
-\subsection{Definição}
+\title{Lie Algebra Extensions}
+\maketitle
 
-Nessa seção definiremos extensões de álgebras de Lie e alguns grupos de cohomologia.
-\begin{df} Sejam $K$,$H$ e $L$ álgebras de Lie. $L$ é dita uma extensão de $K$ por $H$ se existe uma sequência exata de álgebras de Lie,
+\section{Definitions}
+
+In this section we define Lie algebra extensions e some cohomology groups.
+
+\begin{df} Let $K$,$H$ and $L$ be Lie algebras. $L$ is an extension of $K$ by $H$ if there is a exact sequence of Lie algebras,
 $$0 \to H \stackrel{ i}{\to} L \stackrel{ s}{\to} K \to 0.$$
 \end{df} 
 
 \begin{itemize}
-\item se existe um ideal $S$ de $L$ tal que se $L=S \oplus Ker(s)$ então a extensão é \textbf{trivial};
-\item se existe uma subálgebra $S$ de $L$ tal que $L=S \oplus Ker(s)$ então a extensão é \textbf{split};
-\item se $Ker(s)$ está contido no centro de $L$, denotado por $Z(L)$, então $L$ é uma extensão \textbf{central}.
+\item if there is an ideal $S$ of $L$ such that $L=S \oplus Ker(s)$ then the extension is \textbf{trivial};
+\item if there is a subalgebra $S$ of $L$ such that $L=S \oplus Ker(s)$ then the extension is \textbf{split};
+\item if $ker(s)$ is contained in the center of $L$, denoted by $Z(L)$, then $L$ is a \textbf{central} extension.
 \end{itemize}
 
-\subsection{Extensões Usando Cohomologia}
-
-\begin{df}{\label{acao}}Sejam $K$ e $I$ álgebras. Diremos que $K$ age sobre $I$ se temos um morfismo de álgebras $\psi:K \to Der(I)$. Neste caso, denotaremos a ação de $K$ sobre $I$ por $$[a,k]:=\psi(k)(a), k \in K,a \in I.$$
-O morfismo $\psi$ pode ser visto como uma representação de $K$ em $\mathfrak{gl}(I)$. Então $K$ age sobre $I$ se, e somente se, $I$ possui estrutura de $K$-módulo.
+\begin{df}{\label{acao}}Let $K$ and $I$ be algebras. We say that $K$ act on $I$ if there is a algebra morphism $\psi:K \to Der(I)$. In this case, the action will be denoted by $$[a,k]:=\psi(k)(a), k \in K,a \in I.$$
 \end{df}
 
-Usaremos a notação $\ad{}{}:K \to Der(I)$ para a derivação definida pelo produto $\ad{}{k}(a)=[a,k],$ para todo $k \in K$ e $a \in I$. Quando necessário usaremos a notação $\ad{K}{}:K \to Der(I)$ para explicitar o domínio $K$. 
+When brackets represents the adjoint representation we also use $\ad{K}{}:K \to Der(I)$ to $\ad{K}{k}(a)=[a,k],$ for all $k \in K$ and $a \in I$. When the domain of representation is clear we just use $\ad{}{k}(a)=[a,k]$.
 
-
-\begin{ex} Seja $L$ uma álgebra de Lie. Denote a representação adjunta de $L$ por $\ad{L}{}:L \to Der(L)$. Suponha que $L$ possui um ideal abeliano $I$ e seja $K=L/I$. Defina $\ad{K}{}:K \to Der(I)$ por $\ad{K}{x+I}(a)=[a,x]$ para todo $x\in L$ e $a \in I$. Como $I$ é abeliano então $\ad{K}{}$ está bem definida e é uma representação de $K$ em $Der(I)$.  Portanto, se $L$ possui um ideal abeliano $I$ então $L/I$ age sobre $I$. Nesse caso diremos que a ação é induzida pela representação adjunta.
+\begin{ex} Let $L$ be a Lie algebra with an abelian ideal $I$ and $K=L/I$. Let $\ad{L}{}:L \to L$ be the adjoint representation of $L$. Define the Lie algebra representation $\ad{K}{}:K \to Der(I)$ by $\ad{K}{x+I}(a)=[a,x]=\ad{L}{x}(a)$ for all $x\in L$ and $a \in I$. This is well defined because $I$ is abelian. Then $K$ acts on $I$. In this case, we say that the action is induced by adjoint representation.
 \end{ex}
 
 
-\begin{df} Sejam $K$ uma álgebra e $I$ um espaço vetorial tais que $I$ é um $K$-módulo. Denote por $C^2(K,I)$ o espaço das aplicações bilineares alternadas de $K \times K$ em $I$.
+\begin{df} Let $K$ be an algebra and $I$ a $K$-module. Denote by $C^2(K,I)$ the vector space of alternating bilinear maps $\theta: K \times K \to I$.
 \begin{itemize}
 
-\item Se $\theta \in C^2(K,I)$ é tal que $$\theta(x,[y,z])+\theta(y,[z,x])+\theta(z,[x,y])=[\theta(y,z),x]+[\theta(z,x),y]+[\theta(x,y),z],$$ para todo $ x,y,z \in K,$ então $\theta$ será chamado de \textbf{cociclo} e o espaço dos cocilos será denotado por $Z^2(K,I)$, que é o segundo grupo de cohomologia.
+\item If $\theta \in C^2(K,I)$ has the property  $$\theta(x,[y,z])+\theta(y,[z,x])+\theta(z,[x,y])=[\theta(y,z),x]+[\theta(z,x),y]+[\theta(x,y),z],$$ for all $ x,y,z \in K,$ then $\theta$ are said \textbf{cocycle} and the vector space of coclycles is denoted by $Z^2(K,I)$;
 
-\item Suponha que $\theta$ é um cociclo. Se existe uma aplicação linear $T:K \to I$ tal que $$\theta(k,h)=T([h,k])+[T(h),k]-[T(k),h],$$ para todo $k,h \in K$ então $\theta$ será chamado de \textbf{cofronteira}. O espaço das cofronteiras será denotado por $B^2(K,I)$. 
-\item Denote $H^2(K,I)=Z^2(K,I)/B^2(K,I)$ o espaço quociente dos cociclos pelas cofronteiras. 
-\item O primeiro grupo de cohomologia de $K$ e $I$ é definido por $$Z^1(K,I)=\{\nu \in Hom(K,I) \mid \nu([k,h]_K)=[\nu(k),h]-[\nu(h),k], \mbox{ para todo } k,h \in K\}.$$
+\item A cocycle $\theta$ are said a \textbf{coboundary} if there is a linear map $T:K \to I$ such that $$\theta(k,h)=T([h,k])+[T(h),k]-[T(k),h],$$ for all $k,h \in K$.  The set of coboundaries are denoted by $B^2(K,I)$. 
+\item Let $H^2(K,I)=Z^2(K,I)/B^2(K,I)$ be the quotient space of cocycles by coboundaries. 
+\item The first cohomology group of $K$ and $I$ is definied by $$Z^1(K,I)=\{\nu \in Hom(K,I) \mid \nu([k,h]_K)=[\nu(k),h]-[\nu(h),k], \mbox{ for all } k,h \in K\}.$$
 \end{itemize}
 \end{df}
 
-
-
-
-A seguir vamos apresentar como definir extensões de uma álgebra de Lie $K$ a partir de cociclos de $K$ em $I$. Também provaremos que toda álgebra de Lie com ideal abeliano pode ser caracterizada como uma extensão desse tipo.
+Next we present some results of Lie algebra extensions and cohomology. Their proofs can be seen, for example,  in \cite{Knapp} section 2 of chapter 4.
  
-\begin{prop} Sejam $K$ uma álgebra de Lie e $I$ um espaço vetorial tais que $K$ age sobre $I$. Seja $\theta \in Z^2(K,I)$ e defina a álgebra $K_{\theta}=K \oplus I$ com o produto  \begin{equation}
+\begin{prop} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\theta \in Z^2(K,I)$ and $\nu \in B^2(K,I)$. Define the algebra $K_{\theta}=K \oplus I$ with product  \begin{equation}
  [x+a,y+b]_{\theta}=[x,y]_K+\theta(x,y)+[a,y]-[b,x], \mbox{ para } x,y \in K \mbox{ e } a,b \in I.
  \end{equation}
- Então,
+ Then,
  \begin{enumerate}
- \item $K_\theta$ é uma álgebra de Lie;
-\item $K_{\theta}$ é uma extensão de $K$ por $I$.  
+ \item $K_\theta$ is a Lie algebra extension of $K$ by $I$;
+ \item $ K_\theta$ is isomorphic to $K_{\theta+\nu}$;
+ \item $K_\nu$ is a split extension of $K$ by $I$.
   \end{enumerate}
-
 \end{prop}
-\prova 1) Sejam  $x,y,z\in K$ e $a,b,c \in I$. Então
 
-\begin{itemize}
-\item $[x+a,x+a]_\theta=[x,x]_K+\theta(x,x)+[a,x]-[a,x]=0$.
- \item Usando a definição do produto em $K_\theta$ obtemos 
- \begin{multline*} [x+a,[y+b,z+c]_\theta]_\theta=[x,[y,z]_K]_K+ \theta(x,[y,z])-[\theta(y,z),x] \\+[a,[y,z]_K]-[[b,z],x]+[[c,y],x].
- \end{multline*} 
-
- Logo, podemos escrever a expressão
-\begin{center}
-$[x+a,[y+b,z+c]_\theta]_\theta+[y+b,[z+c,x+a]_\theta]_\theta+[z+c,[x+a,y+b]_\theta]_\theta$
-\end{center}
-como a soma das parcelas
- $$[x,[y,z]_K]_K+[y,[z,x]_K]_K+[z,[x,y]_K]_K$$ 
- $$ \theta(x,[y,z])+ \theta(y,[z,x])+ \theta(z,[x,y])-[\theta(y,z),x]-[\theta(z,x),y]-[\theta(x,y),z]$$ 
- $$[a,[y,z]_K]+[b,[z,x]_K]+[c,[x,y]_K]$$ 
- $$[[a,z],y]-[[a,y],z]+[[b,x],z]-[[b,z],x]+[[c,y],x]-[[c,x],y].$$
-\end{itemize}   
-
- A primeira parcela é zero pela identidade de Jacobi em $K$; pela definição de cociclo a segunda também é zero; e a soma das duas últimas é zero pois a ação de $K$ em $I$ é definida por uma representação. Portanto, $[x+a,[y+b,z+c]_\theta]_\theta+[y+b,[z+c,x+a]_\theta]_\theta+[z+c,[x+a,y+b]_\theta]_\theta=0$. 
- 
- 2) Seja $i:I \to L$ a inclusão e $\pi:L \to K$ a projeção natural. Então $i$ e $\pi$ são morfismos de álgebras de Lie e obtemos a seguinte sequência exata
-  $$0 \to I\stackrel{i}{\to} L \stackrel{\pi}{\to} K \to 0.$$  \begin{flushright}
- \cqd
- \end{flushright}
     
-\begin{prop} Se $L$ é uma álgebra de Lie e $I$ um ideal abeliano de $L$ com $K=L/I$ então existe $\theta \in Z^2(K,I)$ tal que $L \cong K_\theta$. 
+\begin{prop} Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$. If $K=L/I$ then there is $\theta \in Z^2(K,I)$ such that $L \cong K_\theta$. 
 \end{prop}
-\prova Considere a ação de $K$ em $I$ induzida pela representação adjunta de $L$ em $I$. Então $I$ possui estrutura de $K$-módulo e podemos definir os grupos de cohomologia de $K$ em $I$. 
-
-Seja $\pi$ a projeção natural de $L$ em $K$ e $\epsilon:K \to L$ uma aplicação linear injetora satisfazendo  $\pi(\epsilon(x))=x,$ para todo $x \in K$. Observe que pela definição da ação de $K$ em $I$ temos $[a,x]=[a,\epsilon(x)]_L$ para todo $a \in I$ e $x \in K$.
-
- Defina a aplicação bilinear $\theta: K \times K \to I$ por  $$\theta(x,y)=[\epsilon(x),\epsilon(y)]_L-\epsilon([x,y]_K) \mbox{ para todo }x,y \in K.$$ Observe que $\pi(\theta(x,y))=0$, para todo $x,y \in K$ então $\theta$ é uma aplicação de $K \times K$ em $I$. Como ela é definida por comutadores ela é bilinear. 
  
- Vamos verificar que $\theta$ é um cociclo. Se $x,y,z \in K$ é imediato que $\theta(x,y)=-\theta(y,x)$ e $\theta(x,x)=0$. Por definição temos, para todo $x,y,z \in K$, $$\theta(x,[y,z])=[\epsilon(x),\epsilon([y,z]_K)]_L-\epsilon([x,[y,z]_K]_K).$$ Defina $$X= \theta(x,[y,z])+\theta(y,[z,x])+\theta(z,[x,y]).$$ Então 
-\begin{multline*} 
- X= [\epsilon(x),\epsilon([y,z]_K)]_L-\epsilon([x,[y,z]_K]_K)+[\epsilon(y),\epsilon([z,x]_K)]_L-\epsilon([y,[z,x]_K]_K) \\ +[\epsilon(z),\epsilon([x,y]_K)]_L-\epsilon([z,[x,y]_K]_K).
-\end{multline*}
- 
- Pela identidade de Jacobi em $K$ obtemos
-\begin{equation}{\label{2.1}}
-X=[\epsilon(x),[\epsilon([y,z]_K)]_L+[\epsilon(y),[\epsilon([z,x]_K)]_L+[\epsilon(z),[\epsilon([x,y]_K)]_L.
+\section{Compatible Pairs}
+
+\begin{df}{\label{comp}} Let $K$ and $I$ be Lie algebras such that $K$ act on $I$. Define the set $Comp(K,I)$, of the \textbf{compatible pairs}, as the elements $(\alpha,\beta) \in Der(K)\oplus Der(I)$ with the property 
+\begin{equation}{\label{compeq}}
+\beta ([a,k])=[\beta(a),k]+[a,\alpha(k)] \mbox{, for all } k \in K, a \in I.
 \end{equation}
- Por outro lado, $$[\theta(x,y),z]=[[\epsilon(x),\epsilon(y)]_L-\epsilon([x,y]_K),z]_L=[[\epsilon(x),\epsilon(y)]_L-\epsilon([x,y]_K),\epsilon(z)].$$ Defina  $$Y=[\theta(x,y),z]+[\theta(y,z),x]+[\theta(z,x),y].$$ Similarmente a equação (\ref{2.1}) obtemos 
- \begin{equation}{\label{2.2}}
-Y= [\epsilon(x),[\epsilon([y,z]_K)]_L+[\epsilon(y),[\epsilon([z,x]_K)]_L+[\epsilon(z),[\epsilon([x,y]_K)]_L.
-  \end{equation} Comparando as equações (\ref{2.1}) e (\ref{2.2}) otemos que $\theta$ é um cociclo. 
- 
-   Falta mostrar que $K_\theta$ e $L$ são isomorfos. Como $\epsilon$ é injetora então todo elemento de $u \in L$ pode ser escrito de forma única como $u=\epsilon(u+I)+a$, com $a \in I$. A partir dessa decomposição defina a aplicação linear $\zeta:L \to L_\theta=K \oplus I$ por $$\zeta(u)=(u +I)+a_u.$$ Sejam $u,v \in L$ então existem $a,b \in I$ tais que $u=\epsilon(u+I)+a$ e $v=\epsilon(v+I)+b$. Escreva
-   \begin{equation}{\label{2.3}}
-   [u,v]_L=\epsilon([u,v]_L+I)+ a_{[u,v]_L} \mbox{ onde } a_{[u,v]_L} \in I.
-     \end{equation}
-      Por outro lado,
- \begin{eqnarray}{\label{2.4}}
-[u,v]_L & = & [\epsilon(u+I)+a,\epsilon(v+I)+b]_L \nonumber \\ 
-& = & [\epsilon(u+I),\epsilon(v+I)]_L+[a,\epsilon(v+I)]_L-[b,\epsilon(u+I)]_L \nonumber \\ & = & [\epsilon(u+I),\epsilon(v+I)]_L+[a,v+I]-[b,u+I].
- \end{eqnarray}
-   
- Comparando (\ref{2.3}) e (\ref{2.4}) obtemos 
-$$\begin{array}{rcl}
- a_{[u,v]_L} & = & [\epsilon(u+I),\epsilon(v+I)]_L-\epsilon([u,v]_L+I)+[a,v+I]_L-[b,u+I]_L \\
- & = & [\epsilon(u+I),\epsilon(v+I)]_L-\epsilon([u+I,v+I]_K)+[a,v+I]_L-[b,u+I]_L.\end{array} $$ Segue da definição de $\zeta$ e das contas anteriores
- $$\begin{array}{rcl}
- \zeta([u,v]_L)& = & ([u,v]_L+I) + a_{[u,v]_L} \\ 
- & = &([u,v]_L+I) + [\epsilon(u+I),\epsilon(v+I)]_L-\epsilon([u+I,v+I]_K)\\
- &&+[a,v+I]-[b,u+I] \\
- & = & [u+I,v+I]_K+\theta(u+I,v+I)+[a,v+I]-[b,u+I] \\
- & = & [(u+I)+a,(v+I)+b]_\theta \\
- & = & [\zeta(u),\zeta(v)]_\theta.
- \end{array}$$
- 
- Então $\zeta$ é um morfismo de álgebras de Lie.
-  
-  Sejam $u,v \in L$ tais que $\zeta(u)=\zeta(v)$. Então $a=b$ e $u+I=v+I$. Logo, $$u=\epsilon(u+I)+a=\epsilon(v+I)+b=v,$$ e $\zeta$ é injetora. Para cada $y \in L_\theta=K \oplus I$ escreva $y=(u+I)+a$, com $u \in L$ e $a \in I$. Então $\zeta(u+a)=y$. Portanto $\zeta$ é um isomorfismo e $L \cong L_\theta$. \begin{flushright}
- \cqd
- \end{flushright}
-
- 
- \begin{prop} Sejam $K$ e $I$ álgebras de Lie tais que $K$ age sobre $I$ e $I$ é abeliana. Sejam $\theta \in Z^2(K,I)$ e $\nu \in B^2(K,I)$. Então
- 
- \begin{enumerate}
- \item $K_\theta$ é isomorfo a $K_{\theta+\nu}$;
- \item $K_\nu$ é uma extensão split de $K$ por $I$.
- \end{enumerate}
- \end{prop}
-\prova 1) Pela definição de $B^2(K,I)$ existe $T:K \to I $ uma aplicação linear tal que $\nu(x,y)=T([x,y]_K)-[T(x),y]+[T(y),x]$ para todo $x,y \in K$.
-
- Sejam $x \in K$ e $a \in I$. Defina a aplicação linear $\sigma:K_\theta \to K_{\theta+\nu}$ por $\sigma(x+a)=x+T(x)+a.$ Então,
-
-$$\begin{array}{rcl}
-\sigma([x+a,y+b]_\theta) & = & \sigma([x,y]_K+\theta(x,y)+[a,y]-[b,x]) \\
- & = & [x,y]_K+\theta(x,y)+[a,y]-[b,x]+T([x,y]). \\
-\end{array}$$
-Substituindo $T([x,y]_K)=\nu(x,y)+[T(x),y]-[T(y),x]$ na última equação temos 
- 
- $$\begin{array}{rcl}
-\sigma([x+a,y+b]_\theta) & = & [x,y]_K+\theta(x,y)+[a,y]-[b,x]+\nu(x,y)+[T(x),y]-[T(y),x] \\
-& = & [x,y]_K+(\theta+\nu)(x,y)+[a+T(x),y]-[b+T(y),x]\\ 
-& = & [x+a+T(x),y+b+T(y)]_{\theta+\nu} \\
-& = & [\sigma(x+a),\sigma(y+b)]_{\theta+\nu}.
-\end{array}$$
- Então $\sigma$ é um morfismo de álgebras de Lie. Vamos verificar que ela é um isomorfismo. Para mostrar que $\sigma$ é injetora considere $x,y \in K$ e $a,b \in I$ tais que $$\sigma(x+a)=\sigma(y+b).$$ Então $x+a+T(x)=y+b+T(y)$. Reescreva essa equação como $x-y=b+T(y)-a-T(x)$. Como a soma de $K$ e $I$ é direta em $K_\theta$ temos $x-y=0$. Logo, $T(x)=T(y)$ o que implica $a=b$.
- 
- Dado $y+b \in K_{\theta +\nu}$ seja $x=y $ e $a=b-T(y)$. Então $\sigma(x+a)=y+b$. Portanto, $\sigma$ é sobrejetor.
-  
- 2) Suponha que $\theta$ é o cociclo trivial, ou seja, $\theta(x,y)=0$ para todo $x,y \in K$. Se $x,y \in K$ então $$[x,y]_\theta=[x,y]_K \in K.$$ Logo $K$ é uma subálgebra de $K_\theta$. Pelo item 2 da proposição anterior temos que $K_\theta$ é uma extensão de $K$ por $I$ e $K_\theta=K \oplus I$ implica que essa extensão é split. Como $\nu \in \theta + B^2(K,I)$ então temos $K_\nu \cong K_\theta$ pelo item anterior. Então $K_\nu$ é uma extensão split de $K$ por $I$. \begin{flushright}
- \cqd
- \end{flushright}
- 
- 
-\section{Derivações de Extensões Usando Cohomologia}
-
-
-\subsection{Pares compatíveis}
-
-\begin{df}{\label{comp}} Sejam $K$ e $I$ álgebras de Lie tais que $K$ age sobre $I$. Seja $\ad{}{}:K \to Der(I)$ dada por $\ad{}{k}(a)=[a,k],$ para todo $k \in K$ e $a \in I.$ O par $(\alpha,\beta) \in Der(K)\oplus Der(I)$ é dito compatível se \begin{equation}{\label{compeq}}
-\beta \ad{K}{k}=\ad{K}{k}\beta+\ad{K}{\alpha(k)} \mbox{, para todo } k \in K.
-\end{equation}
-
- O conjunto formado pelos pares compatíveis será denotado por $
-Comp(K,I).$
-
 \end{df}
 
-Podemos escrever a equação acima usando o comutador de aplicações lineares. Temos $$\ad{K}{k}\beta-\beta\ad{K}{k}=-\ad{K}{\alpha(k)} ,$$
-então (\ref{compeq}) é equivalente à \begin{equation}{\label{compcomu}}[\ad{K}{k},\beta]=-\ad{K}{\alpha(k)}.
-\end{equation} Usando a notação da representação adjunta temos que $(\alpha,\beta)$ é compatível se 
-$$\ad{Der(I)}{\beta}\ad{K}{k}=-\ad{K}{\alpha(k)} \mbox{ para todo }  k \in K,$$ que pode ser representado com o diagrama comutativo
-$$ \xymatrix{K \ar[d]^{\alpha} \ar[r]^{\ad{K}{}} \ar@{}[dr]|{\circlearrowright} &
-Der(I) \ar[d]^{\ad{Der(I)}{\beta}} \\ K \ar[r]^{\ad{K}{}} & Der(I).} $$ 
+We can write equation (\ref{compeq}) in other forms. Let $\psi:K \to Der(I)$ the representation that defines the action of $K$ on $I$. Then $\psi(k)(a)=[a,k]$ for all $k \in K$ and $a \in I.$ So $(\alpha,\beta) \in Comp(K,I)$ means 
+\begin{equation*}
+\beta \psi(k)=\psi(k)\beta +\psi (\alpha(k)) \mbox{, for all } k \in K.
+\end{equation*}
+Using commutator, this is equivalent to  
+\begin{equation}{\label{compcomu}}[\psi(k),\beta]=-\psi (\alpha(k)) \mbox{, for all } k \in K.
+\end{equation} Let $\ad{}{}:Der(I)\to Der(I)$ be the adjoint representation. Then (\ref{compcomu}) can be rewrite as
+$$\ad{}{\beta}\psi(k)=-\psi (\alpha(k)) \mbox{, for all } k \in K .$$ Therefore, $(\alpha,\beta) \in Comp(K,I)$ if the follow diagram commutes
+$$ \xymatrix{K \ar[d]^{- \alpha} \ar[r]^{\psi} \ar@{}[dr]|{\circlearrowright} &
+Der(I) \ar[d]^{\ad{}{\beta}} \\ K \ar[r]^{\psi} & Der(I).} $$ 
 
-\begin{prop} Sejam $K$ e $I$ álgebras de Lie sobre $\F$ tais que $K$ age sobre $I.$ Então $Comp(K,I)$ é uma subálgebra de $Der(K) \oplus Der(I).$
+\begin{prop} Let $K$ and $I$ be Lie algebras such that $K$ act on $I$. Then $Comp(K,I)$ is a subalgebra of $Der(K) \oplus Der(I).$ 
 \end{prop}
 
-\prova Sejam $(\alpha,\beta),(\alpha',\beta') \in Comp(K,I)$ e $\ad{}{}:K \to Der(I)$ dada por $\ad{}{k}(a)=[k,a],$ para todo $k \in K$ e $a \in I$.
+\prova Let $(\alpha,\beta),(\alpha',\beta') \in Comp(K,I)$ and suppose that the action is given by representation $\psi:K \to Der(I)$ such that $\psi(k)(a)=[a,k],$ for all $k \in K$ and $a \in I$.
 
- Vamos verificar que $Comp(K,I)$ é um subespaço vetorial usando a equação (\ref{compcomu}). Se $\lambda \in \F$ e $k \in K$ então  $$\begin{array}{rcl}
-[\ad{}{k},\beta+\lambda \beta'] & = & [\ad{}{k},\beta]+ \lambda[\ad{}{k}, \beta'] \\
- & = & -\ad{}{\alpha(k)}-\lambda\ad{}{\alpha'(k)} \\
-  & = & -\ad{}{(\alpha+\lambda\alpha')(k).}
-\end{array}$$ O que implica $(\alpha,\beta)+\lambda(\alpha',\beta') \in Comp(K,I).$
+ First we check that $Comp(K,I)$ is a vector subspace using equation (\ref{compcomu}). If $\lambda \in \F$ and $k \in K$ then  $$\begin{array}{rcl}
+[\psi(k),\beta+\lambda \beta'] & = & [\psi(k),\beta]+ \lambda[\psi(k), \beta'] \\
+ & = & -\psi(k)(\alpha)-\lambda\psi(k)(\alpha') \\
+  & = & \psi(k)(\alpha+\lambda\alpha').
+\end{array}$$ So $(\alpha,\beta)+\lambda(\alpha',\beta') \in Comp(K,I).$
 
-Pela definição de par compatível temos $$\beta' \ad{}{k}=\ad{}{k}\beta'+\ad{}{\alpha'(k)}.$$ 
+Using compatible pair definition we have $$\beta' \psi(k)=\psi(k)\beta'+\psi(\alpha'(k)).$$ 
 
-Então 
+Then
 $$\begin{array}{rcl}
-\beta(\beta' \ad{}{k}) & = & \beta(\ad{}{k}\beta')+\beta(\ad{}{\alpha'(k)}) \\
-&=& \ad{}{k}\beta \beta'+\ad{}{\alpha}\beta'+\ad{}{\alpha'}\beta+\ad{}{\alpha\alpha'.}
+\beta \beta' \psi(k) & = & \beta\psi(k)\beta'+\beta \psi (\alpha'(k)) \\
+&=& \psi(k)\beta\beta'+\psi (\alpha(k))\beta'+\psi(\alpha'(k)) \beta+ \psi(\alpha'\alpha(k))
 \end{array}$$
 
-Analogamente  $$\beta'(\beta \ad{}{k})=\ad{}{k}\beta' \beta+\ad{}{\alpha'}\beta+\ad{}{\alpha}\beta'+\ad{}{\alpha'\alpha}.$$
+In the same way  $$\beta'\beta \psi(k)=\psi(k)\beta'\beta+\psi (\alpha'(k))\beta+\psi(\alpha(k)) \beta'+ \psi(\alpha\alpha'(k)).$$
 
-Então $$[\beta,\beta']\ad{}{k}=\beta(\beta' \ad{}{k})-\beta'(\beta \ad{}{k})=\ad{}{k}[\beta,\beta']+\ad{}{[\alpha,\alpha']}.$$
+Then $$[\beta,\beta']\psi(k)=\psi(k)(\beta\beta'-\beta'\beta)+\psi((\alpha \alpha' - \alpha' \alpha)(k))=\psi(k)[\beta,\beta']+\psi([\alpha, \alpha'](k)).$$
 
 
- Segue que $[(\alpha,\beta),(\alpha',\beta')] \in Comp(K,I)$ .\begin{flushright}
+ Hence $[(\alpha,\beta),(\alpha',\beta')] \in Comp(K,I)$ .\begin{flushright}
  \cqd
 \end{flushright}
 
 
-Se a álgebra $I$ é abeliana podemos calcular a álgebra dos pares compatíveis como um anulador de uma ação de $Der(K) \oplus Der(I)$ sobre $Hom(K,Der(I))$. Vamos definir a ação de $\mathfrak{gl}(K) \oplus \mathfrak{gl}(I)$ em $Hom(K,Der(I))$.
+\begin{prop}{\label{compsubgl}} Let $K$ and $I$ be Lie algebras such that $K$ act on $I$. Let $L$ be the semidirect sum $L=K\oplus_{\psi} I$. For each $(\alpha,\beta) \in Comp(K,I)$ define $(\alpha,\beta):L \to L$ by $(\alpha,\beta)(k,a)=\alpha(k)+\beta(a)$ for all $k \in K$ and $a \in I$. Then $(\alpha, \beta) \in Der(L)$.  
+\end{prop}
 
- \begin{df}  Sejam $K$ e $I$ espaços vetoriais. Se $(\alpha,\beta) \in \mathfrak{gl}(K) \oplus \mathfrak{gl}(I)$ e $T \in Hom(K,\mathfrak{gl}(I))$ então definimos a ação de $\mathfrak{gl}(K) \oplus \mathfrak{gl}(I)$ sobre $Hom(K,\mathfrak{gl}(I)))$ por  
+\prova Let $a,a' \in I$ and $k,k' \in K$. Then
+
+$$\begin{array}{rcl}
+(\alpha,\beta)[k+a,k'+a']& = & (\alpha,\beta)([a,a']_I+[a,k']-[a',k]+[k,k'])\\
+&=& \alpha([k,k'])+\beta([a,a']+[a,k']-[a',k])\\
+&=& [\alpha(k),k']+[k,\alpha(k')]+[\beta(a),a']+[a,\beta(a')] \\
+&+& [\beta(a),k']+[a,\alpha(k')]-[\beta(a'),k]-[a',\alpha(k)]\\
+&=& [(\alpha,\beta)(k+a),k'+a']+[k+a,(\alpha,\beta)(a')] \\
+
+\end{array}$$
+
+\begin{flushright}
+ \cqd
+\end{flushright}
+
+
+
+ \begin{df}  Let $K$ and $I$ be vector spaces. Let $(\alpha,\beta) \in \mathfrak{gl}(K) \oplus \mathfrak{gl}(I)$ and \newline $T \in Hom(K,\mathfrak{gl}(I))$. Let $ad:Der(I) \to Der(I)$ be the adjoint representation of $I$. We define the action of $\mathfrak{gl}(K) \oplus \mathfrak{gl}(I)$ on $Hom(K,\mathfrak{gl}(I)))$ by  
  \begin{equation}{\label{acaocomp}}
  (\alpha,\beta)\cdot T=\ad{}{\beta}T+T\alpha.
  \end{equation}
  \end{df}
 
- A aplicação $(\alpha,\beta) \cdot T$ é linear pois é combinação linear de composições de aplicações lineares. Vamos verificar a ação do produto de elementos de $\mathfrak{gl}(K) \oplus \mathfrak{gl}(I)$.
+To proof this is an action observe that  $(\alpha,\beta) \cdot T$ is a linear map because is linear combination of composition and sums of linear maps. Let's check that it preserves Lie brackets.
  
-Sejam $(\alpha,\beta),(\alpha',\beta')  \in \mathfrak{gl}(K) \oplus \mathfrak{gl}(I) $. Pela definição da ação $$(\alpha',\beta')\cdot T=\ad{}{\beta'}T+T\alpha'.$$ Então $$(\alpha,\beta)\cdot((\alpha',\beta')\cdot T)=\ad{}{\beta}\ad{}{\beta'}T+\ad{}{\beta'}T\alpha+\ad{}{\beta}T \alpha'+T\alpha'\alpha.$$ Analogamente, 
+Let $(\alpha,\beta),(\alpha',\beta')  \in \mathfrak{gl}(K) \oplus \mathfrak{gl}(I) $ and $k \in K$. By definition $$(\alpha',\beta')\cdot T=\ad{}{\beta'}T+T\alpha'.$$ So $$(\alpha,\beta)\cdot((\alpha',\beta')\cdot T)=\ad{}{\beta}\ad{}{\beta'}T+\ad{}{\beta'}T\alpha+\ad{}{\beta}T \alpha'+T\alpha'\alpha.$$ In the same way, 
 $$(\alpha',\beta')\cdot((\alpha,\beta)\cdot T)=\ad{}{\beta'}\ad{}{\beta}T+\ad{}{\beta}T\alpha'+\ad{}{\beta'}T \alpha+T\alpha\alpha'.$$
-Segue que, $$\begin{array}{rcl}
+Hence, $$\begin{array}{rcl}
 (\alpha,\beta)\cdot((\alpha',\beta')\cdot T)-(\alpha',\beta')\cdot((\alpha,\beta)\cdot T) & = &\ad{}{\beta}\ad{}{\beta'}T-\ad{}{\beta'}\ad{}{\beta}T+T\alpha\alpha'-T\alpha'\alpha \\ 
 &=& [\ad{}{\beta},\ad{}{\beta'}]T+T[\alpha,\alpha'].
 \end{array}$$
-Portanto, $$[(\alpha,\beta),(\alpha',\beta')]\cdot T= ([\alpha,\alpha'],[\beta,\beta'])\cdot T.$$
+Therefore, $$[(\alpha,\beta),(\alpha',\beta')]\cdot T= ([\alpha,\alpha'],[\beta,\beta'])\cdot T.$$
+
+A particular case of this action is when $Der(K)\oplus Der(I)$ act on Lie algebra representation of $K$ on $I$. This action is well defined: if $\psi:K \to Der(I)$  and $k \in K$ then $\ad{}{\beta}T(k)+T\alpha(k)$ is a derivation of $I$ because $\ad{}{\beta}T(k),T\alpha(k) \in Der(I)$. If we calculate the annihilator we get:
+
+$$\begin{array}{rcll}
+Ann(\psi) & = & \{(\alpha,\beta) \in Der(K)\oplus Der(I) \mid (\alpha,\beta)\cdot \psi=0 \} &\\
+&=& \{(\alpha,\beta) \in Der(K)\oplus Der(I) \mid  \ad{}{\beta}\psi+\psi\alpha=0 \}& \\
+
+&=& Comp(K,I),& \mbox{ by} (\ref{compcomu}).
+\end{array}
+$$
+We just proof the follow  proposition:
+
+\begin{prop} Let $K$ and $I$ be Lie algebras such that $K$ act on $I$ by representation $\psi:K \to Der(I)$. If $Der(K)\oplus Der(I)$ act on $Hom(K,Der(I))$ as in (\ref{acaocomp}) then $Comp(K,I)=Ann(\psi)$.
+\end{prop}
+ 
+ 
+ 
+ \section{Nilpotent Subalgebras of Compatible Pairs}
+
+ \begin{prop}  Let $V$ be a finite dimensional vector space over a algebraically closed field $\F$ and $D \subseteq \mathfrak{gl}(V)$ a nilpotent linear algebra. Then $V$ has a unique decomposition $V=V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_n}$ into $D$-modules such that $$V_{\lambda_i}=\{v \in V \mid  \mbox{ for all } d \in D \mbox{ there is an } m>0  \mbox{ such that } (d - \lambda(k))^mv=0\},$$
+ where $\lambda_i:D \to \F, 1 \leq i \leq n$. The space $V_{\lambda_i}$ is called a generalized eigenspace of $D$ with eigenvalue $\lambda_i$. 
+ \end{prop}
+
+\prova A proof of this fact can be found in chapter 3 of \cite{deGraaf}, for example.
+
+\vspace{0,5cm}
+
+ Let $K$ and $I$ be Lie algebras such that $K$ act on $I$. If $D \subseteq Comp(K,I)$ is nilpotent subalgebra then by \textbf{Proposition \ref{compsubgl}}, $D$ can be seen as subalgebra of derivations of semidirect sum $L=K\oplus I$. The decomposition of $L$ in eigenspaces of $D$ induces decompositions in $K$ and $I$, because as subspaces of $L$ they are invariants by $D$. So each nilpotent subalgebra of $Comp(K,I)$ induces unique decompositions in generalized eigenspaces of in $K$ and $I$.
+ 
+ 
+ \begin{prop} Let $K$ and $I$ be Lie algebras such that $K$ act on $I$. If $(\alpha, \beta) \in Comp(K,I)$ then \begin{equation}{\label{comp2}}
+(\beta-(\lambda+\mu))^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \mbox{ for all } a \in I,k \in K \mbox{ and } \lambda,\mu \in \F
+\end{equation}
 
 
-\begin{prop} Sejam $K$ e $I$ álgebras de Lie  tais que $K$ age sobre $I$ e $I$ é abeliana. Considere a ação definida em ({\ref{acaocomp}}) restrita a álgebra $Der(K) \oplus Der(I)$. Seja $\ad{K}{}:K \to Der(I)$ dada por $\ad{K}{k}(a)=[a,k]$ para $k \in K$ e $a \in I$. Então $Comp(K,I)=Ann_{Der(K)\oplus Der(I)}(\ad{K}{})$.
-\end{prop}\prova
- Basta considerar  $\ad{}{\beta}=\ad{Der(I)}{\beta}$ e $T=\ad{K}{}$ na Definição (\ref{acaocomp}).   
+ \end{prop}{\label{3.1}}
+\prova Suppose that $\F$ is the base field. We will proof this result by induction on $n$. If $n=1$ the result follow by compatible pair definition. 
+Suppose that the result is valid for $n>0$. then
+
+\begin{multline}
+(\beta-(\lambda+\mu))^{n+1}[a,k]  =  (\beta-(\lambda+\mu))\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \\
+  = \sum_{i=0}^n\binom{n}{i} \left( [(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^i(k)] 
+  +[(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^{i+1}(k)] \right )  \\
+  =\sum_{i=0}^{n+1}\binom{n+1}{i}[(\beta-\lambda)^{n+1-i}(a), \mbox{ for all } a \in I,k \in K \mbox{ and } \lambda,\mu \in \F
+\end{multline}
+
 \begin{flushright}
-\cqd
+ \cqd
+ \end{flushright} 
+ 
+  \begin{prop} Let $K$ and $I$ be Lie algebras over an algebraically closed field such that $K$ act on $I$. Let $D$ be a nilpotent subalgebra of $Comp(K,I)$. If $\lambda,\mu:D \to \F$ are generalized eigenvalues of $D$, respectively, then $[I_{\mu},K_\lambda] \subseteq I_{\lambda+\mu}$ if $\lambda+\mu$ is a generalized eigenvalue of $D$. Otherwise $[I_{\mu}, K_{\lambda}]=0$.
+\end{prop}
+
+\prova Let $a \in I_{\mu}$, $k \in K_{\lambda}$ and $d \in D$ then by \textbf{Proposition \ref{3.1}} $$(\beta-(\lambda(d)+\mu(d)) I)^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda(d) I)^{n-i}(a),(\alpha-\mu(d) I)^i(k)].$$ And for $n$ big enough this is 0. So, $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ if $\mu_i+\lambda_j$ is generalized eigenvalue of $D$, otherwise $[I_{\mu_i}, K_{\lambda_j}]=0$ is nonsingular and it follows that $(\beta-(\lambda+\mu))=0$.
+
+\begin{flushright}
+ \cqd
 \end{flushright}
 
+\begin{prop}{\label{rowen}} Suppose $R$ is a finite dimensional algebra over a field $\F$. If $S$ is a multiplicatively closed subset each of whose elements is a sum of nilpotent elements then $S$ is nilpotent.
+\end{prop}
+\prova \cite{Rowen}, \textbf{Proposition 2.6.32} pg 178.
+
+\begin{flushright}
+ \cqd
+
+\end{flushright}
+
+\begin{teo} Let $K$ and $I$ be finite dimensional Lie algebras over an algebraically closed field $\F$ such that $K$ act on $I$ by representation $\psi:K \to Der(I)$. Let $D$ a nilpotent subalgebra of $Comp(K,I)$ such that zero is not generalized eigenvalue of $D$ in $K$. So if or $char(\F)=0$ or $char(\F)=p$ and dimension of $I$ is smaller than $p$ then $\psi$ is a nilpotent representation.
+\end{teo}
+\prova  Let $\lambda_1, \cdots, \lambda_r$ and $\mu_1, \cdots, \mu_s \in \F$ be generalized eigenvalue  of $D$ in $K$ and $I$, respectively. If $a \in I_{\mu_i}$ and $k \in K_{\alpha_j}$ then by \textbf{Proposition \ref{3.1}}, we have $(\psi^n(a) \in I_{\mu_i + n \lambda_j}$, with $\lambda_j\neq 0$, if $\mu_i + n \lambda_j$ is generalized eigenvalue of $D$ in $I$ and $(\ad{}{k})^n=0$ otherwise. If $char(\F)=0$ then $(\ad{}{k})^n=0$ for some $n$ because thet set of eigenvalues of $D$ is finite; if $char(\F)=p$ the set $\{\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+(p-1)\lambda_j,\mu_i\}$ has $p$ distinct elements and $D$ has at most $p-1$ eigenvalues in $I$ then $\psi^n=0$ for some $1 \leq n \leq p$. In both cases  $\psi$ is nilpotent for all $k \in K_{\lambda_j}$, $1 \leq j \leq r$. Hence every element of $\psi(K):K \to Der(I)$ can be written as sum of nilpotent elements. Therefore, by \textbf{Proposition \ref{rowen}}, $\psi$ is nilpotent.  
+
+   \section{Derivations of $K_\theta$}
  
- \subsection{Pares induzidos}
- 
- \begin{df} Sejam $K$ e $I$ espaços vetoriais. Dados $(\alpha,\beta) \in \mathfrak{gl}(K)\oplus \mathfrak{gl}(I)$, $\theta \in C^2(K,I)$ e $h,k \in K$, defina a ação de $\mathfrak{gl}(K)\oplus \mathfrak{gl}(I)$ em $C^2(K,I)$ por \begin{equation}{\label{1}}
+ \begin{df} Let $K$ and $I$ be vector spaces. Given $(\alpha,\beta) \in \mathfrak{gl}(K)\oplus \mathfrak{gl}(I)$, $\theta \in C^2(K,I)$ and $h,k \in K$, define the action of $\mathfrak{gl}(K)\oplus \mathfrak{gl}(I)$ on $C^2(K,I)$ by \begin{equation}{\label{1}}
  (\alpha,\beta)\cdot \theta(h,k)=\beta(\theta(h,k))-\theta(\alpha(k),h)-\theta(k,\alpha(h)).
  \end{equation}
  \end{df}
- Omitiremos a demostração que essa ação está bem definida pois ela é semelhante a demonstração que a ação de $\mathfrak{gl}(K)\oplus \mathfrak{gl}(I)$ sobre $Hom(K,\mathfrak{gl}(I))$ está bem definida. 
  
  
-\begin{prop}{\label{inva}} Sejam $K$ e $I$ álgebras de Lie tais que $K$ age sobre $I$ e $I$ é abeliana. Considere a ação de $Comp(K,I)$ sobre $C^2(K,I)$ definida em ({\ref{1}}). Então os espaços $Z^2(K,I)$ e $B^2(K,I)$ são invariantes por essa ação.
+\begin{prop}{\label{inva}} Let $K$ be a Lie algebra and $I$ a $K$-module. Considere the action of \newline $Comp(K,I)$ on $C^2(K,I)$ defined in ({\ref{1}}). Then the vector spaces $Z^2(K,I)$ and $B^2(K,I)$ are invariants by this action.
 \end{prop}
-\prova Sejam $k,h,l \in K$, $(\alpha,\beta) \in Comp(K,I)$ e $\theta \in Z^2(K,I)$. Por definição e por $\alpha$ ser uma derivação temos
+\prova Let $k,h,l \in K$, $(\alpha,\beta) \in Comp(K,I)$ and $\theta \in Z^2(K,I)$. By definition 
 $$\begin{array}{rcl}
 (\alpha,\beta)\cdot \theta(k,[h,l])& = &\beta(\theta(k,[h,l]))-\theta(\alpha(k),[h,l])-\theta(k,\alpha([h,l]))\\ 
 & = & \beta(\theta(k,[h,l]))-\theta(\alpha(k),[h,l])-\theta(k,[\alpha(h),l])-\theta(k,[h,\alpha(l)]).
-\end{array}$$ Se $$X=(\alpha,\beta)\cdot\theta(k,[h,l])+(\alpha,\beta) \cdot \theta(h,[l,k])+(\alpha,\beta)\cdot\theta(l,[k,h]),$$ então
+\end{array}$$ If $$X=(\alpha,\beta)\cdot\theta(k,[h,l])+(\alpha,\beta) \cdot \theta(h,[l,k])+(\alpha,\beta)\cdot\theta(l,[k,h]),$$ then
 \begin{multline*} X=\beta(\theta(k,[h,l]))+\beta(\theta(h,[l,k]))+\beta(\theta(l,[k,h])) \\
  -\theta(\alpha(k),[h,l])-\theta(\alpha(h),[l,k])-\theta(\alpha(l),[k,h]) \\
 -\theta(k,[\alpha(h),l])-\theta(h,[\alpha(l),k])-\theta(l,[\alpha(k),h]) \\
 -\theta(k,[h,\alpha(l)])-\theta(h,[l,\alpha(k)])-\theta(l,[k,\alpha(h)])
 \end{multline*}
 
-Usando a definição de cociclo obtemos 
+Using coclyce definition 
 \begin{multline*}
 X=\beta([\theta(k,h),l])+\beta([\theta(h,l),k])+\beta([\theta(l,k),h])\\
 -[\theta(\alpha(k),h),l]-[\theta(\alpha(h),l),k]-[\theta(\alpha(l),k),h]\\
 -[\theta(k,\alpha(h)),l]-[\theta(h,\alpha(l)),k]-[\theta(l,\alpha(k)),h]\\
 -[\theta(k,h),\alpha(l)]-[\theta(h,l),\alpha(k)]-[\theta(l,k),\alpha(h)].
 \end{multline*}
-Como $(\alpha,\beta)$ é um par compatível então podemos substituir na equação acima as igualdades  
+$(\alpha,\beta)$ is a compatible pair then we can replace in $X$ the equalities  
 
 $$\beta([\theta(k,h),l]) = [\beta(\theta(k,h)),l]+ [\theta(k,h)),\alpha(l)];$$
 $$\beta([\theta(h,l),k]) = [\beta(\theta(h,l)),k]+ [\theta(h,l)),\alpha(k)];$$
 $$\beta([\theta(l,k),h]) = [\beta(\theta(l,k)),h]+ [\theta(l,k)),\alpha(h)].$$
-obtendo
+
+Hence
 \begin{multline*}
 X=[\beta(\theta(k,h)),l]+[\beta(\theta(h,l)),k]+[\beta(\theta(l,k)),h]\\
 -[\theta(\alpha(k),h),l]-[\theta(\alpha(h),l),k]-[\theta(\alpha(l),k),h]\\
--[\theta(k,\alpha(h)),l]-[\theta(h,\alpha(l)),k]-[\theta(l,\alpha(k)),h],\\
-\end{multline*}
- 
-o que implica, usando a definição da ação,
+-[\theta(k,\alpha(h)),l]-[\theta(h,\alpha(l)),k]-[\theta(l,\alpha(k)),h].\\
+\end{multline*} Again, by action definition we obtain
 $$X=[(\alpha,\beta)\cdot\theta(h,l),k]+[(\alpha,\beta)\cdot\theta(l,k),h]+[(\alpha,\beta)\cdot\theta(k,h),l].$$
- Então $(\alpha,\beta)\cdot\theta \in Z^2(K,I)$.
+ So $(\alpha,\beta)\cdot\theta \in Z^2(K,I)$.
  
- Agora suponha que $\theta \in B^2(K,I)$. Então existe uma aplicação linear $\nu:K \to I$ tal que
+ Now suppose that $\theta \in B^2(K,I)$. Then there is a linear map $\nu:K \to I$ such that
  \begin{equation}
  {\label{1.4}} \theta(k,h)= \nu([k,h])-[\nu(k),h]-[k,\nu(h)].
  \end{equation}
  
- Seja $Y=(\alpha,\beta)\cdot \theta(k,h)$. Pela equação (\ref{1.4}) 
+Let $Y=(\alpha,\beta)\cdot \theta(k,h)$. By (\ref{1.4}) we have 
  
- $$Y=(\alpha,\beta)\cdot(\nu([k,h])-(\alpha,\beta)\cdot([\nu(k),h])-(\alpha,\beta)\cdot([k,\nu(h)]).$$ Aplicando a definição da ação em cada termo da equação acima obtemos
+ $$Y=(\alpha,\beta)\cdot(\nu([k,h])-(\alpha,\beta)\cdot([\nu(k),h])-(\alpha,\beta)\cdot([k,\nu(h)]).$$ Using action difinition we have
 \begin{multline*}
 Y=\beta(\nu([k,h]))-\nu([\alpha(k),h])-\nu([k,\alpha(h)])\\
 -\beta([\nu(k),h])+[\nu(\alpha(k)),h]+[\nu(k),\alpha(h)]\\
 -\beta([k,\nu(h)])+[\alpha(k),\nu(h)]+[k,\nu(\alpha(h))],
 \end{multline*} 
- podemos usar que $\alpha$ é derivação e $(\alpha,\beta)$ é um par compatível para obter
+ we can use that $\alpha$ is a derivation and $(\alpha,\beta)$ is a compatible pair to conclude
 \begin{multline*}
 Y=\beta\nu([k,h])-\nu\alpha([k,h])\\
 -[\beta\nu(k),h]-[\nu(k),\alpha(h)]+[\nu\alpha(k),h]+[\nu(k),\alpha(h)]\\
 -[\beta(k),\nu(h)]-[k,\beta\nu(h)]+[\beta(k),\nu(h)]+[k,\nu\alpha(h)],
 \end{multline*}  
- Logo, $$Y=(\beta\nu-\nu \alpha)[k,h]-[(\beta\nu-\nu \alpha)(k),h]+[k,(\beta\nu-\nu \alpha)(h)].$$
- Se $T=\beta\nu-\nu \alpha:K \to I$ então $$(\alpha,\beta)\cdot \theta(k,h)=T([k,h])-[T(k),h]-[k,T(h)].$$ Portanto,  $(\alpha,\beta)\cdot\theta \in B^2(K,I)$.\begin{flushright}
+ Hence, $$Y=(\beta\nu-\nu \alpha)[k,h]-[(\beta\nu-\nu \alpha)(k),h]+[k,(\beta\nu-\nu \alpha)(h)].$$
+ If $T=\beta\nu-\nu \alpha:K \to I$ then $$(\alpha,\beta)\cdot \theta(k,h)=T([k,h])-[T(k),h]-[k,T(h)].$$ Therefore,  $(\alpha,\beta)\cdot\theta \in B^2(K,I)$.\begin{flushright}
  \cqd
  \end{flushright}
  
- Agora podemos definir uma ação de $Comp(K,I)$ em $H^2(K,I)$: sejam $\theta \in Z^2(K,I)$ e $(\alpha, \beta) \in Comp(K,I)$ então pela Proposição (\ref{inva}) \begin{equation}{\label{acaoind}}
-  (\alpha,\beta)\cdot (\theta +B^2(K,I))=((\alpha,\beta)\cdot \theta)+B^2(B,I)
+ This result allow us to define an action of $Comp(K,I)$ on $H^2(K,I)$: let $\theta \in Z^2(K,I)$ and $(\alpha, \beta) \in Comp(K,I)$. Define the action \begin{equation}{\label{acaoind}}
+  (\alpha,\beta)\cdot (\theta +B^2(K,I))=((\alpha,\beta)\cdot \theta)+B^2(B,I).
  \end{equation}
- é uma ação bem definida.
+ This is well defined by \textbf{Proposition \ref{inva}}.
  
-  \begin{df}  Sejam $K$ e $I$ álgebras de Lie tais que $K$ age sobre $I$ e $I$ é abeliana. Seja $\theta \in Z^2(K,I)$ e considere a ação de $Comp(K,I)$ sobre $H^2(K,I)$ definida em (\ref{acaoind}). Defina o conjunto dos pares induzidos de $Comp(K,I)$ por  $$Indu(K,I,\theta)=Ann_{Comp(K,I)}(\theta+B^2(K,I)).$$
+  \begin{df}  Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\theta \in Z^2(K,I)$ and consider the action of $Comp(K,I)$ on $H^2(K,I)$ defined in (\ref{acaoind}). Define the set of induced pairs of $Comp(K,I)$ by  $$Indu(K,I,\theta)=Ann_{Comp(K,I)}(\theta+B^2(K,I)).$$
  \end{df}
- 
- \subsection{Derivações de $K_\theta$}
- 
-Nessa seção vamos calcular as derivações da extensão $K_\theta$ a partir das derivações de $K$. Para isso é necessário definir um morfismo de $Der(K_\theta)$ em $Der(K) \oplus Der(I)$.
 
 \vspace{0,5cm}
 
-Sejam $K$ e $I$ álgebras de Lie tais que $K$ age sobre $I$ e $I$ é abeliana. Seja $\theta \in H^2(K,I)$ e suponha que $I$, como ideal de $K_\theta$, é invariante pela derivação  $d \in Der(K_\theta)$. Sejam $P_K:K_\theta\to K$ e $P_I:K_\theta\to I$ as projeções naturais de $K_\theta$ em $K$ e $K_\theta$ em $I$, respectivamente. Defina as aplicações
+Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\theta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\theta$, it is invariant by derivation $d \in Der(K_\theta)$. Let $P_K:K_\theta\to K$ and $P_I:K_\theta\to I$ the natural projection of $K_\theta$ on $K$ and $K_\theta$ on $I$, respectively. Define the maps
 \begin{itemize}{\label{w}}
-\item $\alpha:K \to K$ por $\alpha(k)=P_K d(k)$, para todo $k \in K$;
-\item $\beta:I \to I$ por $\beta(a)=d(a),$ para todo $a \in I$;
-\item $\varphi:K \to I$ por $\varphi(k)=P_I d(k),$ para todo $k \in K$.
-\end{itemize} Portanto,   
+\item $\alpha:K \to K$ by $\alpha(k)=P_K d(k)$, for all $k \in K$;
+\item $\beta:I \to I$ by $\beta(a)=d(a),$ for all $a \in I$;
+\item $\varphi:K \to I$ by $\varphi(k)=P_I d(k),$ for all $k \in K$.
+\end{itemize} Then,   
 \begin{equation}{\label{3}}
-d(x+a)=\alpha(x)+\varphi(x)+\beta(a) \mbox{ para todo } a \in I \mbox{ e } x \in K.
+d(x+a)=\alpha(x)+\varphi(x)+\beta(a) \mbox{ for all } a \in I \mbox{ and } x \in K.
 \end{equation}   
-   Então, $\beta \in Der(I)$, $\alpha \in Der(K)$ e $\varphi \in Hom(K,I).$
+   Hence, $\beta \in Der(I)$, $\alpha \in Der(K)$ and $\varphi \in Hom(K,I).$
 
- Como $\beta$ é a restrição de $d$ a subálgebra $I$ então é imediato que $\beta$ é uma derivação de $I$. 
- Sejam $x,y \in K$. Pela definição de produto em $K_\theta$ temos
+ We can see that $\beta$ is a derivation of $I$ bacause it is restriction of $d$ to $I$. 
  
- $$d([x,y]_\theta)=d([x,y]_K+\theta(x,y)).$$ Usando a decomposição apresentada em  (\ref{3}) temos $$d([x,y]_\theta)=\alpha([x,y]_K)+\varphi([x,y]_K)+\beta(\theta(x,y)).$$ 
- Por outro lado,\begin{equation}\label{1.5}
- [d(x),y]_\theta+[x,d(y)]_\theta=[\alpha(x)+\varphi(x),y]+[x,\alpha(y)+\varphi(y)]. 
- \end{equation} Novamente, pela definção do produto em $K_\theta$ temos  \begin{multline}{\label{1.6}}
+ Let $x,y \in K$. By product definition on $K_\theta$ we have 
+ $$d([x,y]_\theta)=d([x,y]_K+\theta(x,y)).$$ By decomposition showed in (\ref{3}) $$d([x,y]_\theta)=\alpha([x,y]_K)+\varphi([x,y]_K)+\beta(\theta(x,y)).$$ 
+ 
+ We can calculate\begin{equation}\label{1.5}
+ [d(x),y]_\theta+[x,d(y)]_\theta=[\alpha(x)+\varphi(x),y]+[x,\alpha(y)+\varphi(y)], 
+ \end{equation} and use product definition of $K_\theta$ to get \begin{multline}{\label{1.6}}
  [d(x),y]_\theta+[x,d(y)]_\theta=[\alpha(x),y]_K+[x,\alpha(y)]_K+ \theta(\alpha(x),y) \\ +\theta(y,\alpha(x))+ [\varphi(x),\alpha(y)]-[\varphi(y),\alpha(x)].
 \end{multline}
- Comparando as componentes em $K$ em (\ref{1.5}) e (\ref{1.6}) obtemos $$\alpha([x,y]_K)=[\alpha(x),y]_K+[x,\alpha(y)]_K.$$ Portanto $\alpha \in Der(K).$
+ 
+Comparing the components of $K$ in (\ref{1.5}) and (\ref{1.6}) we have $$\alpha([x,y]_K)=[\alpha(x),y]_K+[x,\alpha(y)]_K.$$ So $\alpha \in Der(K).$
  
 
-\begin{prop}{\label{defphi2}}  Sejam $K$ e $I$ álgebras de Lie tais que $K$ age sobre $I$ e $I$ é abeliana. Seja $\theta \in H^2(K,I)$ e suponha que $I$, como ideal de $K_\theta$, é invariante por derivações. Usando a decomposição apresentada em (\ref{3}) defina $\phi:Der(K_\theta) \to Der(K)\oplus Der(I)$ por $\phi(d)=(\alpha,\beta)$. Então $\phi$ é um morfismo de álgebras de Lie
+\begin{prop}{\label{defphi2}} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\theta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\theta$, it is invariant by derivations. From the decomposition showed in (\ref{3}) define $\phi:Der(K_\theta) \to Der(K)\oplus Der(I)$ by $\phi(d)=(\alpha,\beta)$. Then $\phi$ is a Lie algebra morphism.
 \end{prop}
 
-\prova Sejam $d,d' \in Der(K_\theta)$ e $x \in K$ tais que,  para todo $x \in K$ e $a \in I$, 
-
+\prova Let $d,d' \in Der(K_\theta)$ and $x \in K$ such that  
 $$ \begin{array}{rcl}
 d(x+a) & = & \alpha(x)+ \varphi(x)+\beta(a) \\
-d'(x+a) & = & \alpha'(x)+ \varphi'(x)+\beta'(x). 
-\end{array}$$
-
- Então,
+d'(x+a) & = & \alpha'(x)+ \varphi'(x)+\beta'(x) ,
+\end{array}$$ for all $x \in K$ and $a \in I$. Then,
 $$\begin{array}{rcl}
  dd'(x)   & = & d(\alpha'(x)+\varphi'(x)) \\
            & = & \alpha \alpha'(x)+\varphi(\alpha'(x))+\beta'(\varphi'(x)). \\
-\end{array}$$ Segue que, $P_K dd'(x)=\alpha \alpha'(x).$ Analogamente, $P_K d'd(x)=\alpha' \alpha'(x).$ Segue que, $P_K([d,d'])=[\alpha,\alpha']$. Como $\beta$ e $\beta'$ são definidas pela restrição de $d$ e $d'$ a $I$ é imediato que $P_I([d,d'])=[\beta,\beta']$. Portanto,
+\end{array}$$ Hence, $P_K dd'(x)=\alpha \alpha'(x).$ Analogously, $P_K d'd(x)=\alpha' \alpha'(x).$ So $P_K([d,d'])=[\alpha,\alpha']$. As $\beta$ and $\beta'$ are defined by $d$ and $d'$ restriction to $I$ then $P_I([d,d'])=[\beta,\beta']$. Therefore,
 $$ \phi([d,d'])=([\alpha,\alpha'],[\beta, \beta'])=[(\alpha,\beta),(\alpha',\beta')]=[\phi(d),\phi(d')].$$ 
  \begin{flushright}
 \cqd
 \end{flushright}
 
-\begin{teo}{\label{comp<im}} Sejam $K$ e $I$ álgebrsa de Lie tais que $K$ age sobre $I$ e $I$ é abeliana. Seja $\theta \in H^2(K,I)$ tal que $I$ como ideal de $\theta$ é invariante por derivações. Seja $\phi: Der(K_\theta) \to Der(K)\oplus Der(I)$ dada por $\phi(d)=(\alpha,\beta)$, definida na Proposição {\ref{defphi2}}. Então $Im(\phi)\leq Comp(K,I).$
+\begin{teo}{\label{comp<im}} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\theta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\theta$, it is invariant by derivations. Let $\phi: Der(K_\theta) \to Der(K)\oplus Der(I)$ given by $\phi(d)=(\alpha,\beta)$, defined in \textbf{Proposition {\ref{defphi2}}}. Then $Im(\phi)\leq Comp(K,I).$
 \end{teo}
-\prova  Seja $(\alpha,\beta) \in Im(\phi)$. Então existe $d \in Der(K_\theta)$ tal que $\phi(d)=(\alpha,\beta)$. Se $k \in K$ e $a \in I$ então 
+\prova  Let $(\alpha,\beta) \in Im(\phi)$. Then there is $d \in Der(K_\theta)$ such that $\phi(d)=(\alpha,\beta)$. If $k \in K$ and $a \in I$ then 
 $$\begin{array}{rclc}
 \beta([a,k]_\theta)  &= &  d([a,k]_\theta) & [a,k] \in I\\
 &&& \\
@@ -475,7 +436,7 @@ $$\begin{array}{rclc}
 &&& \\
 &= &  [\beta(a),k]_\theta+[a,\alpha(k)+\varphi(k)]_\theta & \\
 &&& \\
-&= &  [\beta(a),k]_\theta+[a,\alpha(k)]_\theta & \mbox{ pois $I$ é abeliano }\\
+&= &  [\beta(a),k]_\theta+[a,\alpha(k)]_\theta & \mbox{ because $I$ is abelian }\\
 \end{array}$$
 
 
@@ -483,59 +444,58 @@ $$\begin{array}{rclc}
 \cqd
 \end{flushright}
 
- \begin{teo} Seja $K$ uma álgebra de Lie, $I$ um $K$-módulo e $\theta \in H^2(K,I)$. Seja $K_\theta=K \oplus I$ e considere $I$ como ideal de $K_\theta$. Assuma que $I$ é invariante por $Der(K_\theta)$. Seja $\phi:Der(K_\theta) \to Der(K) \oplus Der(I)$ dada por $\phi(d)=(\alpha,\beta)$. Então:
+ \begin{teo} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\theta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\theta$, it is invariant by derivations. Let $\phi:Der(K_\theta) \to Der(K) \oplus Der(I)$ given by $\phi(d)=(\alpha,\beta)$. Then:
  
  \begin{enumerate}
  \item $Im(\phi)=Indu(K,I,\theta)$
   \item $ker(\phi) \cong Z^1(K,I)$
   \end{enumerate}
 \end{teo}
-\prova 1) Seja $(\alpha,\beta) \in Indu(K,I,\theta)$. Por definição temos  $$(\alpha,\beta)\cdot \theta=0  \mbox{ mod }  B^2(K,I).$$ Logo, existe uma aplicação linear $T:K \to I$ tal que para todo $k,h \in K$ temos
+\prova 1) Let $(\alpha,\beta) \in Indu(K,I,\theta)$. By definition  $$(\alpha,\beta)\cdot \theta=0  \mbox{ mod }  B^2(K,I).$$ Then, there is a linear map $T:K \to I$ such that for all $k,h \in K$ we have
  \begin{equation}{\label{2}}
   \theta(\alpha(k),h)+\theta(k,\alpha(h))+[T(k),h]-[T(h),k]=\beta(\theta(k,h))+T([k,h]).
 \end{equation}
 
- Suponha que $k \in K$ e $a \in I$ e defina a aplicação linear $(\alpha,\beta)^*:K_\theta  \to  K_\theta$ por $$(\alpha,\beta)^*(k+a)=\alpha(k)+\beta(a)+T(k).$$
-  Vamos verificar que $(\alpha,\beta)^*$ é uma derivação de $K_\theta$. Sejam $k+a,h+b \in K_\theta$ e defina 
+ Let $k \in K$, $a \in I$ and define the linear map $(\alpha,\beta)^*:K_\theta  \to  K_\theta$ by $$(\alpha,\beta)^*(k+a)=\alpha(k)+\beta(a)+T(k).$$
+  Let's check that $(\alpha,\beta)^*$ is a derivation of $K_\theta$. Let $k+a,h+b \in K_\theta$. If  
   $$X= (\alpha,\beta)^*([k+a,h+b]_\theta)$$
-   então
+   then
  $$\begin{array}{rcl}
 X & = & (\alpha,\beta)^*([k,h]_K+\theta(k,h)+[a,h]-[b,k])\\
 & = & \alpha([k,h]_K)+\beta(\theta(k,h))+\beta([a,h])-\beta([b,k])+ T([k,h]_K).\\
 \end{array}$$
-Por outro lado, seja $$Y=[(\alpha+\beta)^*(k+a),h+b]_\theta+[k+a,(\alpha+\beta)^*(h+b)]_\theta. $$
+Now, let $$Y=[(\alpha+\beta)^*(k+a),h+b]_\theta+[k+a,(\alpha+\beta)^*(h+b)]_\theta. $$
 
-Como
-
+We have
 $$\begin{array}{rcl}
  [(\alpha+\beta)^*(k+a),h+b]_\theta& = & [\alpha(k)+\beta(a)+T(k),h+b]_\theta\\
  & = & [\alpha(k),h]_K+\theta(\alpha(k),h)+[\beta(a)+T(k),h]-[b,\alpha(k)] \\
- \end{array}$$ e
+ \end{array}$$ and
 $$\begin{array}{rcl}
 [k+a,(\alpha+\beta)^*(h+b)]_\theta & = & [k+a,\alpha(h)+\beta(b)+T(h)]\\
  & = & [k,\alpha(h)]_K+\theta(k,\alpha(h))+[a,\alpha(h)]-[\beta(b)+T(h),k]\\
- \end{array}$$ então
+ \end{array}$$ then
  \begin{multline*}
  Y=\alpha([k,h]_K)+ \theta(\alpha(k),h)+\theta(k,\alpha(h)) \\
 + [T(k),h]-[T(h),k] +[\beta(a),h])+[a,\alpha(h)] -[\beta(b),k]-[b,\alpha(k)].
  \end{multline*}
 
-Usando a definição de par compatível obtemos 
+By compatible pair definition we get 
 \begin{multline*}
 Y=\alpha([k,h]_K)+ \theta(\alpha(k),h)+\theta(k,\alpha(h)) 
 +\beta([a,h])-\beta([b,k])+[T(k),h]-[T(h),k].
 \end{multline*}
 
-Pela equação ({\ref{2}}) obtemos
+By equation ({\ref{2}}) 
 $$Y=\alpha([k,h]_K)+\beta(\theta(h,k))+T([k,h])+\beta([a,h])-\beta([b,k]).$$ 
 
-Como $X=Y$ então $(\alpha,\beta)^*$ é uma derivação.
+As $X=Y$ then $(\alpha,\beta)^*$ is a derivation.
 
- Além disso, observe que $P_K(\alpha,\beta)^*=\alpha$ e $P_I(\alpha,\beta)^*=\beta$. Segue que $\phi((\alpha+\beta)^*)=\alpha+\beta$ , ou seja, $Indu(K,I,\theta) \subseteq Im(\phi)$. 
+ Besides, observe that $P_K(\alpha,\beta)^*=\alpha$ and $P_I(\alpha,\beta)^*=\beta$. Hence $\phi((\alpha+\beta)^*)=\alpha+\beta$ , that is, $Indu(K,I,\theta) \subseteq Im(\phi)$. 
  
- Agora, suponha que $(\alpha+\beta) \in Im(\phi)$. Então existe $d \in Der(K_\theta)$ tal que $$\phi(d)=(\alpha+\beta).$$ Pelo Teorema \ref{comp<im} temos $Im(\phi) \subseteq Comp(K,I)$. Então basta mostrar que existe uma aplicação linear $T:K \to I$ tal que a equação \ref{2} é satisfeita.
+ Now, suppose that $(\alpha+\beta) \in Im(\phi)$. Then there is $d \in Der(K_\theta)$ such that $$\phi(d)=(\alpha+\beta).$$ By \textbf{Theorem \ref{comp<im}} we have $Im(\phi) \subseteq Comp(K,I)$. Then it is enough show that there is a linear map $T:K \to I$ such that the equation \ref{2} is satisfied.
  
-  Para cada $k+a \in K_\theta$ podemos usar a decomposição definida em ({\ref{3}}) para escrever $$d(k+a)=\alpha(k)+\varphi(k)+\beta(a).$$ Pelo produto em $K_\theta$ temos    
+  For each $k+a \in K_\theta$ we can use the decomposition defined in ({\ref{3}}) to write  $$d(k+a)=\alpha(k)+\varphi(k)+\beta(a).$$ By product definition in $K_\theta$ we get    
  $$\begin{array}{rcl}
  [d(k+a),h+b]_\theta & = &[\alpha(k)+\varphi(k)+\beta(a),h+b]_\theta\\
  & = &  [\alpha(k),h]_K+\theta(\alpha(k),h)+[\varphi(k)+\beta(a),h]-[b,\alpha(k)]\\
@@ -551,214 +511,34 @@ d([k+a,h+b]_\theta) & = & d([k,h]_K+\theta(k,h)+[a,h]-[b,k])\\
  & = &  \alpha([k,h]_K)+\beta(\theta(k,h))+\beta([a,h])-\beta([b,k])+\varphi_d([k,h])\\
  \end{array}$$
  
- Como $d$ é uma derivação então temos a igualdade $$d[k+a,h+b]=[d(k)+a,h+b]=[k+a,d(h)+b].$$
-  Assim, 
+ As $d$ is a derivation then we have equality  $$d[k+a,h+b]=[d(k)+a,h+b]=[k+a,d(h)+b].$$
+  SO, 
   $$ \beta(\theta(k,h))+\varphi([k,h])
 =\theta(\alpha(k),h)+[\varphi(k),h]+\theta(k,\alpha(h))-[\varphi(h),k]. 
  $$
-  Portanto $T=\varphi$ satisfaz a equação (\ref{2}) e $Im(\phi) \subseteq Indu(K,I,\theta).$
+  Therefore $T=\varphi$ satisfies the equation (\ref{2}) e $Im(\phi) \subseteq Indu(K,I,\theta).$
  \vspace{0,5cm}  
 
- 2) Suponha que $d \in ker(\phi)$. A decomposição apresentada em  (\ref{3}) nos dá $$d(k)=\varphi(k),k \in K.$$ Sejam $k,h \in K$ como $d$ é uma derivação temos \begin{equation}{\label{4}}
+ 2) Let $d \in ker(\phi)$. The decomposition showed in (\ref{3}) provide us $$d(k)=\varphi(k),k \in K.$$ Let $k,h \in K$. By derivation definition \begin{equation}{\label{4}}
  d([k,h]_\theta)=[d(k),h]_\theta+[k,d(h)]_\theta.
 \end{equation}
- Usando a definição do produto em $K_\theta$ podemos reescrever (\ref{4}) como
+ By product definition in $K_\theta$ we can write (\ref{4}) as
   $$d([k,h]_K+\theta(k,h))=[\varphi(k),h]_\theta+[k,\varphi(h)]_\theta.$$
- Como $d \in Ker(\phi)$ então (\ref{4}) é igual à
-  $$\varphi([k,h]_K)=[\varphi(k),h]_K-[\varphi(h),k]_K.$$ Segue que, $\varphi \in Z^1(K,I)$. 
- 
- Defina $\sigma:ker(\phi) \to (Z^1(K,I),+)$ por $\sigma(d)=\varphi_d$ tal que $\varphi_d(k)=d(k)$. Então \linebreak $\sigma(Ker(\phi)) \subseteq Z^1(K,I)$.
- 
-  Sejam $d,d' \in ker(\phi)$ então $$\sigma(d+d')(k)=\varphi_{d+d'}(k)=(d+d')(k)=d(k)+d'(k)=\varphi(k)+\varphi'(k)=(\sigma(d)+\sigma(d'))(k).$$  Então $\sigma$ é um homomorfismo de grupos.
- 
- Se $d,d' \in Ker(\phi)$ tais que $\sigma(d)=\sigma(d')$ então $\varphi_d(k)=\varphi_{d'}(k),$ para todo $k \in K$ e $d=d'$. Seja $T \in Z^1(K,I)$ e defina $d:K_\theta \to K_\theta$ por $$d(x+a)=T(x), x \in K, a \in I.$$ $d$ é uma derivação pois $$d([k+a,h+b]_\theta)=T([k,h]_K)$$ e $$[d(k+a),h+b]_\theta+[k+a,d(h+b)]_\theta=[T(k),h]_K+[k+T(h)]_K.$$
- É imediato que $\sigma(d)=T$. Portanto, $\sigma$ é um isomorfismo\begin{flushright}
- \cqd
- \end{flushright}
-
-\section{Teorema de Jacobson para K-módulos}
-\subsection{Derivação não singular}
- \begin{df}  Sejam $V$ um espaço vetorial sobre $\F$ e $a \in End(V)$. Se $p \in \F[X]$ então $$V_0(p(a))=\{v \in V | p(a)^mv=0 \mbox{ para algum } m>0\}.$$ Se $p(a)=X-\lambda$ para algum $\lambda \in \F$ então $V(p(a))$ será denotado por $V_\lambda$ e chamado de $\lambda$-autoespaço generalizado de $a$. $\lambda$ será chamado de autovalor generalizado de $a$.
- \end{df}
-
-\begin{prop} Sejam $V$ um espaço vetorial e $a \in End(V)$. Seja $A$ a álgebra associativa com unidade gerada por $a$. Seja $f_a$ o polinômio minimal de $a$ e suponha que $$f_a=p_1^{k_1}\cdots p_r^{k_r}$$ a fatoração de $f_a$ em fatores mônicos irredutíveis. Então $V$ possui uma decomposição como soma direta de subespaços invariantes por $a$, $$V=V_0(p_1(a))\oplus \cdots \oplus V_0(p_r(a)).$$ 
-\end{prop}
-\prova \textbf{Lema A.2.2}, De Graaf pág. 369.
-
-\begin{flushright}
-\cqd
-\end{flushright}
- 
-\begin{prop}{\label{3.1}} Sejam $K$ uma álgebra de Lie, $I$ um $K$-módulo e $(\alpha,\beta) \in Comp(K,I)$ então  
-\begin{equation}{\label{comp2}}
-(\beta-(\lambda+\mu))^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \mbox{ para todo } a \in I,k \in K \mbox{ e } \lambda,\mu \in \F
-\end{equation}
-\end{prop} 
-
-\prova Suponha que $\F$ seja o corpo base de $K$. Vamos provar o resultado por indução sobre $n$. Se $n=1$ então o resultado segue da definição de par compatível. Suponha o resultado válido para $n>0$. Então
-
-\begin{multline}
-(\beta-(\lambda+\mu))^{n+1}[a,k]  =  (\beta-(\lambda+\mu))\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \\
-  = \sum_{i=0}^n\binom{n}{i} \left( [(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^i(k)] 
-  +[(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^{i+1}(k)] \right )  \\
-  =\sum_{i=0}^{n+1}\binom{n+1}{i}[(\beta-\lambda)^{n+1-i}(a), \mbox{ para todo } a \in I,k \in K \mbox{ e } \lambda,\mu \in \F
-\end{multline}
-
-\begin{flushright}
- \cqd
- \end{flushright}
-
-
-\begin{prop}{\label{3.2}} Seja $K$ uma álgebra de Lie sobre um corpo $\F$ algebricamente fechado e $I$ um $K$-módulo. Sejam $(\alpha,\beta) \in Comp(K,I)$. Se $\lambda_1, \cdots, \lambda_r$ e $\mu_1, \cdots, \mu_s \in \F$ são autovalores generalizados de $\alpha$ e $\beta$, respectivamente, então  $[I_{\mu_i}, K_{\lambda_j}] \subseteq I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $\beta$. Caso contrário $[I_{\mu_i}, K_{\lambda_j}]=0$.
-\end{prop}
-\prova Sejam $a \in I_{\mu_i}$ e $k \in K_{\lambda_j}$ então pela \textbf{Proposição \ref{3.1}} temos $$(\beta-(\lambda+\mu) I)^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda I)^{n-i}(a),(\alpha-\mu I)^i(k)],$$ que é zero para $n$ suficientemente grande. Portanto, $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $\beta$, caso contrário  $[I_{\mu_i}, K_{\lambda_j}]=0$ pois $(\beta-(\lambda+\mu))$ é não-singular.
-
-\begin{flushright}
- \cqd
-\end{flushright}
-
-\begin{prop}{\label{rowen}} Suponha que $A$ uma álgebra de dimensão finita sobre um corpo $\F$. Se $S$ é um subconjunto multiplicativamente fechado tal que seus elementos são somas de elementos nilpotentes então $S$ é nilpotente.
-\end{prop}
-\prova Rowen, L. H. Ring Theory, Student Edition,  \textbf{Proposição 2.6.32} pg 178.
-
-\begin{flushright}
- \cqd
-
-\end{flushright}
-
-\begin{teo} Seja $K$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$ e $I$ um $K$-módulo de dimensão finita. Suponha que $(\alpha, \beta) \in Comp(K,I)$ tal que $\alpha$ é não-singular. Se $car(\F)=0$ ou $car(\F)=p$ e a dimensão de $I$ é menor que $p$ então a ação de $K$ sobre $I$ é nilpotente.
-\end{teo}
-\prova  Sejam $\lambda_1, \cdots, \lambda_r$ e $\mu_1, \cdots, \mu_s \in \F$ autovalores generalizados de $\alpha$ e $\beta$, respectivamente. Se $a \in I_{\mu_i}$ e $k \in K_{\alpha_j}$ então, pela \textbf{Proposição \ref{3.2}}, temos $(\ad{}{k})^n(a) \in I_{\mu_i + n \lambda_j}$, com $\lambda_j\neq 0$, se $\mu_i + n \lambda_j$ é autovalor generalizado de $\beta$ e $(\ad{}{k})^n=0$ se $\mu_i + n \lambda_j$ não é autovalor de $\beta$. Se $car(\F)=0$ então $(\ad{}{k})^n=0$ para algum $n$ pois o conjunto dos autovalores de $\beta$ é finito; e se $car(\F)=p$ o conjunto $\{\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+(p-1)\lambda_j,\mu_i\}$ possui $p$ elementos distintos e $\beta$ possui no máximo $p-1$ autovalores então $(\ad{}{k})^n=0$ para algum $1 \leq n \leq p$. Nos dois casos $\ad{}{k}$ é nilpotente para todo $k \in K_{\lambda_j}$, $1 \leq j \leq r$. Segue que todo elemento de $\ad{K}{}:K \to \mathfrak{gl}(I)$ pode ser escrito como soma de elementos nilpotentes. Então, pela \textbf{Propsição \ref{rowen}}, $\ad{K}{}$ é nilpotente.  
-
-\subsection{Subálgebras nilpotentes sem autovalor nulo}
-
-\begin{df} Sejam $V$ um espaço vetorial sobre um corpo  $\F$ e $D \subseteq \mathfrak{gl}(V)$ uma subálgebra. Seja $\alpha:D \to \F \in D^*$ um funcional linear. Então o subespaço $$V_{\alpha}^K=\{v \in V | \mbox{ para todo } x \in D \mbox{ temos }(x-\alpha(x) I)^N v=0 \mbox{ para algum } N>0 \},$$
-é chamado $\alpha$-autoespaço generalizado de $K$. Se $V_{\alpha}^K \neq 0$ então $\alpha$ é um autovalor generalizado de $D$. 
-\end{df}
-
-\begin{prop}{\label{decompauto}} Seja $K$ uma álgebra de Lie de dimensão finita sobre um corpo algebricamente fechado $\F$ e $D \subset Der(K)$ uma subálgebra nilpotente. Então
- $K$ possui uma decomposição em autoespaços generalizados $K=\displaystyle \bigoplus_{i=0}^n K_{\alpha_i}$ de $D$;
- \end{prop} 
- \prova  Pelo\textbf{ Teorema 3.1.10 }(De Graaf pg.62) $L$ possui uma decomposição primária coletada relativa a $D$. Como $\F$ é algebricamente fechado podemos escrever $K=K_{\alpha_1}\oplus \cdots \oplus K_{\alpha_n}$ tal que cada componente é da forma  $$K_{\alpha_i}=\{v \in K | \mbox{ para todo } x \in K \mbox{ existe um } m>0 \mbox{ tal que } (x-\alpha_i(x)I)^m v=0 \}.$$ \begin{flushright}
- \cqd
- \end{flushright}
- 
-Sejam $K$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$, $I$ um $K$-módulo de dimensão finita. Seja $D \subset Comp(K,I)$ um subconjunto e defina as subálgebras
-
-- $D_K \subset Der(K)$: gerada por $\alpha \in Der(K)$ tal que $(\alpha,\beta) \in D$;
-
-- $D_I \subset Der(I)$: gerada por $\beta \in Der(I)$ tal que $(\alpha,\beta) \in D$.
-
-Se $D_K$ e $D_I$ são nilpotentes então pela \textbf{Proposição \ref{decompauto} } podemos escrever $K$ e $I$ como soma de autoespaços generalizados de $D_K$ e $D_I$, respectivamente. Escreva $K=K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_r}$ e $I=I_{\mu_{1}}\oplus \cdots \oplus I_{\mu_{s}}$.
-
- Sejam $(\alpha,\beta) \in D$, $a \in I_{\mu_i}$ e $k \in K_{\lambda_j}$ então pela \textbf{Proposição \ref{3.1}} temos
- 
- \textcolor{red}{ $$(\beta-(\lambda+\mu)(\beta)I)^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda(\beta)I)^{n-i}(a),(\alpha-\mu(\alpha)I)^i(k)],$$} 
+ Because $d \in Ker(\phi)$ then (\ref{4}) it is equal to
+  $$\varphi([k,h]_K)=[\varphi(k),h]_K-[\varphi(h),k]_K.$$ Hence, $\varphi \in Z^1(K,I)$. Now define $\sigma:ker(\phi) \to (Z^1(K,I),+)$ by $\sigma(d)=\varphi_d$ such that $\varphi_d(k)=d(k)$. Then $\sigma(Ker(\phi)) \subseteq Z^1(K,I)$. 
   
-  que é zero para $n$ suficientemente grande. Portanto, $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $D_I$, caso contrário  $[I_{\mu_i}, K_{\lambda_j}]=0$ pois $(\beta-(\lambda+\mu))$ é não-singular. Podemos resumir esse resultado na proposição abaixo. 
-  
-  \begin{prop} Sejam $K$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$, $I$ um $K$-módulo de dimensão finita. Seja $D \subset Comp(K,I)$. Se  $\lambda_j$ e $\mu_i$ são autovalores generalizados de $D_K$ e $D_I$ então  $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ se $\mu_i+\lambda_j$ é autovalor generalizado de $D_I$. Caso contrário $[I_{\mu_i}, K_{\lambda_j}]=0$.
-  \end{prop}
-
-
-\begin{teo} Sejam $K$ uma álgebra de Lie de dimensão finita sobre um corpo de característica $p$ e $I$ um $K$-módulo de dimensão menor que $p$. Suponha que $Comp(K,I)$ possui um subconjunto $D$ tal que $D_K$ e $D_I$ sejam nilpotentes e $D_K$ não possui autovalor generalizado zero. Então a ação de $K$ sobre $I$ é nilpotente 
-\end{teo} 
-
-\subsection{Subálgebras nilpotentes de $Der(L)$}
-
-\begin{teo} Sejam $L$ uma álgebra de Lie de dimensão finita sobre um corpo $\F$ algebricamente fechado e $I$ um ideal abeliano de $L$ invariante por derivações. Suponha que $Der(L)$ possua uma subálgebra nilpotente $D$ tal que zero não é autovalor generalizado da subálgebra $D_K$, induzida por $D$ em $Der(L/I)$. Se ou $car(\F)=0$ ou $car(\F)=p$ e $dim(I)<p$ então a ação de $K=L/I$ em $I$ induzida pela representação adjunta é nilpotente.
-
-\end{teo}
-\prova Seja $L=L_{\alpha_1}\oplus \cdots \oplus L_{\alpha_n}$ a decomposição de $L$ em autoespaços generalizados de $D$ e $\Phi=\{\alpha_1, \cdots, \alpha_n\}$. Defina $K_{\alpha_i}=L_{\alpha_i}/I$, $I_{\beta_i}=L_{\alpha_i}\cap I$ e  $\Delta=\{\beta_1, \cdots, \beta_r\}$. Pode acontecer que $I_{\beta_i}$ ou $K_{\alpha_i}$ seja zero. Sejam $a \in I_{\beta_i}$ e  $x \in L_{\alpha_j}$ então 
-$$ \begin{cases} [a,x+I] \in I_{\beta_i+\alpha_j}, &  \mbox{ se  }\beta_i+\alpha_j \in \Delta \\ [a,x+I] = 0, & \mbox{ se  } \beta_i+\alpha_j \notin \Delta  \end{cases}.$$ Então  
-$$ \begin{cases} ad_I(x+I)^n(a) \in I_{\beta_i+n \alpha_j}, & \mbox{ se  } \beta_i+n \alpha_j \in \Delta \\ ad_I(x+I)^n(a)=0, & \mbox{ se  } \beta_i+n \alpha_j \notin \Delta  \end{cases}.$$
-
-Se $Car(\F)=0$ então $\alpha_i+ \beta_j, \alpha_i+2 \beta_j, \cdots $ são todos distintos  e $\alpha_i+n \beta_j \notin \Delta$, para $n$ suficientemente grande, pois $\Delta$ é finito. Se $car(\F)=p$ e $dim(I)<p$ então $\alpha_i+n \beta_j \notin \Delta$ para algum $n$, $1 \leq n \leq p$, pois $\alpha_i+ \beta_j, \alpha_i+2 \beta_j, \cdots, \alpha_i+(p-1)\beta_j,\alpha_i$ são todos distintos e $\Delta$ possui no máximo $p-1$ elementos distintos. Em ambos os casos $ad_I(x+I)^n=0$, para algum $n>0$ então $ad_I(x+I)$ é nilpotente, para todo $x +I \in K_{\alpha_i}$. Consequentemente, todo elemento de $ad_I(K)$ pode ser escrito como soma de elementos nilpotentes de $ad_I(K)$. Então, $ad_I(K)$ é nilpotente.  
+  Let $d,d' \in ker(\phi)$. Then $$\sigma(d+d')(k)=\varphi_{d+d'}(k)=(d+d')(k)=d(k)+d'(k)=\varphi(k)+\varphi'(k)=(\sigma(d)+\sigma(d'))(k).$$  So $\sigma$ it is group homomorfism.
+ 
+ If $d,d' \in Ker(\phi)$ such that $\sigma(d)=\sigma(d')$ then $\varphi_d(k)=\varphi_{d'}(k),$ for all $k \in K$ and $d=d'$. Let $T \in Z^1(K,I)$ and define $d:K_\theta \to K_\theta$ by $$d(x+a)=T(x), x \in K, a \in I.$$ $d$ is a derivation because $$d([k+a,h+b]_\theta)=T([k,h]_K)$$ and $$[d(k+a),h+b]_\theta+[k+a,d(h+b)]_\theta=[T(k),h]_K+[k+T(h)]_K.$$
+ It follows that $\sigma(d)=T$. Therefore, $\sigma$ is isomorphism\begin{flushright}
+ \cqd
+ \end{flushright}
 
 \newpage
-\section{Aplicações}
+\
 
-\begin{lem}{\label{0.9}} Seja $\F$ um corpo de característica $p$ com $p=0$ ou $p > n$. Suponha que $A \in \mathfrak{gl}_n(\F)$. Então $A$ é nilpotente se, e somente se, $tr(A^r)=0$ para $1 \leq r \leq n.$
-\end{lem}
-\noindent \textit{Prova:} Seja $\overline{\F}$ o fecho algébrico de $\F$ e considere $A$ como uma matriz sobre $\overline{\F}$. O traço e a nilpotência de uma matriz são invariantes pela conjugação por uma matriz invertível sobre $\bar{\F}$. Assim, sem perda de generalidade, vamos assumir que $A$ está na forma canônica de Jordan. $A$ pode ser vista como uma matriz de blocos diagonais onde cada bloco é formado agrupando-se os blocos de Jordan associados ao mesmo autovalor. Denotaremos por $A_t$ o bloco diagonal associado ao autovalor $\lambda_t \in \overline{\F}$ e por $n_j$ sua ordem. Sejam $\lambda_1, \cdots,\lambda_k$ os autovalores não-nulos distintos de $A$. Então 
-\begin{equation}{\label{1.0}}
-tr(A^r)=n_1 \lambda_1^n+\cdots+n_k\lambda_k^n 
-\end{equation}
-
-Suponha que $A$ é nilpotente. Então $A$ só possui o autovalor zero e pela equação ({\ref{1.0}}) temos $tr(A^r)=0$ para $1 \leq r \leq n$.
-
- Suponha $tr(A^r)=0$ para $1 \leq r \leq n$. Da equação ({\ref{1.0}}) extraimos o sistema
- 
- \begin{equation}{\label{0.8}}
-n_1 \lambda_1^r+\cdots+n_k\lambda_k^r=0, \hspace{1cm} 1 \leq r \leq k,
-\end{equation} 
-
-nas variáveis $n_1, \cdots, n_k$, cuja matriz dos coeficientes é 
-
-$$C= \begin{bmatrix}
-\lambda_1 & \lambda_2 & \cdots & \lambda_k \\
-\lambda_1^2 & \lambda_2^2 & \cdots & \lambda_k^2 \\
-\vdots & \vdots &\ddots & \vdots \\
-\lambda_1^k & \lambda_2^k & \cdots & \lambda_k^k. \\
-
-\end{bmatrix} $$ A matriz $C$ pode ser obtida como a transposta da matriz de Vandermonde nas variávies $\lambda_2, \cdots, \lambda_k$ multiplicando-se a $j$-ésima coluna por $\lambda_j$. A matriz de Vandermonde possui determinante não-nulo e cada $\lambda_j$ é diferente de zero então a matriz $C$ é invertível. Segue que o sistema (\ref{0.8}) só possui a solução trivial e, portanto, cada $n_j$ é zero no corpo $\F$. 
-
-Se a característica de $\F$ é $0$ ou $p>n \geq k$ então $n_j=0$ e $\lambda=0$ é o único autovalor da matriz $A$.
-  
-
-\begin{lem}{\label{1.2}} Seja $\F$ um corpo de característica $p$, com $p=0$ ou $p > n$. Sejam $A,B,C \in \mathfrak{gl}_n(\F)$ tais que $[A,B]=C+\lambda B$, $\lambda \in \F$ e $[B,C]=0$. Então $[A,B^n]=nB^{n-1} C+\lambda n B^n$ para todo $n \geq 1$. Em particular, se $\lambda \neq 0$ e $C$ é nilpotente então $B$ é nilpotente.
-\end{lem}
-\noindent \textit{Prova:}
-Provaremos o resultado por indução. O caso $n=1$ segue da hipótese.
-
- Suponha o resultado válido para $(n-1)$. Ou seja, $[A,B^{n-1}]=(n-1)B^{n-2}C+\lambda (n-1)B^{n-1}$. Equivalentemente,
- $$\lambda (n-1)B^{n-1} =  AB^{n-1}-B^{n-1}A -(n-1)B^{n-2}C,$$
- multiplicando a equação à direita por $B$ obtemos
- $$\lambda (n-1)B^n =  AB^n-B^{n-1}(AB) -(n-1)B^{n-2}(CB),$$
- Da hipótese podemos extrair as igualdades $AB=BA+C +\lambda B$ e $CB=BC$. Substituindo na equaçao acima, obtemos  
-  $$\lambda (n-1)B^n = AB^n-B^nA -B^{n-1}C-\lambda B^n -(n-1)B^{n-1}C.$$
-  Portanto,  $$AB^n-B^nA = \lambda n B^n +n B^{n-1}C .$$
-  
-Suponha $\lambda \neq 0$ e $C$ nilpotente. Usando a primeira parte podemos escrever 
-$$B^n = (1/\lambda n)[A,B^n] -(1/\lambda)B^{n-1}C.$$
-
-Suponha que o índice de nilpotência de $C$ é $m$, então $(B^{n-1}C)^m=(B^{n-1})^m(C)^m=0$. Logo, $B^{n-1}C$ é nilpotente e $Tr((1/\lambda)B^{n-1}C)=0$ para todo $n \geq 1$. Como o traço do comutador de operadores lineares é zero temos $tr([A,B^n])=0$ para todo $n \geq 1$. Segue que $tr(B^n)=0$ para todo $n \geq 1$. Pelo lema ({\ref{0.9}}) concluimos que $B$ é nilpotente.
-\begin{flushright}
-\cqd
-\end{flushright}
-
-\begin{teo} Seja $L$ uma álgebra de Lie de dimensão $n$ sobre um corpo algebricamente fechado de característica $p$, com $p=0$ ou $p > n$. Suponha que $L$ tem comprimento derivado 2. Seja $I=[L,L]$ e defina $K=L/I$. Seja $\theta \in H^2(K,I)$ tal que $L \cong K_\theta$. Se $L$ possui uma derivação tal que $\alpha:K \to K$ é não singular então $L$ é nilpotente.
-\end{teo}
-
-\noindent \textit{Prova:} Seja $\phi:Der(K_\theta) \to Der(K)\oplus Der(I)$ dada por $$\phi(f)=f_K+f_I, f \in Der(K_\theta).$$  Pelo Teorema \ref{comp<im} Segue que $\phi(d)=\alpha+\beta \in Comp(K,I)$. 
-
-Usando a definição de par compatível temos $\beta[k,a]=[\beta(a),k]+[a,\alpha(k)]$ para todo $a \in I$ e $k \in K$. Denote a representação de $K$ em $I$ induzida pela representação adjunta de $L$ por $ad:I \to I.$ Então, \begin{equation}{\label{1.1}}
-[\beta,ad(k)]=ad(\alpha(k)), \forall k\in K. 
-\end{equation}
-
-Seja $x_1,...,x_s$ uma base de $K$ tal que a matriz do operador $\alpha$ esteja na forma canônica de Jordan. Seja $V_t$ o subespaço invariante de $K$ associado ao bloco de Jordan $J$ e ao autovalor $\lambda_t$. $\lambda_t \neq 0$ pois $d$ é não singular. Seja $x_{t1},\cdots, x_{tm}$ uma base de $V_t$. Então \begin{eqnarray}{\label{1.3}}
-\alpha(x_{t1}) &= & \lambda_tx_{t1} \nonumber \\
-\alpha(x_{tj})& = & x_{t(j-1)}+\lambda_tx_{tj}, \hspace{0,5cm} 2 \leq j \leq m.
-\end{eqnarray}  
-
-Substitua $k=x_{t1}$  e  $\alpha(x_{t1}) =\lambda_tx_{t1}$ em $(\ref{1.1})$  para obter $$[\beta,ad(x_{t1})]=\lambda_tad(x_{t1}).$$ Podemos aplicar o Lema {\ref{1.2}} nessa última equação para $A=\beta$, $B=ad(x_{t1})$, $C=0$ e  $\lambda=\lambda_t\neq 0$ para concluir que $ad(x_{t1})$ é nilpotente.
-
- Suponha por indução que $ad(x_{t(j-1)})$ é nilpotente. Substitua $k=x_{tj}$  e
- 
-   
- $\alpha(x_{tj}) = ad(x_{t(j-1)}) + \lambda_tx_{tj}$ em $(\ref{1.1})$  para obter  $$[\beta,ad(x_{tj})]=ad(x_{t(j-1)})+\lambda_tad(x_{tj}).$$
-  
-   Novamente, podemos usar o Lema {\ref{1.2}} com $A=\beta$, $B=ad(x_{tj})$, $\lambda=\lambda_t\neq 0$ e $C=ad(x_{t(j-1)})$ para concluir que $ad(x_{tj})$ é nilpotente.
-
-Portanto, $ad(x_r)$ é nilpotente para $1 \leq r \leq s$. Se $k \in K$ então $ad(k)=\sum_{i=1}^{r} \alpha_i ad(x_i), \alpha_i \in \F$ é a soma de derivações nilpotentes que comutam, pois $K$ é abeliano. Logo, $ad(k)$ é nilpotente. 
-
-Sejam $x,y \in K_\theta$. Se $ad_{K_\theta}:K_\theta \to K_\theta$ é a representação adjunta então $ad_{K_\theta}(x)(y)=[y,x] \in I$. Se $\bar{x}=x+I$ e $a \in I$ então $[a,\bar{x}]=[a,x]+I=[a,x]$ então existe $m$ tal que $ad(\bar{x})^m=0$. Segue que $ad_{K_\theta}(x)^{m+1}(y)=ad(x)^m([y,x])=ad(\bar{x})^m([y,x])=0$. Então $ad_{K_\theta}(x)$ é nilpotente para todo $x \in K_\theta$. Pelo teorema de Engel $K_\theta \cong L$ é nilpotente.
-\begin{flushright}
-\cqd
-\end{flushright}
-
-
-
+\bibliographystyle{plain}
+\bibliography{mybib}
 
 
 
