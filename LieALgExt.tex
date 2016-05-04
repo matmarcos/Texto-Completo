@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[12pt,a4paper]{amsart}
 \usepackage[brazil]{babel}
 %\usepackage[portuguese]{babel}
 \usepackage[T1]{fontenc}
@@ -17,7 +17,7 @@
 %\usepackage[dvipdfm]{graphicx} % para inclusão de figuras (png, jpg, gif, bmp)
 \usepackage{fancyhdr}					 % personaliza cabeçalho e rodapé
 \usepackage{color}             % para letras e caixas coloridas
-\usepackage{makeidx}           % índice remissivo
+%\usepackage{makeidx}           % índice remissivo
 \usepackage{a4wide}            % correta formatação da página em A4
 \usepackage{setspace}          % para a distância entre linhas
 \usepackage[T1]{fontenc}
@@ -28,7 +28,7 @@
 \usepackage{amsmath}
 \usepackage{geometry}
 
-
+\parskip 5pt
 
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\dem}{{\bf Demonstração: }}
@@ -77,6 +77,8 @@
 %\newcommand{\txt}[1]{\mbox{ #1 }}
 \newcommand{\til}[1]{\widetilde{#1}}
 
+\newcommand{\der}[1]{{\sf Der}(#1)}
+
 \newtheorem{teo}{Theorem}
 \newtheorem{cor}{Corollary}
 \newtheorem{lem}{Lemma}
@@ -89,7 +91,7 @@
 \newtheorem{df}{Definition}
 \newtheorem{ex}{Example}
 
-\newcommand{\ad}[2]{ad^{#1}_{#2}}
+\newcommand{\ad}[2]{{\sf ad}^{#1}_{#2}}
 
 
 
@@ -98,27 +100,64 @@
 
 \begin{document}
 
-\title{Lie Algebra Extensions}
+\title{Derivations of Lie algebra extensions and non-singular
+derivations of Lie algebras in prime characteristic}
+
+\author{Marcos Lima Goulart}
+\address{UFOP}
+\author{Csaba Schneider}
+\address{Departamento de Matem\'atica\\
+Instituto de Ci\^encias Exatas\\
+Universidade Federal de Minas Gerais\\
+Av.\ Ant\^onio Carlos 6627\\
+Belo Horizonte, MG, Brazil\\
+csaba@mat.ufmg.br\\
+www.mat.ufmg.br/$\sim$csaba}
+
 \maketitle
 
-\section{Definitions}
+\section{Introduction}
 
-In this section we define Lie algebra extensions e some cohomology groups.
+Jacobson's famous theorem states that a finite-dimensional Lie algebra
+over a field of characteristic zero that admits a non-singular derivation must
+be nilpotent. It is well-known that this theorem is not valid when 
+the characteristic is non-zero. Non-nilpotent and solvable examples
+were constructed by Shalev~\cite{} and Mattarei~\cite{}, whereas
+the simple Lie algebras with non-singular derivations were classified 
+by Benkart and her collaborators in~\cite{}. 
 
-\begin{df} Let $K$,$H$ and $L$ be Lie algebras. $L$ is an extension of $K$ by $H$ if there is a exact sequence of Lie algebras,
-$$0 \to H \stackrel{ i}{\to} L \stackrel{ s}{\to} K \to 0.$$
-\end{df} 
+Despite the existing examples, little is known about non-nilpotent Lie algebras
+with non-singular derivations. In these notes we explore the structure of
+solvable, non-nilpotent Lie algebras with non-singular derivations. 
+In order to study derivations of solvable Lie algebras, we depelop a theory
+of the derivations of Lie algebra extensions. We adopt the notion of a compatible pair 
+of automorphisms introduced in~\cite{} for derivations of Lie algebras. 
 
-\begin{itemize}
-\item if there is an ideal $S$ of $L$ such that $L=S \oplus Ker(s)$ then the extension is \textbf{trivial};
-\item if there is a subalgebra $S$ of $L$ such that $L=S \oplus Ker(s)$ then the extension is \textbf{split};
-\item if $ker(s)$ is contained in the center of $L$, denoted by $Z(L)$, then $L$ is a \textbf{central} extension.
-\end{itemize}
 
-\begin{df}{\label{acao}}Let $K$ and $I$ be algebras. We say that $K$ act on $I$ if there is a algebra morphism $\psi:K \to Der(I)$. In this case, the action will be denoted by $$[a,k]:=\psi(k)(a), k \in K,a \in I.$$
-\end{df}
+\section{Lie algebra extensions}
 
-When brackets represents the adjoint representation we also use $\ad{K}{}:K \to Der(I)$ to $\ad{K}{k}(a)=[a,k],$ for all $k \in K$ and $a \in I$. When the domain of representation is clear we just use $\ad{}{k}(a)=[a,k]$.
+
+
+An extension of a Lie algebra  $K$ by $H$  is an exact sequence of Lie algebras,
+\begin{equation}\label{ext}
+0 \to H \stackrel{ i}{\to} L \stackrel{ s}{\to} K \to 0.
+\end{equation}
+The Lie algebra $L$ in the middle of the exact sequence contains an ideal
+$I=\ker s=\mbox{Im}\,i$ such that $L/I\cong K$. Informally we will say that
+ $L$ is an extension of $K$ by $H$. The extension~\eqref{ext} splits
+if there $L$ has a subalgebra $S$ such that $L=S \oplus\ker s$. 
+The extension~\eqref{ext} is trivial if there exists an ideal $S$ of $L$
+such that $L=S\oplus\ker s$. The extension~\eqref{ext} is central if 
+$\ker s\leq Z(L)$.
+
+We say that a Lie algebra $K$ acts on a Lie algebra $I$ if a Lie algebra
+homomorphism $\psi:K\rightarrow\der I$ is given.
+In this case, the image $\psi(k)(a)$ of $a\in I$ by $k\in K$ will be written
+simply as $[a,k]$.
+If $I$ is an ideal of a Lie algebra $K$, then $K$ acts on $I$. If 
+$k\in K$, then the image of $k$ under this action will be denoted by $\ad Ik$ or
+simply by $\ad {}k$ when the domain of the representation is clear from 
+the context. Thus, for $a\in I$ and for $k\in K$, $\ad Ik(a)=\ad{}k(a)=[a,k]$. 
 
 \begin{ex} Let $L$ be a Lie algebra with an abelian ideal $I$ and $K=L/I$. Let $\ad{L}{}:L \to L$ be the adjoint representation of $L$. Define the Lie algebra representation $\ad{K}{}:K \to Der(I)$ by $\ad{K}{x+I}(a)=[a,x]=\ad{L}{x}(a)$ for all $x\in L$ and $a \in I$. This is well defined because $I$ is abelian. Then $K$ acts on $I$. In this case, we say that the action is induced by adjoint representation.
 \end{ex}
