@@ -25,7 +25,6 @@
 %\usepackage{yfonts}
 \usepackage[all]{xy}
 \usepackage{stackrel}	
-\usepackage{amsmath}
 \usepackage{geometry}
 \usepackage{mathabx}
 
@@ -42,8 +41,6 @@
 \newcommand{\Rm}{\ensuremath{\R^m}}
 \newcommand{\Rn}{\ensuremath{\R^n}}
 \newcommand{\RN}{\ensuremath{\R^N}}
-\newcommand{\oo}{\ensuremath{\infty}}
-\newcommand{\omg}{\ensuremath{\Omega}}
 \newcommand{\bola}{\circ}
 \newcommand{\vazio}{\emptyset}
 \newcommand{\x}{\mathcal{X}}
@@ -58,29 +55,16 @@
 \newcommand{\lloc}[1][1]{\ensuremath{L^#1_{\mbox{\emph{\scriptsize{loc}}}}}}
 \renewcommand{\l}[1][1]{\ensuremath{L^{#1}}}
 
-\newcommand{\norma}[2][ ]{\ensuremath{|| #2 ||_{#1}}}
-\newcommand{\seta}{\longrightarrow}
-\newcommand{\leva}{\longmapsto}
-\newcommand{\eps}{\ensuremath{\varepsilon}}
-\DeclareMathOperator{\sen}{sen}         
-\DeclareMathOperator{\senh}{senh} 
 \DeclareMathOperator{\mdc}{mdc} 
 \DeclareMathOperator{\mmc}{mmc} 
 \DeclareMathOperator{\supp}{supp} 
 
 
-
-\renewcommand{\d}[1]{\ensuremath{{\rm d} #1 }}
-\newcommand{\intg}[3][ ]{\ensuremath{ \int_{#1} #2 \, \d{#3}}}
-\newcommand{\intx}[2][ ]{\intg[#1]{#2}{x}}
-\newcommand{\intxi}[2][ ]{\intg[#1]{#2}{\xi}}
-\newcommand{\tf}[1]{\ensuremath{\widehat{#1}}}
-%\newcommand{\txt}[1]{\mbox{ #1 }}
-\newcommand{\til}[1]{\widetilde{#1}}
-
 \newcommand{\der}[1]{{\sf Der}(#1)}
 \newcommand{\gl}[1]{{\mathfrak g\mathfrak l}(#1)}
 \newcommand{\ann}[2]{{\sf Ann}_{#1}(#2)}
+\renewcommand{\ker}[1]{{\sf Ker}(#1)}
+\newcommand{\im}[1]{{\sf Im}(#1)}
 
 \newtheorem{teo}{Theorem}[section]
 \newtheorem{cor}[teo]{Corollary}
@@ -113,8 +97,13 @@
       {Derivations of Lie algebra extensions and non-singular
 derivations of Lie algebras in prime characteristic}
 
-\author{Marcos Lima Goulart}
-\address{UFOP}
+\author{Marcos Goulart Lima }
+\address{Departamento de Ci\^encias Exatas e Aplicadas \\
+Instituto de Ci\^encias Exatas e Aplicadas \\
+Universidade Federal de Ouro Preto\\
+Rua 37, 115 \\
+Jo\~ao Monlevade, MG,  Brazil\\
+marcosgoulart@decea.ufop.br }
 \author{Csaba Schneider}
 \address{Departamento de Matem\'atica\\
 Instituto de Ci\^encias Exatas\\
@@ -126,26 +115,147 @@ www.mat.ufmg.br/$\sim$csaba}
 
 \maketitle
 
-\section{Introduction}
 
-Jacobson's famous theorem states that a finite-dimensional Lie algebra
+
+
+\begin{center}
+\textbf{Abstract}
+\end{center}
+
+Jacobson's famous theorem ~\cite{Jacobson} states that a finite-dimensional Lie algebra
 over a field of characteristic zero that admits a non-singular derivation must
 be nilpotent. It is well-known that this theorem is not valid when 
 the characteristic is non-zero. Non-nilpotent and solvable examples
-were constructed by Shalev~\cite{} and Mattarei~\cite{}, whereas
+were constructed by Shalev~\cite{Shalev} and Mattarei~\cite{Mattarei}, whereas
 the simple Lie algebras with non-singular derivations were classified 
-by Benkart and her collaborators in~\cite{}. 
+by Benkart and her collaborators in~\cite{Benkart}. 
 
 Despite the existing examples, little is known about non-nilpotent Lie algebras
 with non-singular derivations. In these notes we explore the structure of
 solvable, non-nilpotent Lie algebras with non-singular derivations. 
 In order to study derivations of solvable Lie algebras, we develop a theory
 of the derivations of Lie algebra extensions. We adopt the concept of a compatible pair 
-of automorphisms introduced in~\cite{} for derivations of Lie algebras. 
+of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
+
+\section{Introduction} 
+
+In the article \cite{Jacobson} Bettina Eick presented an algorithm for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal such that $I$ is invariant by $Aut(L)$. Then there exists a homomorphism $\phi: Aut(L) \to Aut(L/I) \times Aut(I)$ induced by the actions of $Aut(L)$ on $L/I$ and $I$. The range of $\phi$ can be calculated using $Aut(L/I)$ and the $\ker \phi $ is equal to $\zone K I$. Then the group $Aut(L)$ can be calculated using first isomorphism theorem on $\phi$. Our first work in this project was to adapt this process to derivations. This result can be seen bellow.
+
+\textbf{Theorem  \ref{DerExt}} \textit{ Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. Let $\phi:\der {K_\vartheta} \to \der K \oplus \der I$ given by $\phi(d)=(\alpha,\beta)$. Then:
+  \begin{enumerate}
+ \item $\im \phi= \sf Indu (K,I,\vartheta)$
+  \item $\ker \phi \cong \sf Z^1 (K,I)$
+  \end{enumerate}}
+  
+There is a significant difference in the application of this process to automorphisms and derivations: calculate the automorphism groups of a Lie algebra usually is a complicated task while calculate the algebra $\der {K_\vartheta}$ can be done by solving a system of linear equations. Thus, to analise the importance of Theorem \ref{DerExt} we must discover which additional information of $\der {K_\vartheta}$ we are able to obtain through information of algebras $\der{K}$ and $\der I$. Another tool obtained was the algebra of compatible pairs:  let $L$ and $I$ be Lie algebras such that $L$ acts on $I$, then we can define a subalgebra $\comp L I$ of derivations of semi-direct sum $K \sdsum I$ $$
+  \comp LI=\{\alpha+\beta\in\gl L\oplus\gl I\mid
+  \alpha+\beta\in\der{K\sdsum I}\}.$$ The algebra $\der L$ carries information on the multiplicative structure of $L$. Analogously, the algebra $\comp L I$ carries information about the action of $K$ on $I$. In section \ref{secJacobson} we present an example of this by exploring the demonstration of Jacobson's theorem. 
+  
+ We also studied a consequence of Jacobson's theorem presented by Aner Shalev \cite{Shalev}. This article presents a condition on the order of derivation which guarantees nilpotency of algebra. Mattarei \cite{Mattarei} continues this study focusing on all the possible orders of nonsingular derivations of modular solvable and non-nilpotent Lie algebras.
+
+From these works we define the next goal of the project: present classes of modular solvable non-nilpotent Lie algebras with non-singular derivations and, if  possible, classify all them.  
+
+  This text is organized as follows:  section 2 is dedicated to literature review, where we presented the articles studied and some classical results of Lie algebras theory. In Section 3, we present the compatible pairs and the lifting process of derivations of a Lie algebra $K$ to the Lie algebras $K_{\vartheta}$ such that $\vartheta$ is a cocycle, and we end this section by using the compatible pairs in Jacobson's theorem. The section 4 is composed of some examples and conjectures about the modular solvable non-nilpotent Lie algebra with non-singular derivations.
+  
+\section{Literature review}
+ 
+\subsection{Basic concepts} Let $V$ be a vector space over field $\F$ and $a \in \ennd V$. $V$ has a vector space decomposition invariant by the endomorphism $a$, we will present this decomposition. Let $p \in \F[X]$ be a univariate polynomial and define 
+$$V_0(p(a))=\{v \in V \mid  \mbox{ there is an } m>0  \mbox{ such that } p(a)^mv=0\}.$$ 
+ $V_0(p(a))$ is a subspace of $V$ invariant by $a$. Now let $A$ be the associative algebra with 1 generated by $a$. Let  $p_a$ be the minimum polynomial of $a$ and suppose that  $$p_a=p_1^{k_1} \cdots p_r^{k_r}$$ is the factorization of $p_a$ into irreducible factors, such that $p_i$ has leading coefficient 1 and $p_i \neq p_j$ for $1 \leq i, j \leq r$. Then $V$ decompose as a direct sum of subspaces $$V=V_0(p_1(a)) \oplus \cdots \oplus V_0(p_r(a)),$$ each space $V_0(p_i(a))$ invariant by $A$. Furthermore, the minimum polynomial of the restriction of $a$ to $V_0(p_i(a))$ is $p_i^{k_i}$. A proof of this result can be founded in \cite{deGraaf} Lemma A.2.2.   
+ 
+A consequence of this result, which can be seen in Theorem 3.1.10 of \cite{deGraaf},  is that if $ D $ is a nilpotent Lie subalgebra of $\gl V$ then $ V $ has a decomposition $V = V_1 \oplus \cdots \oplus V_s$ such that  $$V_i=\{v \in V \mid  \mbox{ for all } x \in D \mbox{ there is an } m>0  \mbox{ such that }  p_{x,i}(x)^mv=0\},$$ where $p_{x,i}$ denotes the minimal polynomial of $x$ restricted to $V_i$. It is worth noting the case that the base field of $V$ is algebraically closed, then all irreducible polynomials are of the form $p_{x,i}=(X - \lambda_i), \lambda_i \in D^*$. Its natural define a name for this case. Let $V$ be a finite dimensional vector space over field $\F$ and $D \in \gl V $ a subalgebra. If $$V_{\lambda}=\{v \in V \mid  \mbox{ for all } x \in D \mbox{ there is an } m>0  \mbox{ such that }  (x - \lambda(x).Id)^mv=0\} \neq 0,$$ then $V_\lambda$ is called generalized eigenspace of $V$ associated to eigenvalue $\lambda \in D^*$.
+
+Now we consider a Lie algebra $L$ and a nilpotent subalgebra $D \subseteq \der L $. Then the decomposition in generalized eigenspaces of $D$ can provide us some  information of the multiplicative structure of the $L$. 
+
+\begin{prop}{\label{1.01}} 
+ Let $L$ be a Lie algebra over an algebraically closed field. Let $D$ be a  subalgebra of $\der L$. If $\lambda,\mu:D \to \F$ are eigenvalues of $D$  then $[L_\lambda,L_{\mu}] \subseteq L_{\lambda+\mu}$ if $\lambda+\mu$ is a  eigenvalue of $D$. Otherwise $[L_{\mu}, L_{\lambda}]=0$.
+\end{prop}
+ 
+% This result follow from 
+%
+%Let $\lambda, \mu \in \F$ and $d \in \der L$ then    
+% \begin{multline*}
+%(d-(\lambda+\mu).Id)^n[x,y]=\sum_{i=0}^n\binom{n}{i}[(d-\lambda .Id)^{n-i}(x),(d-\mu .Id)^i(y), \\ \mbox{ for all } x,y \in L \in K \mbox{ and } \lambda,\mu \in \F.
+%\end{multline*}
 
 
-\section{Lie algebra extensions}
-The symbol `$\oplus$' will be used to denote the direct
+\subsection{Jacobson Theorem}
+
+ In the article \textit{A note on automorphism and derivations of Lie algebras} \cite{Jacobson}, Jacobson used a variation of Engel's theorem for weakly closed sets to get conditions for a Lie algebra be nilpotent. Next we present this results. We recommend  Jacobson's book \cite{JacobsonBook} as reference for examples and proofs.
+
+Let $A$ be an associative algebra with $1$ over a field $\F$. A subset $S$ of $A$ is called weakly closed if for every ordered pair $(a, b),a,b \in S,$ there is an element $\gamma(a,b) \in \F$ such that $ ab+ \gamma (a, b) b a \in M$. If $S$ is a subset of $A$ we denote by $span(S)$ the subalgebra of $A$ (subalgebra containing 1) generated by $S$. 
+
+\begin{prop}{\label{1.02}} Let $V$ be a vector space over a field $\F$. Let $S \subseteq \gl V$ be a weakly closed subset such that every $s \in S$ is associative nilpotent, that is, $s^k=0$, for some positive integer $k$. Then the subalgebra $span(S)$ is nilpotent. 
+\end{prop}
+
+ With this result we can proof.
+\begin{teo}{(Jacobson)}{\label{Jacobsontheo}} Let $L$ be a Lie algebra of characteristic 0 and suppose that there exists a subalgebra $D$ of the algebra of derivations of $L$ such that (i) $D$ is nilpotent and (ii) 0 is not eigenvalue of $D$ (i.e., if there is $c \in L$ such that $d(c)=0$ for all $d \in D$ then $c=0$). Then $L$ is nilpotent. 
+\end{teo}
+\begin{proof} Let $\bar{\F}$ be the algebraic closure of the base field, we can  extend any derivation of $L$ to $\bar{L}=L \otimes \bar{\F}$. If we proof that $\bar{L}$ is nilpotent then it follow that $L$ is nilpotent. SO we will consider $L$ over a field algebraically closed. In this case the extension of $D$ still nilpotent and without 0 as eigenvalue. Let $L = L_{\gamma_1} \oplus \cdots \oplus L_{\gamma_r}$ the decomposition of $L$ in generalized eigenspaces of $D$. By Proposition \ref{1.01} we have $[L_{\gamma_i},L_{\gamma_j}] \subseteq L_{\gamma_i+\gamma_j}$ if $\gamma_i+\gamma_j$ is a eigenvalue and $[L_{\gamma_i},L_{\gamma_j}]=0$ otherwise. Let $\ad {} {L_{\gamma_j}}$ denote the set of adjoint mappings determined by elements of $L_{\gamma_j}$. Then the relation just noted shows that the set $ S= \bigcup \ad {}{L_{\gamma_j}}$ is a weakly closed set of linear transformation. Let $a \in L_{\gamma_j}$ and $b \in L_{\gamma_i}$ then for all $s \geq 0$ $(\ad{}{a})^s(b) \in L_{\gamma_i+s \gamma_j}$. By assumption, 0 is not a eigenvalue then the elements $\{\gamma_i+s\gamma_j\}_{s \geq 0}$ are all distinct. But $D$ has a finite number of eigenvalues then $\ad{}{a}$ is nilpotent. Thus every element of $S$ is nilpotent. We can conclude that the algebra $span(S)$ is nilpotent and hence $\ad{}{L}$ is nilpotent. Therefore $L$ is a nilpotent Lie algebra.   
+\end{proof}
+One question that arises from the theorem is validity in characteristic $ p \neq 0$. But this does not happen, we have simple modular Lie algebras with non-singular derivations. For example, let $\F$ be the field of $2^m$ elements and $L$ be a Lie algebra over $\F$ such that $$L= \langle x_\alpha \mid \alpha \in \F, \alpha \neq 0\rangle$$ with a basis labelled by nonzero elements of the field $\F$ and with multiplication $[x_\alpha, x_\beta]=(\beta-\alpha)x_{\alpha+\beta}$. Then the map $d \in \ennd L$ given by $d(e_\alpha)=\alpha e_\alpha$ is a non-singular derivation. A systematic investigation of simple Lie algebras with nonsingular derivations can be found in \cite{Benkart}. Another question is whether the converse is true. Its also false, by Dixmer and Lister article \cite{Dixmier} we have nilpotent Lie algebras admitting only nilpotent derivations. We present one example of this algebra: suppose that $\F$ is a field of characteristic 0 and $L$ the Lie algebra over $\F$ $$L = \langle x_1, x_2, \cdots, x_8 \rangle $$ with dimension 8 and multiplication table 
+
+$[e_1,e_2]=e_5 \quad [e_1,e_3]=e_6  \quad[e_1,e_4]=e_7  \quad [e_1,e_5]=-e_8  \quad [e_2,e_3]=e_8 \quad [e_2,e_4]=e_6 $
+
+$ [e_2,e_6]=-e_7 \quad [e_3,e_4]=-e_5 \quad [e_3,e_5]=-e_7 \quad [e_4,e_6]=-e_8 \quad  [e_i,e_j]=-[e_j,e_i]$
+
+and $[e_i,e_j]=0$ if it is not in table above. $L$ is nilpotent with $L^3 \neq 0$,  $L^4=0$ and every derivation of $L$ is nilpotent.
+
+A review of theorem \ref{Jacobsontheo} proof shows that the hypothesis of zero characteristic is essential to proof that every element in a homogeneous component is nilpotent. But we can guarantee this in characteristic $p$ by requiring that $D$ has at most $p-1$ eigenvalues or that dimension of $L$ is less than $p$. This leads to the corollary.
+
+\begin{cor}{\label{JacoModp}} Let $L$ be a Lie algebra of characteristic $p$ and suppose that there exists a subalgebra $D$ of the algebra of derivations of $L$ such that (i) $D$ is nilpotent and (ii) 0 is not eigenvalue of $D$ . If $D$ has at most $p-1$ eigenvalues then $L$ is nilpotent. 
+\end{cor}
+
+\subsection{The orders of non-singular derivations} An interesting approach by  Shalev in article \cite{Shalev} is to study the order of nonsingular derivations, establishing conditions for it to be nilpotent. More precisely, Shalev study the set of orders nonsingular derivations of non-nilpotent Lie algebras of characteristic $p$. Later, Mattarei in \cite{Mattarei} showed that this set of numbers corresponds to the solution of some equation modulo p. Below we present some results of these articles.
+
+Let $L$ be a Lie algebra over an algebraically closed field of characteristic $p$. We can characterize the matrix of a non-singular derivation of $L$.
+
+\begin{prop}{\label{NonSDiag}}  Let be $V$ a finite dimension vector space over a field of characteristic $p$ algebraically closed and $f \in \ennd V$ non-singular with order $r$ prime with $p$. Then $f$ is semisimple.
+\end{prop}
+
+\begin{proof} Let $a$ be the matrix of endomorphism $f$ in it Jordan normal form and write $a=s+n$ such that $s$ is semisimple, $n$ is nilpotent and $s,n$ commutes. Observe that for this matrices we have \begin{itemize}
+\item  If  $(s)_{ii} = \lambda_i$ then $(s^k)_{ii}=\lambda_i^k,$ for  all $k>0$;
+\item $(n^k)_{i(i+j)}=0,$ for all $0 \leq j < k$  and all $k>0$.
+\end{itemize}
+Because $Id=a^r=(s+n)^r=s^r+\binom{r}{1} s^{r-1}n+ \binom{r}{2}s^{r-2}n^2+\cdots + \binom{r}{r-1}sn^{r-1}+n^r$ we have  $\binom{r}{1} s^{r-1}n=r(s^{r-1}n)=0$. But $r$ and the eigenvalues of $s^{r-1}$ are nonzero, this implies $n=0$. Then $f$ is semisimple.\end{proof}
+
+Let $L$ be a Lie algebra over the field $\F$ such that $L$ has a non-singular derivation $d$. Let $r=s.p^t$, with $\gcd (s,p)=1$, the order of $d$, then $d^{p^t}$ is a derivation whose order is prime to $p$ and, therefore, by Proposition \ref{NonSDiag} it is semisimple. So if $L$ is a Lie algebra over a field $\F$ of characteristic $p$ algebraically closed with non singular derivation then $L$ has a semisimple derivation $d$ without eigenvalue 0.
+ 
+ \begin{prop} Let $L$ be a finite dimension Lie algebra in characteristic $p$ with admits a non-singular derivation $d$ whose order is prime to $p$. Suppose $L$ is not nilpotent. Then there exist $\lambda \in \bar{\F}_p$ such that $(\lambda+ \delta)^n=1$ for all $\delta \in \F_p$.
+\end{prop}
+
+\begin{proof} Let $R=\{\alpha \in \bar{\F}_p  \mid \alpha^n=1\}$. If $R$ is not contained in base field of $L$ then we consider $d$ in the extension $L \otimes \bar{F}$. By Proposition \ref{NonSDiag} $d$ is semisimple. Then $L$ has decomposition in eigenspaces of $d$. Let $L=L_{\lambda1} \oplus \cdots \oplus L_{\lambda_r}$ the decomposition of $L$ in eigenspaces of $d$. The set $S=\bigcup \ad{}{L_{\lambda_j}}$ is weakly closed with $\gamma(\ad{}{a},\ad{}{b})=-1$ for all $a \in L_{\lambda_i}, b \in L_{\lambda_j}$. If each $\ad{}{a}$ is nilpotent then by Proposition \ref{1.02} $L$ is nilpotent. But by hypotheses  $L$ is non-nilpotent Lie algebra then there is $a \in L_{\lambda_j}$ and $b \in L_{\lambda_i}$ such that $(\ad{}{a})^n(b) \neq 0$, $1 \leq n \leq p$. Which implies , $(\lambda_i+ r \lambda_j)$ are eigenvalues of $d$ for  $1 \leq r \leq p$. Hence $(\lambda_i \lambda_j^{-1} + r)^n =1$ for all $r \in \F_p$.
+
+   \end{proof}  
+
+A corollary of this result is that $n \geq p^2-1$ and therefore we have the result.
+\begin{prop} Let $L$ be a finite dimensional Lie algebra in characteristic $p>0$ which admits non-singular derivation of order $n$. Write $n=p^sm$ where $m$ is prime to $p$. Suppose $m<p^2-1$. Then $L$ is nilpotent.   
+\end{prop}
+
+  Mattarei \cite{Mattarei} presents an example of this Lie algebra. 
+  
+\begin{ex} Let $\alpha, \beta \in \bar{\F}_p$ with $\alpha \beta^{-1} \notin \F_p $. Let $M$ be a $p$-dimensional vector space over $\bar{\F}_p$ with basis $e_1, \cdots, e_p$, and let $E,F$ de the linear transformations of $M$ defined by $E(e_i)=e_{i+1}$(indices modulo $p$), and $F(e_i)=(\alpha +i \beta)e_i$. The transformations $E$ and $F$ span a two-dimensional solvable Lie algebra, which has $M$ as a Left module. Let $L$ be the semidirect sum of $\lbrace E \rbrace$ and $M$ with respect to this action. Then $F$ acts on $L$ as a non-singular derivation, with eigenvalues $\beta$ on $\lbrace E \rbrace$, and $\alpha + \lambda \beta$ for $\lambda \in \F_p$ on M.    
+\end{ex}  
+
+ The next result links the orders nonsingular derivations orders of Lie algebras of characteristic p and two polynomials.
+
+\begin{prop} Let $p$ a prime number and let $n$ be a positive integer, prime to o. The following statements are equivalent:
+\begin{enumerate}
+\item there exists a non-nilpotent Lie algebra of characteristic $p$ with a non-singular derivations of order n;
+\item there exists an element $\alpha \in \bar{\F_p}$ such that $(\alpha + \lambda)^n=1$ for all $\lambda \in \F_p$
+\item there exist an element $c \in \bar{\F^*_p}$ such that $x^p-x-c$ divides $x^n-1$ as elements of the polynomial ring $\bar{\F_p}[x]$.
+\end{enumerate}
+\end{prop}
+
+In \cite{Mattarei} Mattarei define the set $N_p$ of the possible orders of non-singular derivations of non-nilpotent Lie algebras of characteristic $p$ and determine all elements of $N_p$ which are smaller than $p^3$, for $p>3$.   
+
+
+
+ 
+\section{Derivations and Lie algebra extensions}
+
+\subsection{Lie algebra extensions}
+The symbol `$\oplus$' will be used to denote the direct 
 sum of algebras,
 while  the
 direct sum of vector spaces will be denoted by `$\dotplus$'.
@@ -182,7 +292,7 @@ $k\in K$, $\ad Ik(a)=\ad{}k(a)=[k,a]$.  The homomorphism
 $K\rightarrow \der I$ that takes $k\mapsto\ad Ik$, 
 will be denoted by $\ad I{}$. 
 
-\begin{ex} Let $L$ be a Lie algebra with an abelian ideal $I$ and
+\begin{ex}{\label{adjrepex}} Let $L$ be a Lie algebra with an abelian ideal $I$ and
   set $K=L/I$.
   Define the Lie algebra representation $\ad{I}{}:K \to \der I$
   by $\ad{I}{x+I}(a)=[x,a]$ for
@@ -201,15 +311,15 @@ $\vartheta: K \times K \to I$.
 If $I$ is a $K$-module and
 $\vartheta \in \ctwo KI$ has the property that
 $$
-\vartheta(x,[y,z])+\vartheta(y,[z,x])+\vartheta(z,[x,y])=
-[x,\vartheta(y,z)]+[y,\vartheta(z,x)]+[z,\vartheta(x,y)],
+\vartheta(x,[y,z])+\vartheta(y,[z,x])+\vartheta(z,[x,y])+
+[x,\vartheta(y,z)]+[y,\vartheta(z,x)]+[z,\vartheta(x,y)]=0,
 $$
 for all $ x,\ y,\ z \in K$, then $\vartheta$ is said to be a
 {\em cocycle} and the vector space of coclycles is denoted by $\ztwo KI$.
 Let $T:K \to I$ be a linear transformation and define, 
 $\vartheta_T:K\times K\rightarrow I$ by
 $$
-\vartheta_T(k,h)=T([h,k])+[k,T(h)]-[h,T(k)]\quad
+\vartheta_T(k,h)=T([k,h])+[h,T(k)]-[k,T(h)]\quad
 \mbox{for all}\quad k,\ h \in K.
 $$
 Then $\vartheta_T\in\ztwo KI$ and such
@@ -220,7 +330,7 @@ The set $\btwo KI$ is a subspace of
 $\ztwo KI$, and we set $\htwo KI=\ztwo KI/\btwo KI$ to be
 the quotient space. 
 The first cohomology group of $K$ and $I$ is defined as
-$$\zone KI=\{\nu \in \hom KI \mid \nu([k,h])=[h,\nu(k)]-[k,\nu(h)]
+$$\zone KI=\{\nu \in \hom KI \mid \nu([k,h])=[k,\nu(h)]-[h,\nu(k)]
 \mbox{ for all } k,\ h \in K\}.
 $$
 
@@ -263,9 +373,9 @@ that $L\cong L_\vartheta$.
     
 
  
-\section{Compatible pairs and derivations of subdirect sums}
+\subsection{Compatible pairs and derivations of semidirect sums}
 
-Compatible pairs were introduced in~\cite{} to compute automorphisms
+Compatible pairs were introduced in~\cite{Eick} to compute automorphisms
 of solvable groups and solvable Lie algebras. We adopt the
 concept for derivations of Lie algebras.  
 Let $K$ and $I$ be Lie algebras such that $K$ acts on $I$
@@ -328,7 +438,7 @@ then $\alpha+\beta$ can be considered a element of
 $\gl{I\oplus K}$ by letting $(\alpha+\beta)(a+k)=
 \alpha(a)+\beta(k)$ for all $a\in I$ and $k\in K$.
 
-\begin{prop}
+\begin{prop}{\label{compsdsum}}
   Using the notation above,
   we have that
   $$
@@ -355,8 +465,8 @@ $\gl{I\oplus K}$ by letting $(\alpha+\beta)(a+k)=
 %% \end{array}
 %% $$
 %% Hence $(\alpha,\beta)+\lambda(\alpha',\beta') \in \comp KI$.
-
-%% Using the definition of compatible pairs, 
+%%
+%%%% Using the definition of compatible pairs, 
 %% $$
 %% \beta' \psi(k)=\psi(k)\beta'+\psi(\alpha'(k)).
 %% $$ 
@@ -378,7 +488,7 @@ $\gl{I\oplus K}$ by letting $(\alpha+\beta)(a+k)=
 %% Hence $[(\alpha,\beta),(\alpha',\beta')] \in \comp KI$.
 
 
-  Suppose that $\alpha+\beta\in\comp KI$ is a compitabile pair
+  Suppose that $\alpha+\beta\in\comp KI$ is a compatible pair
   and let $k+a,\ k'+a'\in K\sdsum I$.
   Then 
 \begin{multline*}
@@ -415,18 +525,16 @@ $$
 \end{proof}
 
 
-
-
 Let $K$ and $I$ be vector spaces. Consider the Lie algebra
 $\gl K\oplus\gl I$ and define an action of  $\gl K\oplus\gl I$
 on the vector space $\hom K{\gl I}$ as follows.
 Let $\ad{}{}$ denote the adjoint representation
 of $\gl I$. Thus, for $\beta,\ \beta'\in\gl I$ and $\ad{}\beta(\beta')=
 [\beta,\beta']$.
-For $\alpha+\beta \in \gl K
+For $(\alpha,\beta) \in \gl K
 \oplus \gl I$ and for $T \in \hom K{\gl I}$, set
  \begin{equation}{\label{acaocomp}}
- (\alpha+\beta)\cdot T=\ad{}{\beta}T-T\alpha.
+ (\alpha,\beta)\cdot T=\ad{}{\beta}T-T\alpha.
  \end{equation}
  Let us show that this in fact defines a Lie algebra
  action.
@@ -434,7 +542,7 @@ For $\alpha+\beta \in \gl K
  $(\alpha,\beta) \cdot T$ is a linear map because
  is linear combination of composition and sums of linear maps.
  Let us check that it preserves Lie brackets.
- Let $\alpha+\beta,\ \alpha'+\beta'
+ Let $(\alpha,\beta),\ (\alpha',\beta')
  \in \gl K \oplus \gl I$
  and $k \in K$. By definition
  $$
@@ -482,74 +590,28 @@ Hence we have  proved the following  proposition.
 \end{prop}
 
 
+\subsection{Derivations of $K_\vartheta$}
  
- 
- \section{Nilpotent Subalgebras of Compatible Pairs}
-
- \begin{prop}  Let $V$ be a finite dimensional vector space over a algebraically closed field $\F$ and $D \subseteq \mathfrak{gl}(V)$ a nilpotent linear algebra. Then $V$ has a unique decomposition $V=V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_n}$ into $D$-modules such that $$V_{\lambda_i}=\{v \in V \mid  \mbox{ for all } d \in D \mbox{ there is an } m>0  \mbox{ such that } (d - \lambda(k))^mv=0\},$$
- where $\lambda_i:D \to \F, 1 \leq i \leq n$. The space $V_{\lambda_i}$ is called a generalized eigenspace of $D$ with eigenvalue $\lambda_i$. 
- \end{prop}
-
-\prova A proof of this fact can be found in chapter 3 of \cite{deGraaf}, for example.
-
-\vspace{0,5cm}
-
- Let $K$ and $I$ be Lie algebras such that $K$ act on $I$. If $D \subseteq Comp(K,I)$ is nilpotent subalgebra then by \textbf{Proposition \ref{compsubgl}}, $D$ can be seen as subalgebra of derivations of semidirect sum $L=K\oplus I$. The decomposition of $L$ in eigenspaces of $D$ induces decompositions in $K$ and $I$, because as subspaces of $L$ they are invariants by $D$. So each nilpotent subalgebra of $Comp(K,I)$ induces unique decompositions in generalized eigenspaces of in $K$ and $I$.
- 
- 
- \begin{prop} Let $K$ and $I$ be Lie algebras such that $K$ act on $I$. If $(\alpha, \beta) \in Comp(K,I)$ then \begin{equation}{\label{comp2}}
-(\beta-(\lambda+\mu))^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \mbox{ for all } a \in I,k \in K \mbox{ and } \lambda,\mu \in \F
-\end{equation}
-
-
- \end{prop}{\label{3.1}}
-\prova Suppose that $\F$ is the base field. We will proof this result by induction on $n$. If $n=1$ the result follow by compatible pair definition. 
-Suppose that the result is valid for $n>0$. then
-
-\begin{multline}
-(\beta-(\lambda+\mu))^{n+1}[a,k]  =  (\beta-(\lambda+\mu))\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda)^{n-i}(a),(\alpha-\mu)^i(k)] \\
-  = \sum_{i=0}^n\binom{n}{i} \left( [(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^i(k)] 
-  +[(\beta-\lambda)^{n+1-i}(a),(\alpha-\mu)^{i+1}(k)] \right )  \\
-  =\sum_{i=0}^{n+1}\binom{n+1}{i}[(\beta-\lambda)^{n+1-i}(a), \mbox{ for all } a \in I,k \in K \mbox{ and } \lambda,\mu \in \F
-\end{multline}
-
-\begin{flushright}
- \cqd
- \end{flushright} 
- 
-  \begin{prop} Let $K$ and $I$ be Lie algebras over an algebraically closed field such that $K$ act on $I$. Let $D$ be a nilpotent subalgebra of $Comp(K,I)$. If $\lambda,\mu:D \to \F$ are generalized eigenvalues of $D$, respectively, then $[I_{\mu},K_\lambda] \subseteq I_{\lambda+\mu}$ if $\lambda+\mu$ is a generalized eigenvalue of $D$. Otherwise $[I_{\mu}, K_{\lambda}]=0$.
-\end{prop}
-
-\prova Let $a \in I_{\mu}$, $k \in K_{\lambda}$ and $d \in D$ then by \textbf{Proposition \ref{3.1}} $$(\beta-(\lambda(d)+\mu(d)) I)^n[a,k]=\sum_{i=0}^n\binom{n}{i}[(\beta-\lambda(d) I)^{n-i}(a),(\alpha-\mu(d) I)^i(k)].$$ And for $n$ big enough this is 0. So, $[I_{\mu_i}, K_{\lambda_j}] \subset I_{\mu_i+\lambda_j}$ if $\mu_i+\lambda_j$ is generalized eigenvalue of $D$, otherwise $[I_{\mu_i}, K_{\lambda_j}]=0$ is nonsingular and it follows that $(\beta-(\lambda+\mu))=0$.
-
-\begin{flushright}
- \cqd
-\end{flushright}
-
-\begin{prop}{\label{rowen}} Suppose $R$ is a finite dimensional algebra over a field $\F$. If $S$ is a multiplicatively closed subset each of whose elements is a sum of nilpotent elements then $S$ is nilpotent.
-\end{prop}
-\prova \cite{Rowen}, \textbf{Proposition 2.6.32} pg 178.
-
-\begin{flushright}
- \cqd
-
-\end{flushright}
-
-\begin{teo} Let $K$ and $I$ be finite dimensional Lie algebras over an algebraically closed field $\F$ such that $K$ act on $I$ by representation $\psi:K \to Der(I)$. Let $D$ a nilpotent subalgebra of $Comp(K,I)$ such that zero is not generalized eigenvalue of $D$ in $K$. So if or $char(\F)=0$ or $char(\F)=p$ and dimension of $I$ is smaller than $p$ then $\psi$ is a nilpotent representation.
-\end{teo}
-\prova  Let $\lambda_1, \cdots, \lambda_r$ and $\mu_1, \cdots, \mu_s \in \F$ be generalized eigenvalue  of $D$ in $K$ and $I$, respectively. If $a \in I_{\mu_i}$ and $k \in K_{\alpha_j}$ then by \textbf{Proposition \ref{3.1}}, we have $(\psi^n(a) \in I_{\mu_i + n \lambda_j}$, with $\lambda_j\neq 0$, if $\mu_i + n \lambda_j$ is generalized eigenvalue of $D$ in $I$ and $(\ad{}{k})^n=0$ otherwise. If $char(\F)=0$ then $(\ad{}{k})^n=0$ for some $n$ because thet set of eigenvalues of $D$ is finite; if $char(\F)=p$ the set $\{\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+(p-1)\lambda_j,\mu_i\}$ has $p$ distinct elements and $D$ has at most $p-1$ eigenvalues in $I$ then $\psi^n=0$ for some $1 \leq n \leq p$. In both cases  $\psi$ is nilpotent for all $k \in K_{\lambda_j}$, $1 \leq j \leq r$. Hence every element of $\psi(K):K \to Der(I)$ can be written as sum of nilpotent elements. Therefore, by \textbf{Proposition \ref{rowen}}, $\psi$ is nilpotent.  
-
-   \section{Derivations of $K_\vartheta$}
- 
- \begin{df} Let $K$ and $I$ be vector spaces. Given $(\alpha,\beta) \in \mathfrak{gl}(K)\oplus \mathfrak{gl}(I)$, $\vartheta \in C^2(K,I)$ and $h,k \in K$, define the action of $\mathfrak{gl}(K)\oplus \mathfrak{gl}(I)$ on $C^2(K,I)$ by \begin{equation}{\label{1}}
- (\alpha,\beta)\cdot \vartheta(h,k)=\beta(\vartheta(h,k))-\vartheta(\alpha(k),h)-\vartheta(k,\alpha(h)).
+ In this section we present a method to describe the derivations of extension $K_\vartheta$ presented in Proposition \ref{prop:cocic}  from derivations of Lie algebra $K$. By an adaptation of the process used by Eick in \cite{Eick}, we set conditions for a derivation in $K$ can be lifted to a derivation of $K_\vartheta$. 
+  It is first necessary define an action of $\gl K \oplus \gl I$ on vector space of alternating bilinear maps.
+  
+   Let $K$ and $I$ be vector spaces. Let $(\alpha,\beta)$ be an element of Lie algebra $\gl K \oplus \gl I$ and $\vartheta \in \ctwo K I$, define an action $\gl K \oplus \gl I$ on $\vartheta \in \ctwo K I$ by
+ \begin{equation}{\label{1}}
+ (\alpha,\beta)\cdot \vartheta(h,k)=\beta(\vartheta(h,k))-\vartheta(\alpha(k),h)-\vartheta(k,\alpha(h)), \quad \mbox{ for all } h,k \in K.
  \end{equation}
- \end{df}
  
- 
-\begin{prop}{\label{inva}} Let $K$ be a Lie algebra and $I$ a $K$-module. Considere the action of \newline $Comp(K,I)$ on $C^2(K,I)$ defined in ({\ref{1}}). Then the vector spaces $Z^2(K,I)$ and $B^2(K,I)$ are invariants by this action.
-\end{prop}
-\prova Let $k,h,l \in K$, $(\alpha,\beta) \in Comp(K,I)$ and $\vartheta \in Z^2(K,I)$. By definition 
+ If $(\alpha',\beta') \in \gl K \oplus \gl I$ then by our definition 
+  \begin{multline*}
+ (\alpha,\beta)(\alpha',\beta')\cdot \vartheta(h,k)=\beta\beta'\vartheta(h,k))-\beta'\vartheta(\alpha(k),h)-\beta'\vartheta(k,\alpha(h)) \\
+ -\beta\vartheta(\alpha'(h),k))+\vartheta(\alpha'\alpha(k),h)-\vartheta(\alpha'(k),\alpha(h))\\
+ \beta\vartheta(h,\alpha'(k))-\vartheta(\alpha(k),\alpha'(h))-\vartheta(k,\alpha'\alpha(h)).
+ \end{multline*}
+ Follow that
+$$
+ [(\alpha,\beta),(\alpha',\beta')]\cdot \vartheta(h,k)=[\beta,\beta']\vartheta(h,k))-\vartheta([\alpha',\alpha](k),h)-\vartheta(k,[\alpha',\alpha](h)).
+$$ Therefore, the action presented in (\ref{1}) is well defined. 
+
+Our goal now is to study the action of compatible pairs $\comp K I$ on subspaces $\ztwo K I$ and $\btwo K I$ of $\ctwo K I$. For this, consider that $K$ is a Lie algebra and $I$ a $K$-module. Then for all $k,h,l \in K$, $(\alpha,\beta) \in \comp K I$ and $\vartheta \in Z^2(K,I)$ we have 
 $$\begin{array}{rcl}
 (\alpha,\beta)\cdot \vartheta(k,[h,l])& = &\beta(\vartheta(k,[h,l]))-\vartheta(\alpha(k),[h,l])-\vartheta(k,\alpha([h,l]))\\ 
 & = & \beta(\vartheta(k,[h,l]))-\vartheta(\alpha(k),[h,l])-\vartheta(k,[\alpha(h),l])-\vartheta(k,[h,\alpha(l)]).
@@ -557,79 +619,86 @@ $$\begin{array}{rcl}
 \begin{multline*} X=\beta(\vartheta(k,[h,l]))+\beta(\vartheta(h,[l,k]))+\beta(\vartheta(l,[k,h])) \\
  -\vartheta(\alpha(k),[h,l])-\vartheta(\alpha(h),[l,k])-\vartheta(\alpha(l),[k,h]) \\
 -\vartheta(k,[\alpha(h),l])-\vartheta(h,[\alpha(l),k])-\vartheta(l,[\alpha(k),h]) \\
--\vartheta(k,[h,\alpha(l)])-\vartheta(h,[l,\alpha(k)])-\vartheta(l,[k,\alpha(h)])
+-\vartheta(k,[h,\alpha(l)])-\vartheta(h,[l,\alpha(k)])-\vartheta(l,[k,\alpha(h)]).\\
 \end{multline*}
 
-Using coclyce definition 
+Using cocycle definition 
 \begin{multline*}
-X=\beta([\vartheta(k,h),l])+\beta([\vartheta(h,l),k])+\beta([\vartheta(l,k),h])\\
--[\vartheta(\alpha(k),h),l]-[\vartheta(\alpha(h),l),k]-[\vartheta(\alpha(l),k),h]\\
--[\vartheta(k,\alpha(h)),l]-[\vartheta(h,\alpha(l)),k]-[\vartheta(l,\alpha(k)),h]\\
--[\vartheta(k,h),\alpha(l)]-[\vartheta(h,l),\alpha(k)]-[\vartheta(l,k),\alpha(h)].
+X=-\beta([k,\vartheta(h,l)])-\beta([h,\vartheta(l,k)])-\beta([l,\vartheta(k,h)])\\
++[\alpha(k),\vartheta(h,l)]+[\alpha(h),\vartheta(l,k)]+[\alpha(l),\vartheta(k,h)]\\
++[k,\vartheta(\alpha(h),l)]+[h,\vartheta(\alpha(l),k)]+[l,\vartheta(\alpha(k),h)]\\
++[k,\vartheta(h,\alpha(l))]+[h,\vartheta(l,\alpha(k))]+[l,\vartheta(k,\alpha(h))].\\
 \end{multline*}
 $(\alpha,\beta)$ is a compatible pair then we can replace in $X$ the equalities  
 
-$$\beta([\vartheta(k,h),l]) = [\beta(\vartheta(k,h)),l]+ [\vartheta(k,h)),\alpha(l)];$$
-$$\beta([\vartheta(h,l),k]) = [\beta(\vartheta(h,l)),k]+ [\vartheta(h,l)),\alpha(k)];$$
-$$\beta([\vartheta(l,k),h]) = [\beta(\vartheta(l,k)),h]+ [\vartheta(l,k)),\alpha(h)].$$
-
+$$\beta([k,\vartheta(h,l)]) = [\alpha(k),\vartheta(h,l)]+ [k,\beta(\vartheta(h,l))];$$
+$$\beta([h,\vartheta(l,k)]) = [\alpha(h),\vartheta(l,k)]+ [h,\beta(\vartheta(l,k))];$$
+$$\beta([l,\vartheta(k,h)]) = [\alpha(l),\vartheta(k,h)]+ [l,\beta(\vartheta(k,h))];$$
 Hence
 \begin{multline*}
-X=[\beta(\vartheta(k,h)),l]+[\beta(\vartheta(h,l)),k]+[\beta(\vartheta(l,k)),h]\\
--[\vartheta(\alpha(k),h),l]-[\vartheta(\alpha(h),l),k]-[\vartheta(\alpha(l),k),h]\\
--[\vartheta(k,\alpha(h)),l]-[\vartheta(h,\alpha(l)),k]-[\vartheta(l,\alpha(k)),h].\\
+X=-[k,\beta(\vartheta(h,l))]-[h,\beta(\vartheta(l,k))]-[l,\beta(\vartheta(k,h))]\\
++[k,\vartheta(\alpha(h),l)]+[h,\vartheta(\alpha(l),k)]+[l,\vartheta(\alpha(k),h)]\\
++[k,\vartheta(h,\alpha(l))]+[h,\vartheta(l,\alpha(k))]+[l,\vartheta(k,\alpha(h))].\\
 \end{multline*} Again, by action definition we obtain
-$$X=[(\alpha,\beta)\cdot\vartheta(h,l),k]+[(\alpha,\beta)\cdot\vartheta(l,k),h]+[(\alpha,\beta)\cdot\vartheta(k,h),l].$$
+$$X=-[k,(\alpha,\beta)\cdot\vartheta(h,l)]-[h,(\alpha,\beta)\cdot\vartheta(l,k)]-[l,(\alpha,\beta)\cdot\vartheta(k,h)].$$
  So $(\alpha,\beta)\cdot\vartheta \in Z^2(K,I)$.
  
- Now suppose that $\vartheta \in B^2(K,I)$. Then there is a linear map $\nu:K \to I$ such that
+ Now suppose that $\vartheta \in \btwo K I$. Then there is a linear map $T:K \to I$ such that
  \begin{equation}
- {\label{1.4}} \vartheta(k,h)= \nu([k,h])-[\nu(k),h]-[k,\nu(h)].
+ {\label{1.4}} \vartheta(k,h)= T([k,h])+[h,T(k)]-[k,T(h)].
  \end{equation}
  
 Let $Y=(\alpha,\beta)\cdot \vartheta(k,h)$. By (\ref{1.4}) we have 
+ $$
+ Y=(\alpha,\beta)\cdot( T([k,h])+[h,T(k)]-[k,T(h)]).
+$$
  
- $$Y=(\alpha,\beta)\cdot(\nu([k,h])-(\alpha,\beta)\cdot([\nu(k),h])-(\alpha,\beta)\cdot([k,\nu(h)]).$$ Using action difinition we have
+  Using action definition we have
+ \begin{multline*}
+Y  =  \beta T([k,h])+\beta([h,T(k)])- \beta([k,T(h)]) \\
+    -T([\alpha(h),k])-[\alpha(h),T(k)]+[\alpha(k),T(h)]\\
+    -T([k,\alpha(h)])-[h,T\alpha(k)]+[k,T \alpha (h)].\\
+\end{multline*}
+ We can use that $(\alpha,\beta)$ is a compatible pair in last equation
 \begin{multline*}
-Y=\beta(\nu([k,h]))-\nu([\alpha(k),h])-\nu([k,\alpha(h)])\\
--\beta([\nu(k),h])+[\nu(\alpha(k)),h]+[\nu(k),\alpha(h)]\\
--\beta([k,\nu(h)])+[\alpha(k),\nu(h)]+[k,\nu(\alpha(h))],
-\end{multline*} 
- we can use that $\alpha$ is a derivation and $(\alpha,\beta)$ is a compatible pair to conclude
-\begin{multline*}
-Y=\beta\nu([k,h])-\nu\alpha([k,h])\\
--[\beta\nu(k),h]-[\nu(k),\alpha(h)]+[\nu\alpha(k),h]+[\nu(k),\alpha(h)]\\
--[\beta(k),\nu(h)]-[k,\beta\nu(h)]+[\beta(k),\nu(h)]+[k,\nu\alpha(h)],
+Y=\beta T([k,h])+[\alpha(h),T(k)]+[h,\beta T (k)]-[\alpha(k),T(h)]- [k, \beta T (h)]\\
+-T([\alpha(k),h])-[\alpha(h),T(k)]+[\alpha(k),T(h)]\\
+    -T([k,\alpha(h)])-[h,T\alpha(k)]+[k,T \alpha (h)]\\
+=\beta T([k,h])+[h,\beta T (k)]- [k, \beta T (h)]\\
+-T([\alpha(k),h]) -T([k,\alpha(h)])-[h,T\alpha(k)]+[k,T \alpha (h)]\\
 \end{multline*}  
- Hence, $$Y=(\beta\nu-\nu \alpha)[k,h]-[(\beta\nu-\nu \alpha)(k),h]+[k,(\beta\nu-\nu \alpha)(h)].$$
- If $T=\beta\nu-\nu \alpha:K \to I$ then $$(\alpha,\beta)\cdot \vartheta(k,h)=T([k,h])-[T(k),h]-[k,T(h)].$$ Therefore,  $(\alpha,\beta)\cdot\vartheta \in B^2(K,I)$.\begin{flushright}
- \cqd
- \end{flushright}
+ Hence, $$Y=(\beta T-T \alpha)([k,h])-[h,(\beta T-T \alpha)(k)]+[k,(\beta T-T \alpha)(h)].$$
+ If $U=\beta T-T \alpha:K \to I$ then $$(\alpha,\beta)\cdot \vartheta(k,h)=U([k,h])-[h,U(h)]-[k,U(h)].$$ Therefore,  $(\alpha,\beta)\cdot\vartheta \in \btwo K I$. We just proof
  
- This result allow us to define an action of $Comp(K,I)$ on $H^2(K,I)$: let $\vartheta \in Z^2(K,I)$ and $(\alpha, \beta) \in Comp(K,I)$. Define the action \begin{equation}{\label{acaoind}}
-  (\alpha,\beta)\cdot (\vartheta +B^2(K,I))=((\alpha,\beta)\cdot \vartheta)+B^2(B,I).
+  
+\begin{prop}{\label{inva}} Let $K$ be a Lie algebra and $I$ a $K$-module. Consider the action of \newline $\comp K I$ on $C^2(K,I)$ defined in ({\ref{1}}). Then the vector spaces $Z^2(K,I)$ and $\btwo K I$ are invariants by this action.
+\end{prop}
+
+
+ This result allow us to define an action of $\comp K I$ on $H^2(K,I)$: let $\vartheta \in Z^2(K,I)$ and $(\alpha, \beta) \in \comp K I$. Define the action \begin{equation}{\label{acaoind}}
+  (\alpha,\beta)\cdot (\vartheta +\btwo K I)=((\alpha,\beta)\cdot \vartheta)+\btwo K I.
  \end{equation}
- This is well defined by \textbf{Proposition \ref{inva}}.
+ This is well defined by Proposition \ref{inva}.
  
-  \begin{df}  Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in Z^2(K,I)$ and consider the action of $Comp(K,I)$ on $H^2(K,I)$ defined in (\ref{acaoind}). Define the set of induced pairs of $Comp(K,I)$ by  $$Indu(K,I,\vartheta)=Ann_{Comp(K,I)}(\vartheta+B^2(K,I)).$$
+  \begin{df}  Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in Z^2(K,I)$ and consider the action of $\comp K I$ on $H^2(K,I)$ defined in (\ref{acaoind}). Define the set of induced pairs of $\comp K I$ by  $$Indu(K,I,\vartheta)=Ann_{\comp K I}(\vartheta+\btwo K I).$$
  \end{df}
 
 \vspace{0,5cm}
 
-Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivation $d \in Der(K_\vartheta)$. Let $P_K:K_\vartheta\to K$ and $P_I:K_\vartheta\to I$ the natural projection of $K_\vartheta$ on $K$ and $K_\vartheta$ on $I$, respectively. Define the maps
+Now we have the tools needed to describe the Lie algebra $\der {K_\vartheta}$ from the Lie algebra $\der K $. We will define a homomorphism $\phi : \der {  K_\vartheta} \to \der K$, which kernel is known and the image coincides with the induced pairs defined above. So, using the first theorem of isomorphisms for Lie algebras we have $\der {  K_\vartheta}$ is isomorphic to $\ker \phi \oplus \im \phi$ but these subspaces correspond to structures: $\ker \phi \cong \sf Z^1 (K,I)$ and $\im \phi \cong \sf Indu (K,I, \vartheta)$. One application of this type of construction is  use known information of algebra $\der K$ to obtain information about algebra $\der K_\vartheta$ as the existence of non-singular derivations. Therefore, this method will allow us to study some properties of Lie algebras extensions by cocycles. First we define $\phi$.
+
+
+Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and $d \in \der K_{\vartheta}$. Suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivation $d$. Set $P_K:K_\vartheta\to K$ and $P_I:K_\vartheta\to I$ to be the natural projections of $K_\vartheta$ on $K$ and $K_\vartheta$ on $I$ then define the maps
 \begin{itemize}{\label{w}}
 \item $\alpha:K \to K$ by $\alpha(k)=P_K d(k)$, for all $k \in K$;
 \item $\beta:I \to I$ by $\beta(a)=d(a),$ for all $a \in I$;
 \item $\varphi:K \to I$ by $\varphi(k)=P_I d(k),$ for all $k \in K$.
-\end{itemize} Then,   
+\end{itemize} For each $x+a \in K_\vartheta$ we have   
 \begin{equation}{\label{3}}
 d(x+a)=\alpha(x)+\varphi(x)+\beta(a) \mbox{ for all } a \in I \mbox{ and } x \in K.
 \end{equation}   
-   Hence, $\beta \in Der(I)$, $\alpha \in Der(K)$ and $\varphi \in Hom(K,I).$
-
- We can see that $\beta$ is a derivation of $I$ bacause it is restriction of $d$ to $I$. 
- 
- Let $x,y \in K$. By product definition on $K_\vartheta$ we have 
+   
+ We can see that $\beta$ is a derivation of $I$ because it is restriction of $d$ to $I$. To see that $\alpha \in \der K$ let $x,y \in K$. Then by product definition on $K_\vartheta$  
  $$d([x,y]_\vartheta)=d([x,y]_K+\vartheta(x,y)).$$ By decomposition showed in (\ref{3}) $$d([x,y]_\vartheta)=\alpha([x,y]_K)+\varphi([x,y]_K)+\beta(\vartheta(x,y)).$$ 
  
  We can calculate\begin{equation}\label{1.5}
@@ -638,54 +707,56 @@ d(x+a)=\alpha(x)+\varphi(x)+\beta(a) \mbox{ for all } a \in I \mbox{ and } x \in
  [d(x),y]_\vartheta+[x,d(y)]_\vartheta=[\alpha(x),y]_K+[x,\alpha(y)]_K+ \vartheta(\alpha(x),y) \\ +\vartheta(y,\alpha(x))+ [\varphi(x),\alpha(y)]-[\varphi(y),\alpha(x)].
 \end{multline}
  
-Comparing the components of $K$ in (\ref{1.5}) and (\ref{1.6}) we have $$\alpha([x,y]_K)=[\alpha(x),y]_K+[x,\alpha(y)]_K.$$ So $\alpha \in Der(K).$
+Comparing the components of $K$ in (\ref{1.5}) and (\ref{1.6}) we have $$\alpha([x,y]_K)=[\alpha(x),y]_K+[x,\alpha(y)]_K,$$ and $\alpha \in \der K$. 
+
+
+Now it's possible define our homomorphism $\phi$. Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. For all $x+a \in  K_{\vartheta}$ and $ d \in \der K_{\vartheta}$  write $d(x+a)=\alpha(x)+\beta(a)+\varphi(x)$ with $\alpha \in der K$ and $\beta \in \der I$. Then define $\phi:Der(K_\vartheta) \to Der(K)\oplus Der(I)$ by \begin{equation}{\label{defphi2}}
+\phi(d)=(\alpha,\beta).
+\end{equation}
  
-
-\begin{prop}{\label{defphi2}} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. From the decomposition showed in (\ref{3}) define $\phi:Der(K_\vartheta) \to Der(K)\oplus Der(I)$ by $\phi(d)=(\alpha,\beta)$. Then $\phi$ is a Lie algebra morphism.
-\end{prop}
-
-\prova Let $d,d' \in Der(K_\vartheta)$ and $x \in K$ such that  
+The following will check that $\phi$ is a Lie algebra morphism. Let $d,d' \in Der(K_\vartheta)$ and $x \in K  a \in I$ such that  
 $$ \begin{array}{rcl}
 d(x+a) & = & \alpha(x)+ \varphi(x)+\beta(a) \\
-d'(x+a) & = & \alpha'(x)+ \varphi'(x)+\beta'(x) ,
-\end{array}$$ for all $x \in K$ and $a \in I$. Then,
+d'(x+a) & = & \alpha'(x)+ \varphi'(x)+\beta'.(x) ,
+\end{array}$$ Then
 $$\begin{array}{rcl}
  dd'(x)   & = & d(\alpha'(x)+\varphi'(x)) \\
            & = & \alpha \alpha'(x)+\varphi(\alpha'(x))+\beta'(\varphi'(x)). \\
-\end{array}$$ Hence, $P_K dd'(x)=\alpha \alpha'(x).$ Analogously, $P_K d'd(x)=\alpha' \alpha'(x).$ So $P_K([d,d'])=[\alpha,\alpha']$. As $\beta$ and $\beta'$ are defined by $d$ and $d'$ restriction to $I$ then $P_I([d,d'])=[\beta,\beta']$. Therefore,
+\end{array}$$ Hence, $P_K dd'(x)=\alpha \alpha'(x).$ Analogously, $P_K d'd(x)=\alpha' \alpha(x).$ So $P_K([d,d'])=[\alpha,\alpha']$. As $\beta$ and $\beta'$ are defined by restriction of $d$ and $d'$ to $I$, respectively, then $P_I([d,d'])=[\beta,\beta']$. Therefore,
 $$ \phi([d,d'])=([\alpha,\alpha'],[\beta, \beta'])=[(\alpha,\beta),(\alpha',\beta')]=[\phi(d),\phi(d')].$$ 
  \begin{flushright}
 \cqd
 \end{flushright}
 
-\begin{teo}{\label{comp<im}} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. Let $\phi: Der(K_\vartheta) \to Der(K)\oplus Der(I)$ given by $\phi(d)=(\alpha,\beta)$, defined in \textbf{Proposition {\ref{defphi2}}}. Then $Im(\phi)\leq Comp(K,I).$
+The next result presents the first connection between compatible pairs and the homomorphism $\phi$. 
+
+\begin{teo}{\label{comp<im}} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. Let $\phi: Der(K_\vartheta) \to Der(K)\oplus Der(I)$ given by $\phi(d)=(\alpha,\beta)$, defined in {\ref{defphi2}}. Then $Im(\phi)\leq \comp K I.$
 \end{teo}
-\prova  Let $(\alpha,\beta) \in Im(\phi)$. Then there is $d \in Der(K_\vartheta)$ such that $\phi(d)=(\alpha,\beta)$. If $k \in K$ and $a \in I$ then 
+\begin{proof} Let $(\alpha,\beta) \in Im(\phi)$. Then there is $d \in Der(K_\vartheta)$ such that $\phi(d)=(\alpha,\beta)$. If $k \in K$ and $a \in I$ then 
 $$\begin{array}{rclc}
-\beta([a,k]_\vartheta)  &= &  d([a,k]_\vartheta) & [a,k] \in I\\
+\beta([k,a]_\vartheta)  &= &  d([k,a]_\vartheta) & [k,a] \in I\\
 &&& \\
-&= &  [d(a),k]_\vartheta+[a,d(k)]_\vartheta & d \in Der(K_\vartheta)\\
+&= &  [d(k),a]_\vartheta+[k,d(a)]_\vartheta & d \in \der {K_\vartheta}\\
 &&& \\
-&= &  [\beta(a),k]_\vartheta+[a,\alpha(k)+\varphi(k)]_\vartheta & \\
+&= &  [\alpha(k)+\varphi(k),a]_\vartheta+[k,\beta(a)]_\vartheta & \\
 &&& \\
-&= &  [\beta(a),k]_\vartheta+[a,\alpha(k)]_\vartheta & \mbox{ because $I$ is abelian }\\
+&= &  [\alpha(k),a]_\vartheta+[k,\beta(a)]_\vartheta & \mbox{ because $I$ is abelian }\\
 \end{array}$$
 
+\end{proof}
 
-\begin{flushright}
-\cqd
-\end{flushright}
 
- \begin{teo} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in H^2(K,I)$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. Let $\phi:Der(K_\vartheta) \to Der(K) \oplus Der(I)$ given by $\phi(d)=(\alpha,\beta)$. Then:
+
+ \begin{teo}{\label{DerExt}} Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. Let $\phi:\der {K_\vartheta} \to \der K \oplus \der I$ given by $\phi(d)=(\alpha,\beta)$. Then:
  
  \begin{enumerate}
- \item $Im(\phi)=Indu(K,I,\vartheta)$
-  \item $ker(\phi) \cong Z^1(K,I)$
+ \item $\im \phi= \sf Indu (K,I,\vartheta)$
+  \item $\ker \phi \cong \sf Z^1 (K,I)$
   \end{enumerate}
 \end{teo}
-\prova 1) Let $(\alpha,\beta) \in Indu(K,I,\vartheta)$. By definition  $$(\alpha,\beta)\cdot \vartheta=0  \mbox{ mod }  B^2(K,I).$$ Then, there is a linear map $T:K \to I$ such that for all $k,h \in K$ we have
+\begin{proof} 1) Let $(\alpha,\beta) \in \sf Indu(K,I,\vartheta)$. By definition  $$(\alpha,\beta)\cdot \vartheta=0  \mbox{ mod }  \btwo K I.$$ Then there is a linear map $T:K \to I$ such that for all $k,h \in K$ we have
  \begin{equation}{\label{2}}
-  \vartheta(\alpha(k),h)+\vartheta(k,\alpha(h))+[T(k),h]-[T(h),k]=\beta(\vartheta(k,h))+T([k,h]).
+  \vartheta(\alpha(k),h)+\vartheta(k,\alpha(h))+[k,T(h)]-[h,T(k)]=\beta(\vartheta(k,h))+T([k,h]).
 \end{equation}
 
  Let $k \in K$, $a \in I$ and define the linear map $(\alpha,\beta)^*:K_\vartheta  \to  K_\vartheta$ by $$(\alpha,\beta)^*(k+a)=\alpha(k)+\beta(a)+T(k).$$
@@ -693,78 +764,193 @@ $$\begin{array}{rclc}
   $$X= (\alpha,\beta)^*([k+a,h+b]_\vartheta)$$
    then
  $$\begin{array}{rcl}
-X & = & (\alpha,\beta)^*([k,h]_K+\vartheta(k,h)+[a,h]-[b,k])\\
-& = & \alpha([k,h]_K)+\beta(\vartheta(k,h))+\beta([a,h])-\beta([b,k])+ T([k,h]_K).\\
+X & = & (\alpha,\beta)^*([k,h]_K+\vartheta(k,h)+[k,b]-[h,a])\\
+& = & \alpha([k,h]_K)+\beta(\vartheta(k,h))++\beta([k,b])-\beta([h,a])+ T([k,h]_K).\\
 \end{array}$$
 Now, let $$Y=[(\alpha+\beta)^*(k+a),h+b]_\vartheta+[k+a,(\alpha+\beta)^*(h+b)]_\vartheta. $$
 
 We have
 $$\begin{array}{rcl}
  [(\alpha+\beta)^*(k+a),h+b]_\vartheta& = & [\alpha(k)+\beta(a)+T(k),h+b]_\vartheta\\
- & = & [\alpha(k),h]_K+\vartheta(\alpha(k),h)+[\beta(a)+T(k),h]-[b,\alpha(k)] \\
+ & = & [\alpha(k),h]_K+\vartheta(\alpha(k),h)+[\alpha(k),b]-[h,\beta(a)+T(k)] \\
  \end{array}$$ and
 $$\begin{array}{rcl}
 [k+a,(\alpha+\beta)^*(h+b)]_\vartheta & = & [k+a,\alpha(h)+\beta(b)+T(h)]\\
- & = & [k,\alpha(h)]_K+\vartheta(k,\alpha(h))+[a,\alpha(h)]-[\beta(b)+T(h),k]\\
+ & = & [k,\alpha(h)]_K+\vartheta(k,\alpha(h))+[k,\beta(b)+T(h)]-[\alpha(h),a]\\
  \end{array}$$ then
  \begin{multline*}
  Y=\alpha([k,h]_K)+ \vartheta(\alpha(k),h)+\vartheta(k,\alpha(h)) \\
-+ [T(k),h]-[T(h),k] +[\beta(a),h])+[a,\alpha(h)] -[\beta(b),k]-[b,\alpha(k)].
++[\alpha(k),b] -[h,\beta(a)]- [h,T(k)]+[k,\beta(b)] +[k,T(h)]-[\alpha(h),a] .
  \end{multline*}
 
 By compatible pair definition we get 
 \begin{multline*}
 Y=\alpha([k,h]_K)+ \vartheta(\alpha(k),h)+\vartheta(k,\alpha(h)) 
-+\beta([a,h])-\beta([b,k])+[T(k),h]-[T(h),k].
++\beta([k,b])-\beta([h,a])-[h,T(k)]+[k,T(h)].
 \end{multline*}
 
 By equation ({\ref{2}}) 
-$$Y=\alpha([k,h]_K)+\beta(\vartheta(h,k))+T([k,h])+\beta([a,h])-\beta([b,k]).$$ 
+$$Y=\alpha([k,h]_K)+\beta(\vartheta(h,k))+T([k,h])+\beta([k,b])-\beta([h,a]).$$ 
 
 As $X=Y$ then $(\alpha,\beta)^*$ is a derivation.
 
- Besides, observe that $P_K(\alpha,\beta)^*=\alpha$ and $P_I(\alpha,\beta)^*=\beta$. Hence $\phi((\alpha+\beta)^*)=\alpha+\beta$ , that is, $Indu(K,I,\vartheta) \subseteq Im(\phi)$. 
+ Besides, observe that $P_K(\alpha,\beta)^*=\alpha$ and $P_I(\alpha,\beta)^*=\beta$. Hence $\phi((\alpha+\beta)^*)=\alpha+\beta$ , that is, $\sf Indu(K,I,\vartheta) \subseteq \im \phi$. 
  
- Now, suppose that $(\alpha+\beta) \in Im(\phi)$. Then there is $d \in Der(K_\vartheta)$ such that $$\phi(d)=(\alpha+\beta).$$ By \textbf{Theorem \ref{comp<im}} we have $Im(\phi) \subseteq Comp(K,I)$. Then it is enough show that there is a linear map $T:K \to I$ such that the equation \ref{2} is satisfied.
+ Now, suppose that $(\alpha+\beta) \in \im \phi$. Then there is $d \in \der {K_\vartheta}$ such that $$\phi(d)=(\alpha+\beta).$$ By Theorem \ref{comp<im} we have $\im \phi \subseteq \comp K I$. Then it is enough show that there is a linear map $T:K \to I$ such that the equation (\ref{2}) is satisfied.
  
   For each $k+a \in K_\vartheta$ we can use the decomposition defined in ({\ref{3}}) to write  $$d(k+a)=\alpha(k)+\varphi(k)+\beta(a).$$ By product definition in $K_\vartheta$ we get    
  $$\begin{array}{rcl}
  [d(k+a),h+b]_\vartheta & = &[\alpha(k)+\varphi(k)+\beta(a),h+b]_\vartheta\\
- & = &  [\alpha(k),h]_K+\vartheta(\alpha(k),h)+[\varphi(k)+\beta(a),h]-[b,\alpha(k)]\\
+ & = &  [\alpha(k),h]_K+\vartheta(\alpha(k),h)+\beta(a)]+[\alpha(k),b]-[h,\varphi(k)\\
  \end{array}$$
  
  $$\begin{array}{rcl}
  [k+a,d(h+b)]_\vartheta& = &[k+a,\alpha(h)+\varphi(h)+\beta(b)]_\vartheta\\
- & = & [k,\alpha(h)]_K+\vartheta(k,\alpha(h))+[a,\alpha(h)]-[\varphi(h)+\beta(b),k] \\
+ & = & [k,\alpha(h)]_K+\vartheta(k,\alpha(h)]+[k,\varphi(h)+\beta(b)]-[\alpha(h),a \\
  \end{array}$$
  
  $$\begin{array}{rcl}
-d([k+a,h+b]_\vartheta) & = & d([k,h]_K+\vartheta(k,h)+[a,h]-[b,k])\\
- & = &  \alpha([k,h]_K)+\beta(\vartheta(k,h))+\beta([a,h])-\beta([b,k])+\varphi_d([k,h])\\
+d([k+a,h+b]_\vartheta) & = & d([k,h]_K+\vartheta(k,h)+[k,b]-[h,a])\\
+ & = &  \alpha([k,h]_K)+\beta(\vartheta(k,h))+\beta([k,b])-\beta([h,a])+\varphi_d([k,h])\\
  \end{array}$$
  
- As $d$ is a derivation then we have equality  $$d[k+a,h+b]=[d(k)+a,h+b]=[k+a,d(h)+b].$$
-  SO, 
+ As $d$ is a derivation then we have equality  $$d[k+a,h+b]=[d(k)+a,h+b]+[k+a,d(h)+b].$$
+  So, 
   $$ \beta(\vartheta(k,h))+\varphi([k,h])
-=\vartheta(\alpha(k),h)+[\varphi(k),h]+\vartheta(k,\alpha(h))-[\varphi(h),k]. 
+=\vartheta(\alpha(k),h)+[k,\varphi(h)]-[h,\varphi(k)]+\vartheta(k,\alpha(h)). 
  $$
-  Therefore $T=\varphi$ satisfies the equation (\ref{2}) e $Im(\phi) \subseteq Indu(K,I,\vartheta).$
+  Therefore $T=\varphi$ satisfies the equation (\ref{2}) e $\im \phi \subseteq \sf Indu(K,I,\vartheta).$
  \vspace{0,5cm}  
 
- 2) Let $d \in ker(\phi)$. The decomposition showed in (\ref{3}) provide us $$d(k)=\varphi(k),k \in K.$$ Let $k,h \in K$. By derivation definition \begin{equation}{\label{4}}
+ 2) Let $d \in \ker \phi$. The decomposition showed in (\ref{3}) provide us $$d(k)=\varphi(k),k \in K.$$ Let $k,h \in K$. By derivation definition \begin{equation}{\label{4}}
  d([k,h]_\vartheta)=[d(k),h]_\vartheta+[k,d(h)]_\vartheta.
 \end{equation}
- By product definition in $K_\vartheta$ we can write (\ref{4}) as
-  $$d([k,h]_K+\vartheta(k,h))=[\varphi(k),h]_\vartheta+[k,\varphi(h)]_\vartheta.$$
- Because $d \in Ker(\phi)$ then (\ref{4}) it is equal to
-  $$\varphi([k,h]_K)=[\varphi(k),h]_K-[\varphi(h),k]_K.$$ Hence, $\varphi \in Z^1(K,I)$. Now define $\sigma:ker(\phi) \to (Z^1(K,I),+)$ by $\sigma(d)=\varphi_d$ such that $\varphi_d(k)=d(k)$. Then $\sigma(Ker(\phi)) \subseteq Z^1(K,I)$. 
+ We can use product definition in $K_\vartheta$ to write 
+  $$d([k,h]_\vartheta)=d([k,h]_K+\vartheta(k,h)=\varphi([k,h]_K).$$
+ By other hand,  $$[d(k),h]_\vartheta+[k,d(h)]_\vartheta=[k,\varphi(h)]_\vartheta-[h,\varphi(k)]_\vartheta=[k,\varphi(h)]-[h,\varphi(k)].$$
   
-  Let $d,d' \in ker(\phi)$. Then $$\sigma(d+d')(k)=\varphi_{d+d'}(k)=(d+d')(k)=d(k)+d'(k)=\varphi(k)+\varphi'(k)=(\sigma(d)+\sigma(d'))(k).$$  So $\sigma$ it is group homomorfism.
+ Then (\ref{4}) it is equal to $$\varphi([k,h]_K)=[k,\varphi(k)]-[h, \varphi(k)],$$
+   and $\varphi \in  \sf Z^1(K,I)$. Now define $\sigma: \ker \phi \to \sf Z^1(K,I),+)$ by $\sigma(d)=\varphi_d$ such that $\varphi_d(k)=d(k)$. Then $\sigma( \ker \phi ) \subseteq \sf Z^1(K,I)$. 
+  
+  Let $d,d' \in \ker \phi$. Then $$\sigma(d+d')(k)=\varphi_{d+d'}(k)=(d+d')(k)=d(k)+d'(k)=\varphi(k)+\varphi'(k)=(\sigma(d)+\sigma(d'))(k).$$  So $\sigma$ it is group homomorphism.
  
- If $d,d' \in Ker(\phi)$ such that $\sigma(d)=\sigma(d')$ then $\varphi_d(k)=\varphi_{d'}(k),$ for all $k \in K$ and $d=d'$. Let $T \in Z^1(K,I)$ and define $d:K_\vartheta \to K_\vartheta$ by $$d(x+a)=T(x), x \in K, a \in I.$$ $d$ is a derivation because $$d([k+a,h+b]_\vartheta)=T([k,h]_K)$$ and $$[d(k+a),h+b]_\vartheta+[k+a,d(h+b)]_\vartheta=[T(k),h]_K+[k+T(h)]_K.$$
- It follows that $\sigma(d)=T$. Therefore, $\sigma$ is isomorphism\begin{flushright}
- \cqd
- \end{flushright}
+ If $d,d' \in \ker \phi$ such that $\sigma(d)=\sigma(d')$ then $\varphi_d(k)=\varphi_{d'}(k),$ for all $k \in K$ and $d=d'$. Let $T \in \sf Z^1(K,I)$ and define $d:K_\vartheta \to K_\vartheta$ by $$d(x+a)=T(x), x \in K, a \in I.$$ $d$ is a derivation because 
+$$ d([k+a,h+b]_\vartheta)=d([k,b]_K+\vartheta(k,h)+[k,b]-[h,a]) 
+ =T([k,h]_K)$$ and 
+ \begin{multline*}
+ [d(k+a),h+b]_\vartheta+[k+a,d(h+b)]_\vartheta=[T(k),h+b]_\vartheta+[k+a,T(h)]_\vartheta \\
+ =[k,T(h)]-[h,T(k)].
+ \end{multline*}
+ It follows that $\sigma(d)=T$. Therefore, $\sigma$ is isomorphism
+\end{proof}
+ 
+ \subsection{Compatible pairs and Jacobson Theorem}{\label{secJacobson}} 
+ 
+In this section we show some examples of the use of compatible pairs.
+
+ \begin{ex}{\label{0.7}} Let $K$ and $I$ be finite dimensional Lie algebras over an algebraically closed field $\F$. Suppose that $K$ act on $I$ by representation $\psi:K \to Der(I)$. Let $D \subseteq \comp K I $ be a subalgebra. By Proposition \ref{compsdsum}, $D \subseteq \der L $. If $D$ is nilpotent then $L$ has a decomposition in generalized eigenspaces of $D$. This decomposition induces decompositions in $K$ and $I$, because as subspaces of $L$ they are invariants by $D$. Hence, $$L=K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_r} \oplus I_{\mu_1}\cdots\oplus I_{\mu_s}.$$ In particular, we have $[K_{\lambda_i},I_{\mu_j}]\subseteq I_{\lambda_i+\mu_j}$ if $\lambda_i+\mu_j$ is eigenvalue of $D$ in $I$. Otherwise $[K_{\lambda_i},I_{\mu_j}]=0$.
+\end{ex} 
+From this example we can state a result:
+
+\begin{prop} \label{0.6} Let $K$ and $I$ be finite dimensional Lie algebras over an algebraically closed field $\F$. Suppose that $K$ act on $I$ by representation $\psi:K \to Der(I)$. Let $D \subseteq \comp K I $ be a subalgebra.  Suppose that 0 is not generalized eigenvalue of $D$. Then if either characteristic of $\F$ is zero or either characteristic of $\F$ is $p$ and $D$ has at most $p-1$ generalized eigenvalues the   $\psi(K)$ is nilpotent.
+\end{prop}
+
+\begin{proof}Let $L=K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_r} \oplus I_{\mu_1}\cdots\oplus I_{\mu_s}$ the eigenspace decomposition present in Example \ref{0.7}. Suppose that 0 is not generalized eigenvalue of $D$. Let $E_K= \{ \lambda_1, \cdots, \lambda_r \}$ and $E_I=\{\mu_1, \cdots, \mu_s \}$ be generalized eigenvalue  of $D$ in $K$ and $I$, respectively. Let $k \in K_{\alpha_j}, a \in I_{\mu_i}$ then
+ 
+ $$\left\lbrace\begin{array}{ccl}
+\psi^n(k)(a) \in I_{\mu_i+n\lambda_j} & if & \mu_i+n\lambda_j \in E_I \\ 
+\psi^n(k)(a) =0  & if & \mu_i+n\lambda_j \notin E_I \\ 
+\end{array} \right.$$
+\begin{itemize}
+\item If characteristic of $\F$ is zero then the linear functions $\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+n \lambda_j \cdots$ are all distinct because $\lambda_j \neq 0$, so $\mu_i+n \lambda_j \notin E_I$ for some $n$ and $\psi(k)^n=0 $.
+\item  If $char(\F)=p$ and $s < p$ the set $\{\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+(p-1)\lambda_j,\mu_i\}$ has $p$ distinct elements and $E_I$ has at most $p-1$, then $\psi^n(k)=0$ for some $ n$ with $1 \leq n \leq p$.
+\end{itemize} 
+ In both cases  $\psi(k)$ is nilpotent for all $k \in K_{\lambda_j}$, $1 \leq j \leq r$. Let $S= \bigcup \psi(K_{\lambda_j})$. $S$ is a weakly closed set such that each element is associative nilpotent then $\psi(K)$ is nilpotent.
+\end{proof}
+
+  For our next example we need some result about traces os matrices.
+ 
+\begin{prop}{\label{0.9}} Let $\F$ be a field of characteristic $p$. Suppose that $A \in  M(n, \F)$ with n<p or p=0. Then $A$ is nilpotent if, and only if, the trace of matrices $A^r$ is zero, for $1 \leq r \leq n$.
+\end{prop}
+\begin{proof} Let $\bar{\F}$ the algebraic closure of $F$ e consider $A$ in its Jordan normal form. This can be done because Jordan normal form is obtained from $A$ by conjugation of matrices over $\F$. But since trace and nilpotency of matrices are invariants by conjugation our results still valid for $A$. We will use that a matrix is nilpotent if, and only if, zero is its only eigenvalue.
+
+$A$ can be seen as a diagonal block matrix where each block is formed by grouping the blocks associated to same eigenvalue. Denote by $A_j$ the block associated to eigenvalue $\lambda_t \in \overline{\F}$ and by $n_j$ its order. Let $\lambda_1, \cdots,\lambda_k$ be the non-zero eigenvalues of $A$. Then 
+\begin{equation}{\label{1.0}}
+tr(A^r)=n_1 \lambda_1^n+\cdots+n_k\lambda_k^n 
+\end{equation}
+
+Suppose that $A$ is nilpotent. Then zero is the only eigenvalue of $A$ and by equation ({\ref{1.0}}) we have $tr(A^r)=0$ for $1 \leq r \leq n$.
+
+ Conversely, suppose that $tr(A^r)=0$ for $1 \leq r \leq n$. From equation  ({\ref{1.0}}) we can extract the system 
+ 
+ \begin{equation}{\label{0.8}}
+n_1 \lambda_1^r+\cdots+n_k\lambda_k^r=0, \hspace{1cm} 1 \leq r \leq k,
+\end{equation} 
+
+in the variables  $n_1, \cdots, n_k$, whose matrix of coefficients is
+
+$$C= \begin{bmatrix}
+\lambda_1 & \lambda_2 & \cdots & \lambda_k \\
+\lambda_1^2 & \lambda_2^2 & \cdots & \lambda_k^2 \\
+\vdots & \vdots &\ddots & \vdots \\
+\lambda_1^k & \lambda_2^k & \cdots & \lambda_k^k \\
+
+\end{bmatrix}. $$ 
+
+Denote by $m_i(\lambda)$ the operation that multiplies the line $i$ of a matrix by $\lambda$ and $A^t$ the transposed matrix of $A$. So we can write $$C= m_1(\lambda_1).m_2(\lambda_2) \cdots m_k(\lambda_k).V,$$ where
+
+$$V= \begin{bmatrix}
+1 & \lambda_1 & \lambda_1^2 \cdots & \lambda_1^{k-1} \\
+1 & \lambda_2 & \lambda_2^2 \cdots & \lambda_2^{k-1} \\
+\vdots & \vdots& \vdots  & \vdots \\
+1 & \lambda_k & \lambda_k^2 \cdots & \lambda_k^{k-1} \\
+
+\end{bmatrix} $$ is the Vandermonde matrix in the variables $\lambda_1, \lambda_2, \cdots, \lambda_k$ whose determinant is $\det V=\prod_{1 \le i<j\le n}(\lambda_j-\lambda_i)$. As $\lambda_i$ are distinct we have that $\det V$ is non-zero. Then the determinant of $C$ is $\lambda_1.\lambda_2 \cdots \lambda_k . \det V$ and $C$ is non-singular. Follow that the system (\ref{0.8}) has only trivial solution. Therefore each $n_j$ is zero. If $p=0$ then zero is the only eigenvector of $A$, but if $p \neq 0$ then $n_j=0$ modulo $p$ doesn't imply $n_j=0$ and its necessary to use that each $n_j<p$ to conclude that zero is the only eigenvalue of $A$.  
+\end{proof}
+
+
+\begin{prop}{\label{1.2}} Let $\F$ be a field of characteristic $p$. Let $A,B,C \in M(n,\F)$ with $p=0$ or $n<p$. If $[A,B]=C+\lambda B$, $\lambda \in \F$ and $[B,C]=0$ then $[A,B^r]=rB^{r-1} C+\lambda r B^r$ for all $r \geq 1$. In particular, if $\lambda \neq 0$ and  $C$ is nilpotent then $B$ is nilpotent.
+\end{prop}
+\begin{proof} We proof this result by induction on $r$. The case $r=1$ follow from hypotheses. Suppose that resultis valid for $(r-1)$. Then, $[A,B^{r-1}]=(r-1)B^{r-2}C+\lambda (r-1)B^{r-1}$. We can rewrite this equation as
+ $$\lambda (r-1)B^{r-1} =  AB^{r-1}-B^{r-1}A -(r-1)B^{r-2}C.$$
+ Multiplying last equation to right by $B$ we have
+ $$\lambda (r-1)B^r =  AB^r-B^{r-1}(AB) -(r-1)B^{r-2}(CB),$$
+ From hypotheses we can write $AB=BA+C +\lambda B$ and $CB=BC$. Replacing them above we obtain  
+  $$\lambda (r-1)B^r = AB^r-B^rA -B^{r-1}C-\lambda B^r -(r-1)B^{r-1}C.$$
+  Therefore,  $$AB^r-B^rA = \lambda r B^r +r B^{r-1}C .$$
+  
+For the second result suppose $\lambda \neq 0$ and $C$ nilpotent with nilpotency index $m$. Using first part we have
+$$B^r = (1/\lambda r)[A,B^r] -(1/\lambda)B^{r-1}C, \mbox{ for all } r \geq 1.$$
+
+Observe that $(B^{r-1}C)^m=(B^{r-1})^m(C)^m=0$, Hence,for all $r \geq 1$ $B^{r-1}C$ is nilpotent and has trace zero by Proposition {\ref{0.9}}. As trace of commutators are always zero then $tr([A,B^r])=0$ for all $r \geq 1$. Follows that $tr(B^r)=0$ for all $r \geq 1$ and again by Proposition {\ref{0.9}} we conclude that $B$ is nilpotent.
+\end{proof}
+
+\begin{prop} {\label{adnilp}}Let $L$ be a Lie algebra, $I$ an ideal of $L$ such that $L/I$ is nilpotent and such that $\ad{I}{x}: I \to I$ is nilpotent for all $x \in L$. Then $L$ is nilpotent.
+\end{prop}
+\begin{proof} As $L/I$ is nilpotent then for each $x \in L$, $(\ad{I}{x+I})^n$ is a nilpotent endomorphism in $\ennd {L/I}$, i.e., there is $n>0$ such that $(\ad{}{x})^n(a) \in I$, for all $x \in L, a \in I$. In the other hand, $\ad{I}{x}$ is nilpotent, so we have a $m$ such that $(\ad{I}{x})^m(\ad{}{x})^n=0$, i.e., $(\ad{I}{x})^{m+n}=0$. So $\ad{}{x}$ is a nilpotent endomorphism in $  \gl L$. By Engel's theorem, $L$ is nilpotent.
+\end{proof}
+
+Now we can present a similar result the proposition \ref{0.6} but with a new proof using compatible pairs.
+
+\begin{teo}{\label{1.8}} Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p$ such that $K$ is nilpotent. Suppose that $K$ act on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and dimension of $I$ is less than $p$ then $Tr(\psi^n(k))=0$, for all $k \in K$. In these two cases, $\psi(k)$ is nilpotent. 
+\end{teo}
+
+\begin{proof} As $\alpha$ has no eigenvalue 0 then it is non-singular and by Proposition \ref{NonSDiag} $\alpha$ is semisimple. Let $x_1,...,x_s$ be a basis of $K$ such that $\alpha(x_i)=\lambda_i x_i$. For all $a \in \gl I$ denote by $[a]$ the matrix of $a$ in this base. Then $$[[\beta],[\psi(x_i)]]=\lambda_i[\psi(x_i)].$$ We can apply Proposition {\ref{1.2}} in this last equation for $A=\beta$, $B=\psi(x_{i})$, $C=0$ and  $\lambda=\lambda_i \neq 0$ to conclude that $\psi(x_i)$ is nilpotent for $1 \leq i \leq s$. Now we observe that if $K$ is a nilpotent Lie algebra in either characteristic is 0 or characteristic $p$ with dimension of $L$ less than $p$ then Lie theorem is valid. Lie theorem grants that there is a basis of $I$ such that all matrices of representation $\psi$ is upper triangular. Therefore, the matrices $[\psi(x_i)]$ are strictly upper triangular. Then all $\psi(k)$, for all $k \in K$, has only 0 in diagonal, because they are linear combination of $\psi(x_i)$. Hence every $\psi(k)$ is nilpotent.
+\end{proof} 
+
+\begin{cor} Let $L$ be a solvable Lie algebra over a field $\F$ of characteristic $p$. Suppose that $L$ has a nonsingular derivation. If either $p=0$ or $p>0$ and dimension of $L^{(i)}/L^{(i+1)} <p$ then $L$ is nilpotent.
+\end{cor}
+
+\begin{proof} Suppose that $L \geq L^{(1)} \geq \cdots \geq L^{(k)} \geq L^{(k+1)}=0 $ is the derived series of $L$. Define $L_0=L$ and $L_i=L_{i-1}/L_{i-1}^{(k+1-i)}, 1 \leq i \leq k-1$. As each term of derived series are invariant by derivations then each $L_i$ has a non-singular derivation. In particular, $L_{k-1}$ is an solvable Lie algebra of derived length 2 with non-singular derivation. Then by theorem \ref{1.8} $\ad{}{k}$ is nilpotent for all $k \in L_{k-1}$ and by Proposition \ref{adnilp} $L_{k-1}$ is nilpotent. By induction we have that $L_i$ is nilpotent for every $0 \leq i \leq k-1$. Hence $L$ is nilpotent
+\end{proof}
+ 
+\section{Solvable non-nilpotent modular Lie algebras with non-singular derivations}
+
+In this section we describe the structure of some solvable non-nilpotent modular Lie algebras $L$ with a non-singular derivation $d$. This description is based in decomposition of vector spaces using the eigenspaces $d$. The following is an example that will serve as a model of this Lie algebras
+
+ 
+\begin{ex} Let $L$ be a vector space over a field $\F$ of characteristic $p$ and dimension $p+1$. Let $\{x, x_1, \cdots, x_p\}$ be a basis of $L$ and define the products $[x,x_i]=x_{i+1}$, indexes modulo $p$. Then $L$ is solvable, non-nilpotent Lie algebra of derived length 2. Let $\lambda, \delta \in \F$ and define the linear application $d:L \to L$ by $d(x)=\lambda x$ and $d(x_i)=(\delta + (i-1)\lambda) x_i, 1 \leq i \leq p$. Then $d$ is a derivation of $L$. Furthermore, if $\lambda, \delta$ are non-zero and $\lambda \neq k \delta,  k \in \F,$ then $d$ is non-singular with eigenvalues $\{\lambda, \delta, \delta+\lambda, \delta+2 \lambda, \cdots, \delta + (p-1) \lambda\}$ and we can write $L=L_{\lambda}\oplus L_{\delta} \oplus L_{\lambda+\delta} \oplus L_{\delta + 2\lambda} \oplus \cdots \oplus L_{\delta + (p-1)\lambda}$.   
+\end{ex}  
 
 \newpage
 \

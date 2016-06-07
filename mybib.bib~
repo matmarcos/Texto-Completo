@@ -59,23 +59,8 @@
 @article{Jacobson,
   title={A note on automorphism and derivations of Lie algebras},
   author={N. Jacobson},
-  journal={Proceedings of American Mathematical Society },
+  journal={Proceedings American Mathematical Society },
   volume={6},
    pages={281-283},
   year={1955},
   }
-@book{JacobsonBook,
-  author    = {N. Jacobson}, 
-  title     = {Lie Algebras},
-  publisher = {Dover Publications, Inc.},
-  year      = 1962,
-  isbn      = {0486638324}
-}
-@article{Dixmier,
-  title={Derivations of nilpotent Lie algebras},
-  author={J. Dixmier, W.G. Lister},
-  journal={Proceedings of American Mathematical Society},
-  volume={8},
-   pages={155-158},
-  year={1957},
- }
