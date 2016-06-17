@@ -88,6 +88,7 @@
 \newcommand{\comp}[2]{{\sf Comp}(#1,#2)}
 \newcommand{\sdsum}{\oright}
 \newcommand{\ennd}[1]{{\sf End}(#1)}
+\newcommand{\indu}[3]{{\sf Indu}(#1,#2,#3)}
 
 \makeindex
 
@@ -116,11 +117,9 @@ www.mat.ufmg.br/$\sim$csaba}
 \maketitle
 
 
+\section{Introduction} 
 
 
-\begin{center}
-\textbf{Abstract}
-\end{center}
 
 Jacobson's famous theorem ~\cite{Jacobson} states that a finite-dimensional Lie algebra
 over a field of characteristic zero that admits a non-singular derivation must
@@ -137,104 +136,115 @@ In order to study derivations of solvable Lie algebras, we develop a theory
 of the derivations of Lie algebra extensions. We adopt the concept of a compatible pair 
 of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
 
-\section{Introduction} 
+In the article \cite{Jacobson} Bettina Eick presented an algorithm for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$ such that $I$ is invariant by $Aut(L)$. Then there exists a homomorphism $\phi: Aut(L) \to Aut(L/I) \times Aut(I)$ induced by the actions of $Aut(L)$ on $L/I$ and $I$. The image of $\phi$ can be calculated using $Aut(L/I)$ and $\ker \phi $ is equal to $\zone K I$. Then the group $Aut(L)$ can be calculated applying the first isomorphism theorem to $\phi$. Our first work in this project was to adapt this process to derivations. Thus we obtained the following theorem.
 
-In the article \cite{Jacobson} Bettina Eick presented an algorithm for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal such that $I$ is invariant by $Aut(L)$. Then there exists a homomorphism $\phi: Aut(L) \to Aut(L/I) \times Aut(I)$ induced by the actions of $Aut(L)$ on $L/I$ and $I$. The range of $\phi$ can be calculated using $Aut(L/I)$ and the $\ker \phi $ is equal to $\zone K I$. Then the group $Aut(L)$ can be calculated using first isomorphism theorem on $\phi$. Our first work in this project was to adapt this process to derivations. This result can be seen bellow.
-
-\textbf{Theorem  \ref{DerExt}} \textit{ Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as ideal of $K_\vartheta$, it is invariant by derivations. Let $\phi:\der {K_\vartheta} \to \der K \oplus \der I$ given by $\phi(d)=(\alpha,\beta)$. Then:
+\textbf{Theorem  \ref{DerExt}} \textit{ Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as ideal of $K_\vartheta$, invariant under derivations of $K_\vartheta$. Let $\phi:\der {K_\vartheta} \to \der K \oplus \der I$ given by $\phi(d)=(\alpha,\beta)$. Then:
   \begin{enumerate}
- \item $\im \phi= \sf Indu (K,I,\vartheta)$
-  \item $\ker \phi \cong \sf Z^1 (K,I)$
+ \item $\im \phi=  \indu K I \vartheta$
+  \item $\ker \phi \cong  \zone KI$
   \end{enumerate}}
   
-There is a significant difference in the application of this process to automorphisms and derivations: calculate the automorphism groups of a Lie algebra usually is a complicated task while calculate the algebra $\der {K_\vartheta}$ can be done by solving a system of linear equations. Thus, to analise the importance of Theorem \ref{DerExt} we must discover which additional information of $\der {K_\vartheta}$ we are able to obtain through information of algebras $\der{K}$ and $\der I$. Another tool obtained was the algebra of compatible pairs:  let $L$ and $I$ be Lie algebras such that $L$ acts on $I$, then we can define a subalgebra $\comp L I$ of derivations of semi-direct sum $K \sdsum I$ $$
-  \comp LI=\{\alpha+\beta\in\gl L\oplus\gl I\mid
-  \alpha+\beta\in\der{K\sdsum I}\}.$$ The algebra $\der L$ carries information on the multiplicative structure of $L$. Analogously, the algebra $\comp L I$ carries information about the action of $K$ on $I$. In section \ref{secJacobson} we present an example of this by exploring the demonstration of Jacobson's theorem. 
+There is a significant difference between the application of approach to automorphisms and to derivations: calculating the automorphism groups of a Lie algebra is usually a difficult task that may involve a large orbit-stabilizer calculation, while calculating the algebra $\der {K_\vartheta}$ can be done by solving a system of linear equations. Thus, to understand the importance of Theorem \ref{DerExt} we must discover whose additional information of $\der {K_\vartheta}$ we are able to obtain through information of algebras $\der{K}$ and $\der I$. Another tool obtained was the algebra of compatible pairs:  let $K$ and $I$ be Lie algebras such that $K$ acts on $I$, then we can define a subalgebra $\comp L I$ of derivations of semi-direct sum $K \sdsum I$ $$
+  \comp KI=\{\alpha+\beta\in\gl K\oplus\gl I\mid
+  \alpha+\beta\in\der{K\sdsum I}\}.$$ The algebra $\der K$ carries information about the multiplicative structure of $K$. Analogously, the algebra $\comp K I$ carries information about the action of $K$ on $I$. In section \ref{secJacobson} we present an example of this by exploring the proof of Jacobson's Theorem. 
   
- We also studied a consequence of Jacobson's theorem presented by Aner Shalev \cite{Shalev}. This article presents a condition on the order of derivation which guarantees nilpotency of algebra. Mattarei \cite{Mattarei} continues this study focusing on all the possible orders of nonsingular derivations of modular solvable and non-nilpotent Lie algebras.
+ We also studied a consequence of Jacobson's Theorem presented by Aner Shalev \cite{Shalev}. This article presents a condition on the order of derivation which guarantees nilpotency of algebra. Mattarei \cite{Mattarei} continues this study focusing on all the possible orders of nonsingular derivations of modular solvable and non-nilpotent Lie algebras.
 
-From these works we define the next goal of the project: present classes of modular solvable non-nilpotent Lie algebras with non-singular derivations and, if  possible, classify all them.  
+From these works we define the next goal of the project: present classes of modular solvable non-nilpotent Lie algebras with non-singular derivations and, if  possible, classify the algebras in some of these classes.  
 
-  This text is organized as follows:  section 2 is dedicated to literature review, where we presented the articles studied and some classical results of Lie algebras theory. In Section 3, we present the compatible pairs and the lifting process of derivations of a Lie algebra $K$ to the Lie algebras $K_{\vartheta}$ such that $\vartheta$ is a cocycle, and we end this section by using the compatible pairs in Jacobson's theorem. The section 4 is composed of some examples and conjectures about the modular solvable non-nilpotent Lie algebra with non-singular derivations.
+  This text is organized as follows:  Section 2 is dedicated to literature review, where we present the articles studied and some classical results in Lie algebra theory. In Section 3, we present compatible pairs and the lifting process of derivations of a Lie algebra $K$ to the Lie algebras $K_{\vartheta}$ such that $\vartheta$ is a cocycle. We end this section by applying the compatible pairs to Jacobson's Theorem. The Section 4 is composed of some examples and conjectures about modular solvable non-nilpotent Lie algebras with non-singular derivations.
   
-\section{Literature review}
+\section{Non-singular derivations: known results}
  
-\subsection{Basic concepts} Let $V$ be a vector space over field $\F$ and $a \in \ennd V$. $V$ has a vector space decomposition invariant by the endomorphism $a$, we will present this decomposition. Let $p \in \F[X]$ be a univariate polynomial and define 
+\subsection{Basic concepts} Let $V$ be a vector space over field $\F$ and $a \in \ennd V$. $V$ admits the following vector space decomposition invariant under the endomorphism $a$. Let $p \in \F[X]$ be a univariate polynomial and define 
 $$V_0(p(a))=\{v \in V \mid  \mbox{ there is an } m>0  \mbox{ such that } p(a)^mv=0\}.$$ 
- $V_0(p(a))$ is a subspace of $V$ invariant by $a$. Now let $A$ be the associative algebra with 1 generated by $a$. Let  $p_a$ be the minimum polynomial of $a$ and suppose that  $$p_a=p_1^{k_1} \cdots p_r^{k_r}$$ is the factorization of $p_a$ into irreducible factors, such that $p_i$ has leading coefficient 1 and $p_i \neq p_j$ for $1 \leq i, j \leq r$. Then $V$ decompose as a direct sum of subspaces $$V=V_0(p_1(a)) \oplus \cdots \oplus V_0(p_r(a)),$$ each space $V_0(p_i(a))$ invariant by $A$. Furthermore, the minimum polynomial of the restriction of $a$ to $V_0(p_i(a))$ is $p_i^{k_i}$. A proof of this result can be founded in \cite{deGraaf} Lemma A.2.2.   
+ $V_0(p(a))$ is a subspace of $V$ invariant under $a$. Now let $A$ be the associative algebra with 1 generated by $a$. Let  $p_a$ be the minimum polynomial of $a$ and suppose that  $$p_a=p_1^{k_1} \cdots p_r^{k_r}$$ is the factorization of $p_a$ into irreducible factors, such that $p_i$ has leading coefficient 1 and $p_i \neq p_j$ for $1 \leq i, j \leq r$. Then $V$ decomposes as a direct sum of subspaces $$V=V_0(p_1(a)) \oplus \cdots \oplus V_0(p_r(a)),$$ each space $V_0(p_i(a))$ being invariant under $a$. Furthermore, the minimum polynomial of the restriction of $a$ to $V_0(p_i(a))$ is $p_i^{k_i}$. A proof of this result can be found in \cite{deGraaf} Lemma A.2.2.   
  
-A consequence of this result, which can be seen in Theorem 3.1.10 of \cite{deGraaf},  is that if $ D $ is a nilpotent Lie subalgebra of $\gl V$ then $ V $ has a decomposition $V = V_1 \oplus \cdots \oplus V_s$ such that  $$V_i=\{v \in V \mid  \mbox{ for all } x \in D \mbox{ there is an } m>0  \mbox{ such that }  p_{x,i}(x)^mv=0\},$$ where $p_{x,i}$ denotes the minimal polynomial of $x$ restricted to $V_i$. It is worth noting the case that the base field of $V$ is algebraically closed, then all irreducible polynomials are of the form $p_{x,i}=(X - \lambda_i), \lambda_i \in D^*$. Its natural define a name for this case. Let $V$ be a finite dimensional vector space over field $\F$ and $D \in \gl V $ a subalgebra. If $$V_{\lambda}=\{v \in V \mid  \mbox{ for all } x \in D \mbox{ there is an } m>0  \mbox{ such that }  (x - \lambda(x).Id)^mv=0\} \neq 0,$$ then $V_\lambda$ is called generalized eigenspace of $V$ associated to eigenvalue $\lambda \in D^*$.
+We can generalize this decomposition, instead of us consider an element $a \in \ennd V$ we can consider a subalgebra $K \leq \gl V$. A decomposition $V = V_1 \oplus \cdots \oplus V_s$ of $V$ into $K$-modules $V_i$ is said to be primary if the minimum polynomial of the restriction of $a$ to $V_i$ is a power of an irreducible polynomial for all $a \in K$ and $1 \leq i \leq s$. The subspaces $V_i$ are called primary components. If for any two components $V_i$ and $V_j$ $(i \neq j)$, there is an $x \in K$ such that the minimum polynomials of the restrictions of $x$ to $V_i$ and $V_j$ are powers of different irreducible polynomials then the decomposition is called collected. In general $V$ will not have a primary (or primary collected) decomposition into $K-$modules but it is guaranteed if the base field of $V$ is algebraically closed and $K \leq \gl V$ is nilpotent. A proof of this result can be found in Theorem 3.1.10 of \cite{deGraaf}. 
 
-Now we consider a Lie algebra $L$ and a nilpotent subalgebra $D \subseteq \der L $. Then the decomposition in generalized eigenspaces of $D$ can provide us some  information of the multiplicative structure of the $L$. 
+If the vector space $V$ has a primary collected decomposition $V = V_1 \oplus \cdots \oplus V_s$ then we can characterize the components $V_i$. For $x \in K$ and $1 \leq i \leq s$ define $p_{x,i}$ to be the irreducible polynomial such that the minimum polynomial of $x$ restricted to $V_i$ is a power of $p_{x,i}$. Then $$V_i=\{v \in V \mid  \mbox{ for all } x \in K \mbox{ there is an } m>0  \mbox{ such that }  p_{x,i}(x)^mv=0\}.$$ It is worth noting the case that the base field of $V$ is algebraically closed, then all irreducible polynomials are of the form $p_{x,i}=(X - \lambda_i(x)),$ $ \lambda_i(x) \in \F$ and the primary components are of the form $$V_i=\{v \in V \mid  \mbox{ for all } x \in K \mbox{ there is an } m>0  \mbox{ such that }  (x - \lambda_i(x).Id)^mv=0\},$$ with $\lambda_i \in K^*$. Its natural define a name for this case. Let $V$ be a finite-dimensional vector space over field $\F$ and $K \in \gl V $ a subalgebra. Let $\lambda \in K^*$. If $$V_{\lambda}=\{v \in V \mid  \mbox{ for all } x \in K \mbox{ there is an } m>0  \mbox{ such that }  (x - \lambda(x).Id)^mv=0\} \neq 0,$$ then $V_\lambda$ is called generalized eigenspace of $V$ associated to eigenvalue $\lambda \in K^*$.
+
+Now we consider a Lie algebra $L$ and a nilpotent subalgebra $K \leq \der L $. Then the decomposition to generalized eigenspaces of $D$ can provide us some  information of the multiplicative structure of $L$. 
 
 \begin{prop}{\label{1.01}} 
- Let $L$ be a Lie algebra over an algebraically closed field. Let $D$ be a  subalgebra of $\der L$. If $\lambda,\mu:D \to \F$ are eigenvalues of $D$  then $[L_\lambda,L_{\mu}] \subseteq L_{\lambda+\mu}$ if $\lambda+\mu$ is a  eigenvalue of $D$. Otherwise $[L_{\mu}, L_{\lambda}]=0$.
+ Let $L$ be a Lie algebra over an algebraically closed field. Let $K$ be a  subalgebra of $\der L$. If $\lambda,\mu:K \to \F$ are eigenvalues of $K$  then $[L_\lambda,L_{\mu}] \subseteq L_{\lambda+\mu}$ if $\lambda+\mu$ is a  eigenvalue of $K$. Otherwise $[L_{\mu}, L_{\lambda}]=0$.
 \end{prop}
- 
-% This result follow from 
-%
-%Let $\lambda, \mu \in \F$ and $d \in \der L$ then    
-% \begin{multline*}
-%(d-(\lambda+\mu).Id)^n[x,y]=\sum_{i=0}^n\binom{n}{i}[(d-\lambda .Id)^{n-i}(x),(d-\mu .Id)^i(y), \\ \mbox{ for all } x,y \in L \in K \mbox{ and } \lambda,\mu \in \F.
-%\end{multline*}
+A proof of this result can be found Section 2 of Chapter 3 of \cite{JacobsonBook}. 
 
 
 \subsection{Jacobson Theorem}
 
- In the article \textit{A note on automorphism and derivations of Lie algebras} \cite{Jacobson}, Jacobson used a variation of Engel's theorem for weakly closed sets to get conditions for a Lie algebra be nilpotent. Next we present this results. We recommend  Jacobson's book \cite{JacobsonBook} as reference for examples and proofs.
+ In the article \textit{A note on automorphism and derivations of Lie algebras} \cite{Jacobson}, Jacobson used a variation of Engel's theorem for weakly closed sets to get sufficient conditions for a Lie algebra to be nilpotent. We recommend the reading of the Section 1 and 2 of Chapter 2 of Jacobson's book \cite{JacobsonBook} as reference for examples and proofs.
 
-Let $A$ be an associative algebra with $1$ over a field $\F$. A subset $S$ of $A$ is called weakly closed if for every ordered pair $(a, b),a,b \in S,$ there is an element $\gamma(a,b) \in \F$ such that $ ab+ \gamma (a, b) b a \in M$. If $S$ is a subset of $A$ we denote by $span(S)$ the subalgebra of $A$ (subalgebra containing 1) generated by $S$. 
+Let $A$ be an associative algebra with $1$ over a field $\F$. A subset $S$ of $A$ is called weakly closed if for every ordered pair $(a, b)\in S \times S,$ there is an element $\gamma(a,b) \in \F$ such that $ ab+ \gamma (a, b) b a \in M$. If $S$ is a subset of $A$ we denote by $\langle S \rangle$ the subalgebra of $A$ (subalgebra containing 1) generated by $S$. 
 
-\begin{prop}{\label{1.02}} Let $V$ be a vector space over a field $\F$. Let $S \subseteq \gl V$ be a weakly closed subset such that every $s \in S$ is associative nilpotent, that is, $s^k=0$, for some positive integer $k$. Then the subalgebra $span(S)$ is nilpotent. 
+\begin{prop}{\label{1.02}} Let $V$ be a finite-dimensional vector space over a field $\F$. Let $S \subseteq \gl V$ be a weakly closed subset such that every $s \in S$ is associative nilpotent, that is, $s^k=0$, for some positive integer $k$. Then the subalgebra $\langle S \rangle$ is nilpotent. 
 \end{prop}
 
- With this result we can proof.
-\begin{teo}{(Jacobson)}{\label{Jacobsontheo}} Let $L$ be a Lie algebra of characteristic 0 and suppose that there exists a subalgebra $D$ of the algebra of derivations of $L$ such that (i) $D$ is nilpotent and (ii) 0 is not eigenvalue of $D$ (i.e., if there is $c \in L$ such that $d(c)=0$ for all $d \in D$ then $c=0$). Then $L$ is nilpotent. 
+A proof of this theorem can be found in Section 1 of Chapter 2 of \cite{JacobsonBook}. With this result we can prove the following theorem.
+\begin{teo}{(Jacobson)}{\label{Jacobsontheo}} Let $L$ be a finite-dimensional Lie algebra of characteristic 0 and suppose that there exists a subalgebra $D$ of the algebra of derivations of $L$ such that
+\begin{enumerate}
+ \item $D$ is nilpotent;
+ \item if there is $c \in L$ such that $d(c)=0$ for all $d \in D$ then $c=0$.
+\end{enumerate} Then $L$ is nilpotent. 
 \end{teo}
-\begin{proof} Let $\bar{\F}$ be the algebraic closure of the base field, we can  extend any derivation of $L$ to $\bar{L}=L \otimes \bar{\F}$. If we proof that $\bar{L}$ is nilpotent then it follow that $L$ is nilpotent. SO we will consider $L$ over a field algebraically closed. In this case the extension of $D$ still nilpotent and without 0 as eigenvalue. Let $L = L_{\gamma_1} \oplus \cdots \oplus L_{\gamma_r}$ the decomposition of $L$ in generalized eigenspaces of $D$. By Proposition \ref{1.01} we have $[L_{\gamma_i},L_{\gamma_j}] \subseteq L_{\gamma_i+\gamma_j}$ if $\gamma_i+\gamma_j$ is a eigenvalue and $[L_{\gamma_i},L_{\gamma_j}]=0$ otherwise. Let $\ad {} {L_{\gamma_j}}$ denote the set of adjoint mappings determined by elements of $L_{\gamma_j}$. Then the relation just noted shows that the set $ S= \bigcup \ad {}{L_{\gamma_j}}$ is a weakly closed set of linear transformation. Let $a \in L_{\gamma_j}$ and $b \in L_{\gamma_i}$ then for all $s \geq 0$ $(\ad{}{a})^s(b) \in L_{\gamma_i+s \gamma_j}$. By assumption, 0 is not a eigenvalue then the elements $\{\gamma_i+s\gamma_j\}_{s \geq 0}$ are all distinct. But $D$ has a finite number of eigenvalues then $\ad{}{a}$ is nilpotent. Thus every element of $S$ is nilpotent. We can conclude that the algebra $span(S)$ is nilpotent and hence $\ad{}{L}$ is nilpotent. Therefore $L$ is a nilpotent Lie algebra.   
+\begin{proof} Let $\bar{\F}$ be the algebraic closure of the base field. We can  extend all derivations of $L$ to $\bar{L}=L \otimes \bar{\F}$. If we prove that $\bar{L}$ is nilpotent then $L$ is nilpotent. So we will assume that $\F$ is algebraically closed. In this case the extension of $D$ is nilpotent and without 0 as eigenvalue, i. e.  if there is $c \in L$ such that $d(c)=0$ for all $d \in D$ then $c=0$. Let $L = L_{\gamma_1} \oplus \cdots \oplus L_{\gamma_r}$ be the decomposition of $L$ into generalized eigenspaces of $D$. By Proposition \ref{1.01} we have $[L_{\gamma_i},L_{\gamma_j}] \subseteq L_{\gamma_i+\gamma_j}$ if $\gamma_i+\gamma_j$ is a eigenvalue and $[L_{\gamma_i},L_{\gamma_j}]=0$ otherwise. Let $\ad {} {L_{\gamma_j}}$ denote the set of adjoint mappings induced by elements of $L_{\gamma_j}$. Then the relation just noted shows that the set $ S= \bigcup \ad {}{L_{\gamma_j}}$ is a weakly closed set of linear transformations. Let $a \in L_{\gamma_j}$ and $b \in L_{\gamma_i}$. Then for all $s \geq 0$ $(\ad{}{a})^s(b) \in L_{\gamma_i+s \gamma_j}$. By assumption, 0 is not a eigenvalue and so the elements $\{\gamma_i+s\gamma_j\}_{s \geq 0}$ are all distinct. But $D$ has a finite number of eigenvalues and so $\ad{}{a}$ is nilpotent. Thus every element of $S$ is nilpotent. We can conclude that the algebra $\langle S \rangle $ is nilpotent and hence $\ad{}{L}$ is nilpotent. Therefore $L$ is a nilpotent Lie algebra.   
 \end{proof}
-One question that arises from the theorem is validity in characteristic $ p \neq 0$. But this does not happen, we have simple modular Lie algebras with non-singular derivations. For example, let $\F$ be the field of $2^m$ elements and $L$ be a Lie algebra over $\F$ such that $$L= \langle x_\alpha \mid \alpha \in \F, \alpha \neq 0\rangle$$ with a basis labelled by nonzero elements of the field $\F$ and with multiplication $[x_\alpha, x_\beta]=(\beta-\alpha)x_{\alpha+\beta}$. Then the map $d \in \ennd L$ given by $d(e_\alpha)=\alpha e_\alpha$ is a non-singular derivation. A systematic investigation of simple Lie algebras with nonsingular derivations can be found in \cite{Benkart}. Another question is whether the converse is true. Its also false, by Dixmer and Lister article \cite{Dixmier} we have nilpotent Lie algebras admitting only nilpotent derivations. We present one example of this algebra: suppose that $\F$ is a field of characteristic 0 and $L$ the Lie algebra over $\F$ $$L = \langle x_1, x_2, \cdots, x_8 \rangle $$ with dimension 8 and multiplication table 
+One question that arises from the theorem is its validity in characteristic $ p \neq 0$. However this does not happen, we have simple modular Lie algebras with non-singular derivations. For example, let $\F$ be the field of $2^m$ elements and $L$ be the vector space over $\F$ such that $$L= \langle x_\alpha \mid \alpha \in \F, \alpha \neq 0\rangle$$ with a basis labelled by nonzero elements of the field $\F$ and with multiplication $[x_\alpha, x_\beta]=(\beta-\alpha)x_{\alpha+\beta}$. Then $L$ is a simple Lie algebr and the map $d \in \ennd L$ given by $d(e_\alpha)=\alpha e_\alpha$ is a non-singular derivation. A systematic investigation of simple Lie algebras with nonsingular derivations can be found in \cite{Benkart}. Another question is whether the converse is true. By Dixmer and Lister \cite{Dixmier}, there are nilpotent Lie algebras admitting only nilpotent derivations. We present one example of such an algebra: suppose that $\F$ is a field of characteristic 0 and $L$ is the Lie algebra over $\F$ $$L = \langle x_1, x_2, \cdots, x_8 \rangle $$ with dimension 8 and multiplication table 
 
 $[e_1,e_2]=e_5 \quad [e_1,e_3]=e_6  \quad[e_1,e_4]=e_7  \quad [e_1,e_5]=-e_8  \quad [e_2,e_3]=e_8 \quad [e_2,e_4]=e_6 $
 
 $ [e_2,e_6]=-e_7 \quad [e_3,e_4]=-e_5 \quad [e_3,e_5]=-e_7 \quad [e_4,e_6]=-e_8 \quad  [e_i,e_j]=-[e_j,e_i]$
 
-and $[e_i,e_j]=0$ if it is not in table above. $L$ is nilpotent with $L^3 \neq 0$,  $L^4=0$ and every derivation of $L$ is nilpotent.
+\noindent and $[e_i,e_j]=0$ if it is not in table above. $L$ is nilpotent with $L^3 \neq 0$,  $L^4=0$ and every derivation of $L$ is nilpotent.
 
-A review of theorem \ref{Jacobsontheo} proof shows that the hypothesis of zero characteristic is essential to proof that every element in a homogeneous component is nilpotent. But we can guarantee this in characteristic $p$ by requiring that $D$ has at most $p-1$ eigenvalues or that dimension of $L$ is less than $p$. This leads to the corollary.
+A review of the proof of theorem \ref{Jacobsontheo} shows that the hypothesis of zero characteristic is essential prove that every element in a homogeneous component is nilpotent. However, we can guarantee this in characteristic $p$ by requiring that $D$ has at most $p-1$ eigenvalues or that dimension of $L$ is less than $p$. This leads to the following corollary.
 
-\begin{cor}{\label{JacoModp}} Let $L$ be a Lie algebra of characteristic $p$ and suppose that there exists a subalgebra $D$ of the algebra of derivations of $L$ such that (i) $D$ is nilpotent and (ii) 0 is not eigenvalue of $D$ . If $D$ has at most $p-1$ eigenvalues then $L$ is nilpotent. 
+\begin{cor}{\label{JacoModp}} Let $L$ be a Lie algebra over a field of characteristic $p$ and suppose that there exists a subalgebra $D$ of the algebra of derivations of $L$ such that 
+\begin{enumerate}
+\item $D$ is nilpotent;
+\item if there is $c \in L$ such that $d(c)=0$ for all $d \in D$ then $c=0$.
+\end{enumerate} If $D$ has at most $p-1$ eigenvalues then $L$ is nilpotent. 
 \end{cor}
 
-\subsection{The orders of non-singular derivations} An interesting approach by  Shalev in article \cite{Shalev} is to study the order of nonsingular derivations, establishing conditions for it to be nilpotent. More precisely, Shalev study the set of orders nonsingular derivations of non-nilpotent Lie algebras of characteristic $p$. Later, Mattarei in \cite{Mattarei} showed that this set of numbers corresponds to the solution of some equation modulo p. Below we present some results of these articles.
+\subsection{The orders of non-singular derivations} An interesting approach by  Shalev in article \cite{Shalev} is to study the order of nonsingular derivations, establishing conditions for a Lie algebra over a field of characteristic $p$ with non-singular derivations to be nilpotent. More precisely, Shalev studied the set of orders of nonsingular derivations of non-nilpotent Lie algebras of characteristic $p$. Later, Mattarei in \cite{Mattarei} showed that this set of numbers corresponds to the solution of some equation modulo $p$. Below we present some results of these articles.
 
-Let $L$ be a Lie algebra over an algebraically closed field of characteristic $p$. We can characterize the matrix of a non-singular derivation of $L$.
+Let $L$ be a Lie algebra over an algebraically closed field of characteristic $p$. We can characterize the matrix of a non-singular derivation of $L$. We need a result for derivations in Lie algebras over a field of characteristic $p$. 
 
-\begin{prop}{\label{NonSDiag}}  Let be $V$ a finite dimension vector space over a field of characteristic $p$ algebraically closed and $f \in \ennd V$ non-singular with order $r$ prime with $p$. Then $f$ is semisimple.
+\begin{prop} Let $L$ be a Lie algebra over a field $\F$ of characteristic $p$, $p>0$. If $d \in \der L$ then $d^p \in \der L$.
+\end{prop}
+\begin{proof} Let $d \in \der L$ . Then by Leibniz formula $$d^n([x,y])=\sum_{k-0}^n \binom{n}{k}d^k(x)d^{n-k}(y), \mbox{ for all n>0}.$$
+Set $n=p$. Then $d^p([x,y])=[d^p(x),y]+[x,d^p(y)]$ and $d^p \in \der L$.
+\end{proof}
+
+\begin{prop}{\label{NonSDiag}}  Let be $V$ a finite dimension vector space over an algebraically closed field of characteristic $p$ and $f \in \ennd V$ non-singular with order $r$ coprime to $p$. Then $f$ is diagonalizable.
 \end{prop}
 
-\begin{proof} Let $a$ be the matrix of endomorphism $f$ in it Jordan normal form and write $a=s+n$ such that $s$ is semisimple, $n$ is nilpotent and $s,n$ commutes. Observe that for this matrices we have \begin{itemize}
+\begin{proof} Let $A$ be the matrix of the endomorphism $f$ in Jordan normal form and write $A=S+N$ such that $S$ is diagonalizable, $N$ is nilpotent and $S,N$ commute. Observe that for these matrices we have \begin{itemize}
 \item  If  $(s)_{ii} = \lambda_i$ then $(s^k)_{ii}=\lambda_i^k,$ for  all $k>0$;
 \item $(n^k)_{i(i+j)}=0,$ for all $0 \leq j < k$  and all $k>0$.
 \end{itemize}
-Because $Id=a^r=(s+n)^r=s^r+\binom{r}{1} s^{r-1}n+ \binom{r}{2}s^{r-2}n^2+\cdots + \binom{r}{r-1}sn^{r-1}+n^r$ we have  $\binom{r}{1} s^{r-1}n=r(s^{r-1}n)=0$. But $r$ and the eigenvalues of $s^{r-1}$ are nonzero, this implies $n=0$. Then $f$ is semisimple.\end{proof}
+Since $Id=a^r=(s+n)^r=s^r+\binom{r}{1} s^{r-1}n+ \binom{r}{2}s^{r-2}n^2+\cdots + \binom{r}{r-1}sn^{r-1}+n^r$ we have  $\binom{r}{1} s^{r-1}n=r(s^{r-1}n)=0$. But $r$ and the eigenvalues of $s^{r-1}$ are nonzero, this implies $n=0$. Then $f$ is diagonalizable.\end{proof}
 
-Let $L$ be a Lie algebra over the field $\F$ such that $L$ has a non-singular derivation $d$. Let $r=s.p^t$, with $\gcd (s,p)=1$, the order of $d$, then $d^{p^t}$ is a derivation whose order is prime to $p$ and, therefore, by Proposition \ref{NonSDiag} it is semisimple. So if $L$ is a Lie algebra over a field $\F$ of characteristic $p$ algebraically closed with non singular derivation then $L$ has a semisimple derivation $d$ without eigenvalue 0.
+Let $L$ be a Lie algebra over the field $\F$ such that $L$ has a non-singular derivation $d$. Let $r=sp^t$, with $\gcd (s,p)=1$, the order of $d$, then $d^{p^t}$ is a derivation whose order is prime to $p$ and, therefore, by Proposition \ref{NonSDiag} it is diagonalizable. So if $L$ is a Lie algebra over an algebraically closed field $\F$ of characteristic $p$ with non-singular derivation then $L$ has a diagonalizable derivation $d$ without eigenvalue 0.
  
- \begin{prop} Let $L$ be a finite dimension Lie algebra in characteristic $p$ with admits a non-singular derivation $d$ whose order is prime to $p$. Suppose $L$ is not nilpotent. Then there exist $\lambda \in \bar{\F}_p$ such that $(\lambda+ \delta)^n=1$ for all $\delta \in \F_p$.
+ \begin{prop}{\label{Shalevlem}} Let $L$ be a finite-dimensional Lie algebra in characteristic $p$ which admits a non-singular derivation $d$ whose order $n$ is coprime to $p$. Suppose $L$ is not nilpotent. Then there exist $\lambda \in \bar{\F}_p$ such that $(\lambda+ \delta)^n=1$ for all $\delta \in \F_p$.
 \end{prop}
 
-\begin{proof} Let $R=\{\alpha \in \bar{\F}_p  \mid \alpha^n=1\}$. If $R$ is not contained in base field of $L$ then we consider $d$ in the extension $L \otimes \bar{F}$. By Proposition \ref{NonSDiag} $d$ is semisimple. Then $L$ has decomposition in eigenspaces of $d$. Let $L=L_{\lambda1} \oplus \cdots \oplus L_{\lambda_r}$ the decomposition of $L$ in eigenspaces of $d$. The set $S=\bigcup \ad{}{L_{\lambda_j}}$ is weakly closed with $\gamma(\ad{}{a},\ad{}{b})=-1$ for all $a \in L_{\lambda_i}, b \in L_{\lambda_j}$. If each $\ad{}{a}$ is nilpotent then by Proposition \ref{1.02} $L$ is nilpotent. But by hypotheses  $L$ is non-nilpotent Lie algebra then there is $a \in L_{\lambda_j}$ and $b \in L_{\lambda_i}$ such that $(\ad{}{a})^n(b) \neq 0$, $1 \leq n \leq p$. Which implies , $(\lambda_i+ r \lambda_j)$ are eigenvalues of $d$ for  $1 \leq r \leq p$. Hence $(\lambda_i \lambda_j^{-1} + r)^n =1$ for all $r \in \F_p$.
+\begin{proof} Let $R=\{\alpha \in \bar{\F}_p  \mid \alpha^n=1\}$. If $R$ is not contained in base field of $L$ then we consider $d$ for the extension $L \otimes \bar{\F}$. By Proposition \ref{NonSDiag}, $d$ is diagonalizable. Then $L$ has a decomposition to eigenspaces of $d$. Let $L=L_{\lambda1} \oplus \cdots \oplus L_{\lambda_r}$ the decomposition of $L$ to eigenspaces of $d$. The set $S=\bigcup \ad{}{L_{\lambda_j}}$ is weakly closed with $\gamma(\ad{}{a},\ad{}{b})=-1$ for all $a \in L_{\lambda_i}, b \in L_{\lambda_j}$. If each $\ad{}{a}$ is nilpotent then by Proposition \ref{1.02} $L$ is nilpotent. By hypotheses,  $L$ is non-nilpotent Lie algebra and so there is $a \in L_{\lambda_j}$ and $b \in L_{\lambda_i}$ such that $(\ad{}{a})^n(b) \neq 0$, $1 \leq n \leq p$. However this implies , $(\lambda_i+ \delta \lambda_j)$ are eigenvalues of $d$ for  $1 \leq r \leq p$. Set $\lambda=\lambda_i \lambda_j^{-1}$. Then $(\lambda + \delta)^n =1$ for all $\delta \in \F_p$.
+\end{proof}  
 
-   \end{proof}  
+We will use the same notation of proof of Proposition \ref{Shalevlem}. Write $x^n-1=\prod_{\alpha \in R}(x - \alpha)$. Then $\prod_{\delta \in \F_p}(x-\lambda - \delta)$ divides $x^n-1$. But $$\prod_{\delta \in \F_p}(x-\lambda - \delta)=(x-\lambda)^p-(x-\lambda)=x^p-x-c,$$ where $c=\lambda^p-\lambda$. Then $x^n$ is congruent to 1 modulo $g(x)=x^p-x-c$. In this case, Lemma 2.4 of \cite{Shalev} shows that $n \geq p^2-1$. Now we can prove the theorem.
 
-A corollary of this result is that $n \geq p^2-1$ and therefore we have the result.
-\begin{prop} Let $L$ be a finite dimensional Lie algebra in characteristic $p>0$ which admits non-singular derivation of order $n$. Write $n=p^sm$ where $m$ is prime to $p$. Suppose $m<p^2-1$. Then $L$ is nilpotent.   
-\end{prop}
+\begin{teo} Let $L$ be a finite dimensional Lie algebra in characteristic $p>0$ which admits non-singular derivation of order $n$. Write $n=p^sm$ where $m$ is coprime to $p$. Suppose $m<p^2-1$. Then $L$ is nilpotent.   
+\end{teo}
+
+\begin{proof} The derivation $d^{p^s}$ has order $m$. Suppose that $L$ is not nilpotent. Then by the comment above we have $m < p^2-1$.
+\end{proof}
 
   Mattarei \cite{Mattarei} presents an example of this Lie algebra. 
   
-\begin{ex} Let $\alpha, \beta \in \bar{\F}_p$ with $\alpha \beta^{-1} \notin \F_p $. Let $M$ be a $p$-dimensional vector space over $\bar{\F}_p$ with basis $e_1, \cdots, e_p$, and let $E,F$ de the linear transformations of $M$ defined by $E(e_i)=e_{i+1}$(indices modulo $p$), and $F(e_i)=(\alpha +i \beta)e_i$. The transformations $E$ and $F$ span a two-dimensional solvable Lie algebra, which has $M$ as a Left module. Let $L$ be the semidirect sum of $\lbrace E \rbrace$ and $M$ with respect to this action. Then $F$ acts on $L$ as a non-singular derivation, with eigenvalues $\beta$ on $\lbrace E \rbrace$, and $\alpha + \lambda \beta$ for $\lambda \in \F_p$ on M.    
+\begin{ex}{\label{mattareiex}} Let $\alpha, \beta \in \bar{\F}_p$ with $\alpha \beta^{-1} \notin \F_p $. Let $M$ be a $p$-dimensional vector space over $\bar{\F}_p$ with basis $e_1, \cdots, e_p$, and let $E,F$ be the linear transformations of $M$ defined by $E(e_i)=e_{i+1}$(indices modulo $p$), and $F(e_i)=(\alpha +i \beta)e_i$. The transformations $E$ and $F$ span a two-dimensional solvable Lie algebra, which has $M$ as a left module. Let $L$ be the semidirect sum of $\lbrace E \rbrace$ and $M$ with respect to this action. Then $F$ acts on $L$ as a non-singular derivation, with eigenvalues $\beta$ on $\lbrace E \rbrace$, and $\alpha + \lambda \beta$ for $\lambda \in \F_p$ on $M$.    
 \end{ex}  
 
  The next result links the orders nonsingular derivations orders of Lie algebras of characteristic p and two polynomials.
@@ -247,7 +257,7 @@ A corollary of this result is that $n \geq p^2-1$ and therefore we have the resu
 \end{enumerate}
 \end{prop}
 
-In \cite{Mattarei} Mattarei define the set $N_p$ of the possible orders of non-singular derivations of non-nilpotent Lie algebras of characteristic $p$ and determine all elements of $N_p$ which are smaller than $p^3$, for $p>3$.   
+Mattarei in \cite{Mattarei} defines the set $N_p$ of the possible orders of non-singular derivations of non-nilpotent Lie algebras of characteristic $p$ and determine all elements of $N_p$ which are smaller than $p^3$, for $p>3$.   
 
 
 
@@ -935,7 +945,7 @@ Now we can present a similar result the proposition \ref{0.6} but with a new pro
 \begin{teo}{\label{1.8}} Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p$ such that $K$ is nilpotent. Suppose that $K$ act on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and dimension of $I$ is less than $p$ then $Tr(\psi^n(k))=0$, for all $k \in K$. In these two cases, $\psi(k)$ is nilpotent. 
 \end{teo}
 
-\begin{proof} As $\alpha$ has no eigenvalue 0 then it is non-singular and by Proposition \ref{NonSDiag} $\alpha$ is semisimple. Let $x_1,...,x_s$ be a basis of $K$ such that $\alpha(x_i)=\lambda_i x_i$. For all $a \in \gl I$ denote by $[a]$ the matrix of $a$ in this base. Then $$[[\beta],[\psi(x_i)]]=\lambda_i[\psi(x_i)].$$ We can apply Proposition {\ref{1.2}} in this last equation for $A=\beta$, $B=\psi(x_{i})$, $C=0$ and  $\lambda=\lambda_i \neq 0$ to conclude that $\psi(x_i)$ is nilpotent for $1 \leq i \leq s$. Now we observe that if $K$ is a nilpotent Lie algebra in either characteristic is 0 or characteristic $p$ with dimension of $L$ less than $p$ then Lie theorem is valid. Lie theorem grants that there is a basis of $I$ such that all matrices of representation $\psi$ is upper triangular. Therefore, the matrices $[\psi(x_i)]$ are strictly upper triangular. Then all $\psi(k)$, for all $k \in K$, has only 0 in diagonal, because they are linear combination of $\psi(x_i)$. Hence every $\psi(k)$ is nilpotent.
+\begin{proof} As $\alpha$ has no eigenvalue 0 then it is non-singular and by Proposition \ref{NonSDiag} $\alpha$ is diagonalizable. Let $x_1,...,x_s$ be a basis of $K$ such that $\alpha(x_i)=\lambda_i x_i$. For all $a \in \gl I$ denote by $[a]$ the matrix of $a$ in this base. Then $$[[\beta],[\psi(x_i)]]=\lambda_i[\psi(x_i)].$$ We can apply Proposition {\ref{1.2}} in this last equation for $A=\beta$, $B=\psi(x_{i})$, $C=0$ and  $\lambda=\lambda_i \neq 0$ to conclude that $\psi(x_i)$ is nilpotent for $1 \leq i \leq s$. Now we observe that if $K$ is a nilpotent Lie algebra in either characteristic is 0 or characteristic $p$ with dimension of $L$ less than $p$ then Lie theorem is valid. Lie theorem grants that there is a basis of $I$ such that all matrices of representation $\psi$ is upper triangular. Therefore, the matrices $[\psi(x_i)]$ are strictly upper triangular. Then all $\psi(k)$, for all $k \in K$, has only 0 in diagonal, because they are linear combination of $\psi(x_i)$. Hence every $\psi(k)$ is nilpotent.
 \end{proof} 
 
 \begin{cor} Let $L$ be a solvable Lie algebra over a field $\F$ of characteristic $p$. Suppose that $L$ has a nonsingular derivation. If either $p=0$ or $p>0$ and dimension of $L^{(i)}/L^{(i+1)} <p$ then $L$ is nilpotent.
