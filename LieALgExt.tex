@@ -133,10 +133,21 @@ Despite the existing examples, little is known about non-nilpotent Lie algebras
 with non-singular derivations. In these notes we explore the structure of
 solvable, non-nilpotent Lie algebras with non-singular derivations. 
 In order to study derivations of solvable Lie algebras, we develop a theory
-of the derivations of Lie algebra extensions. We adopt the concept of a compatible pair 
-of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
+of the derivations of Lie algebra extensions. We adopt the concept of a compatible pair of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
 
-In the article \cite{Jacobson} Bettina Eick presented an algorithm for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$ such that $I$ is invariant by $Aut(L)$. Then there exists a homomorphism $\phi: Aut(L) \to Aut(L/I) \times Aut(I)$ induced by the actions of $Aut(L)$ on $L/I$ and $I$. The image of $\phi$ can be calculated using $Aut(L/I)$ and $\ker \phi $ is equal to $\zone K I$. Then the group $Aut(L)$ can be calculated applying the first isomorphism theorem to $\phi$. Our first work in this project was to adapt this process to derivations. Thus we obtained the following theorem.
+Let $K$ and $I$ be Lie algebras such that $K$ acts on $I$, then we can define a subalgebra $\comp L I$ of derivations of semi-direct sum $K \sdsum I$ $$
+  \comp KI=\{\alpha+\beta\in\gl K\oplus\gl I\mid
+  \alpha+\beta\in\der{K\sdsum I}\}.$$ The algebra $\der K$ carries information about the multiplicative structure of $K$. Analogously, the algebra $\comp K I$ carries information about the action of $K$ on $I$. In section \ref{secJacobson} we present an example of this by exploring the proof of Jacobson's Theorem and we prove a version for Lie algebras representations over a field of characteristic  $p>0$. 
+
+\textbf{Theorem \ref{1.8}} \textit{ Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p$ such that $K$ is nilpotent. Suppose that $K$ act on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and dimension of $I$ is less than $p$ then $Tr(\psi^n(k))=0$, for all $k \in K$. In these two cases, $\psi(k)$ is nilpotent.}
+
+We also adapt an algorithm presented by Bettina Eick \cite{Eick} for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$ such that $I$ is invariant by $Aut(L)$. Then there exists a homomorphism $\phi: Aut(L) \to Aut(L/I) \times Aut(I)$ induced by the actions of $Aut(L)$ on $L/I$ and $I$. The image of $\phi$ can be calculated using $Aut(L/I)$ and $\ker \phi $ is equal to $\zone K I$. Then the group $Aut(L)$ can be calculated applying the first isomorphism theorem to $\phi$. We adapt this process to derivations.
+
+Let $K$ be a Lie algebra and $I$ be a $K$-module. Let $\ztwo K I $ be the vector space of cocycles and $\comp K I$ de the subalgebra of compatible pairs. Let $(\alpha, \beta) \in \comp KI$ and $\vartheta \in \ztwo KI$, we define an action of $\comp K I$ over $\ztwo K I $ by 
+\begin{center}
+$(\alpha,\beta)\cdot \vartheta(h,k)=\beta(\vartheta(h,k))-\vartheta(\alpha(k),h)-\vartheta(k,\alpha(h)), \quad \mbox{ for all } h,k \in K,$
+\end{center}
+ and we denote the elements of annihilator of this action by induced pairs. Let  $\indu K I \vartheta$ be the set of induced pairs. Let $K_\theta$ be the Lie algebra extension obtained from $K$ by cocycle $\vartheta$ then we can lift the derivation of $\indu K I \vartheta$ to $Der(K_\theta)$. Thus we obtained the following theorem.
 
 \textbf{Theorem  \ref{DerExt}} \textit{ Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as ideal of $K_\vartheta$, invariant under derivations of $K_\vartheta$. Let $\phi:\der {K_\vartheta} \to \der K \oplus \der I$ given by $\phi(d)=(\alpha,\beta)$. Then:
   \begin{enumerate}
@@ -144,9 +155,7 @@ In the article \cite{Jacobson} Bettina Eick presented an algorithm for calculati
   \item $\ker \phi \cong  \zone KI$
   \end{enumerate}}
   
-There is a significant difference between the application of approach to automorphisms and to derivations: calculating the automorphism groups of a Lie algebra is usually a difficult task that may involve a large orbit-stabilizer calculation, while calculating the algebra $\der {K_\vartheta}$ can be done by solving a system of linear equations. Thus, to understand the importance of Theorem \ref{DerExt} we must discover whose additional information of $\der {K_\vartheta}$ we are able to obtain through information of algebras $\der{K}$ and $\der I$. Another tool obtained was the algebra of compatible pairs:  let $K$ and $I$ be Lie algebras such that $K$ acts on $I$, then we can define a subalgebra $\comp L I$ of derivations of semi-direct sum $K \sdsum I$ $$
-  \comp KI=\{\alpha+\beta\in\gl K\oplus\gl I\mid
-  \alpha+\beta\in\der{K\sdsum I}\}.$$ The algebra $\der K$ carries information about the multiplicative structure of $K$. Analogously, the algebra $\comp K I$ carries information about the action of $K$ on $I$. In section \ref{secJacobson} we present an example of this by exploring the proof of Jacobson's Theorem. 
+The details of this construction can be seen in Sections 3.1, 3.2 and 3.3. There is a significant difference between the application of approach to automorphisms and to derivations: calculating the automorphism groups of a Lie algebra is usually a difficult task that may involve a large orbit-stabilizer calculation, while calculating the algebra $\der {K_\vartheta}$ can be done by solving a system of linear equations. Thus, to understand the importance of Theorem \ref{DerExt} we must discover whose additional information of $\der {K_\vartheta}$ we are able to obtain through information of algebras $\der{K}$ and $\der I$.
   
  We also studied a consequence of Jacobson's Theorem presented by Aner Shalev \cite{Shalev}. This article presents a condition on the order of derivation which guarantees nilpotency of algebra. Mattarei \cite{Mattarei} continues this study focusing on all the possible orders of nonsingular derivations of modular solvable and non-nilpotent Lie algebras.
 
@@ -242,7 +251,7 @@ We will use the same notation of proof of Proposition \ref{Shalevlem}. Write $x^
 \begin{proof} The derivation $d^{p^s}$ has order $m$. Suppose that $L$ is not nilpotent. Then by the comment above we have $m < p^2-1$.
 \end{proof}
 
-  Mattarei \cite{Mattarei} presents an example of this Lie algebra. 
+  Mattarei in \cite{Mattarei} presents an example of this Lie algebra. 
   
 \begin{ex}{\label{mattareiex}} Let $\alpha, \beta \in \bar{\F}_p$ with $\alpha \beta^{-1} \notin \F_p $. Let $M$ be a $p$-dimensional vector space over $\bar{\F}_p$ with basis $e_1, \cdots, e_p$, and let $E,F$ be the linear transformations of $M$ defined by $E(e_i)=e_{i+1}$(indices modulo $p$), and $F(e_i)=(\alpha +i \beta)e_i$. The transformations $E$ and $F$ span a two-dimensional solvable Lie algebra, which has $M$ as a left module. Let $L$ be the semidirect sum of $\lbrace E \rbrace$ and $M$ with respect to this action. Then $F$ acts on $L$ as a non-singular derivation, with eigenvalues $\beta$ on $\lbrace E \rbrace$, and $\alpha + \lambda \beta$ for $\lambda \in \F_p$ on $M$.    
 \end{ex}  
@@ -948,7 +957,7 @@ Now we can present a similar result the proposition \ref{0.6} but with a new pro
 \begin{proof} As $\alpha$ has no eigenvalue 0 then it is non-singular and by Proposition \ref{NonSDiag} $\alpha$ is diagonalizable. Let $x_1,...,x_s$ be a basis of $K$ such that $\alpha(x_i)=\lambda_i x_i$. For all $a \in \gl I$ denote by $[a]$ the matrix of $a$ in this base. Then $$[[\beta],[\psi(x_i)]]=\lambda_i[\psi(x_i)].$$ We can apply Proposition {\ref{1.2}} in this last equation for $A=\beta$, $B=\psi(x_{i})$, $C=0$ and  $\lambda=\lambda_i \neq 0$ to conclude that $\psi(x_i)$ is nilpotent for $1 \leq i \leq s$. Now we observe that if $K$ is a nilpotent Lie algebra in either characteristic is 0 or characteristic $p$ with dimension of $L$ less than $p$ then Lie theorem is valid. Lie theorem grants that there is a basis of $I$ such that all matrices of representation $\psi$ is upper triangular. Therefore, the matrices $[\psi(x_i)]$ are strictly upper triangular. Then all $\psi(k)$, for all $k \in K$, has only 0 in diagonal, because they are linear combination of $\psi(x_i)$. Hence every $\psi(k)$ is nilpotent.
 \end{proof} 
 
-\begin{cor} Let $L$ be a solvable Lie algebra over a field $\F$ of characteristic $p$. Suppose that $L$ has a nonsingular derivation. If either $p=0$ or $p>0$ and dimension of $L^{(i)}/L^{(i+1)} <p$ then $L$ is nilpotent.
+\begin{cor}{\label{teo1.8cor}} Let $L$ be a solvable Lie algebra over a field $\F$ of characteristic $p$. Suppose that $L$ has a nonsingular derivation. If either $p=0$ or $p>0$ and dimension of $L^{(i)}/L^{(i+1)} <p$ then $L$ is nilpotent.
 \end{cor}
 
 \begin{proof} Suppose that $L \geq L^{(1)} \geq \cdots \geq L^{(k)} \geq L^{(k+1)}=0 $ is the derived series of $L$. Define $L_0=L$ and $L_i=L_{i-1}/L_{i-1}^{(k+1-i)}, 1 \leq i \leq k-1$. As each term of derived series are invariant by derivations then each $L_i$ has a non-singular derivation. In particular, $L_{k-1}$ is an solvable Lie algebra of derived length 2 with non-singular derivation. Then by theorem \ref{1.8} $\ad{}{k}$ is nilpotent for all $k \in L_{k-1}$ and by Proposition \ref{adnilp} $L_{k-1}$ is nilpotent. By induction we have that $L_i$ is nilpotent for every $0 \leq i \leq k-1$. Hence $L$ is nilpotent
@@ -961,7 +970,6 @@ In this section we describe the structure of some solvable non-nilpotent modular
  
 \begin{ex} Let $L$ be a vector space over a field $\F$ of characteristic $p$ and dimension $p+1$. Let $\{x, x_1, \cdots, x_p\}$ be a basis of $L$ and define the products $[x,x_i]=x_{i+1}$, indexes modulo $p$. Then $L$ is solvable, non-nilpotent Lie algebra of derived length 2. Let $\lambda, \delta \in \F$ and define the linear application $d:L \to L$ by $d(x)=\lambda x$ and $d(x_i)=(\delta + (i-1)\lambda) x_i, 1 \leq i \leq p$. Then $d$ is a derivation of $L$. Furthermore, if $\lambda, \delta$ are non-zero and $\lambda \neq k \delta,  k \in \F,$ then $d$ is non-singular with eigenvalues $\{\lambda, \delta, \delta+\lambda, \delta+2 \lambda, \cdots, \delta + (p-1) \lambda\}$ and we can write $L=L_{\lambda}\oplus L_{\delta} \oplus L_{\lambda+\delta} \oplus L_{\delta + 2\lambda} \oplus \cdots \oplus L_{\delta + (p-1)\lambda}$.   
 \end{ex}  
-
 \newpage
 \
 
