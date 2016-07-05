@@ -94,9 +94,26 @@
 
 \begin{document}
 
-\title[Non-singular derivations in prime characteristic]
-      {Derivations of Lie algebra extensions and non-singular
-derivations of Lie algebras in prime characteristic}
+\title[non-singular derivations in prime characteristic]
+      { DERIVATIONS OF LIE ALGEBRA EXTENSIONS AND NON-SINGULAR DERIVATIONS OF LIE ALGEBRAS IN PRIME CHARACTERISTIC}
+
+\begin{titlepage}
+\begin{center} 
+{\large UNIVERSIDADE FEDERAL DE MINAS GERAIS}
+
+{\large INSTITUTO DE CIÊNCIAS EXATAS}
+
+{\large Departamento de Matemática}\\[2cm]
+{\large \bf{Projeto de Tese de Doutorado}}\\[4cm]
+{\bf \large DERIVATIONS OF LIE ALGEBRA EXTENSIONS AND NON-SINGULAR DERIVATIONS OF LIE ALGEBRAS IN PRIME CHARACTERISTIC}\\[4cm]
+{\large \bf{Marcos Goulart Lima}}\\[0.7cm] 
+{\large Orientador: Csaba Schneider }\\[4cm]
+{\large Belo Horizonte}\\[0.2cm]
+{\large Junho de 2016}
+\end{center}
+
+
+\end{titlepage}
 
 \author{Marcos Goulart Lima }
 \address{Departamento de Ci\^encias Exatas e Aplicadas \\
@@ -119,21 +136,12 @@ www.mat.ufmg.br/$\sim$csaba}
 
 \section{Introduction} 
 
-
-
-Jacobson's famous theorem ~\cite{Jacobson} states that a finite-dimensional Lie algebra
-over a field of characteristic zero that admits a non-singular derivation must
-be nilpotent. It is well-known that this theorem is not valid when 
-the characteristic is non-zero. Non-nilpotent and solvable examples
-were constructed by Shalev~\cite{Shalev} and Mattarei~\cite{Mattarei}, whereas
-the simple Lie algebras with non-singular derivations were classified 
-by Benkart and her collaborators in~\cite{Benkart}. 
-
-Despite the existing examples, little is known about non-nilpotent Lie algebras
-with non-singular derivations. In these notes we explore the structure of
+Let $L$ be a Lie algebra and $d$ be a derivation of $L$. The derivation $d$ is non-singular if is injective as linear transformation. What can we say about the structure of $L$ if $d$ is non-singular? Jacobson's famous theorem \cite{Jacobson} states that a finite-dimensional Lie algebra over a field of characteristic zero that admits a non-singular derivation must be nilpotent. It is well-known that this theorem is not valid is not valid when the characteristic is non-zero. Non-nilpotent and solvable examples were constructed by Shalev~\cite{Shalev} and Mattarei~\cite{Mattarei}, whereas the simple Lie algebras with non-singular derivations were classified by Benkart and her collaborators in~\cite{Benkart}. 
+ A significant application of non-singular derivation was presented by Shalev \cite{Shalev2}. In his proof of coclass conjectures of Leddham-Green and Newman for pro-$p$ groups, Shalev uses that finite-dimensional Lie algebras over a field of characteristic $p>0$ with non-singular derivation $d$ such that $d^{p-1}=1$, must be nilpotent. 
+ 
+Despite the existing examples, little is known about non-nilpotent Lie algebras with non-singular derivations. In these notes we explore the structure of
 solvable, non-nilpotent Lie algebras with non-singular derivations. 
-In order to study derivations of solvable Lie algebras, we develop a theory
-of the derivations of Lie algebra extensions. We adopt the concept of a compatible pair of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
+In order to study this algebras we develop a theory of the derivations of Lie algebra extensions. We adopt the concept of a compatible pair of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
 
 Let $K$ and $I$ be Lie algebras such that $K$ acts on $I$, then we can define a subalgebra $\comp L I$ of derivations of semi-direct sum $K \sdsum I$ $$
   \comp KI=\{\alpha+\beta\in\gl K\oplus\gl I\mid
@@ -141,7 +149,7 @@ Let $K$ and $I$ be Lie algebras such that $K$ acts on $I$, then we can define a 
 
 \textbf{Theorem \ref{1.8}} \textit{ Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p$ such that $K$ is nilpotent. Suppose that $K$ act on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and dimension of $I$ is less than $p$ then $Tr(\psi^n(k))=0$, for all $k \in K$. In these two cases, $\psi(k)$ is nilpotent.}
 
-We also adapt an algorithm presented by Bettina Eick \cite{Eick} for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$ such that $I$ is invariant by $Aut(L)$. Then there exists a homomorphism $\phi: Aut(L) \to Aut(L/I) \times Aut(I)$ induced by the actions of $Aut(L)$ on $L/I$ and $I$. The image of $\phi$ can be calculated using $Aut(L/I)$ and $\ker \phi $ is equal to $\zone K I$. Then the group $Aut(L)$ can be calculated applying the first isomorphism theorem to $\phi$. We adapt this process to derivations.
+We also adapt an algorithm presented by Bettina Eick \cite{Eick} for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$ such that $I$ is invariant by $Aut(L)$. Then there exists a homomorphism $\phi: Aut(L) \to Aut(L/I) \times Aut(I)$ induced by the actions of $Aut(L)$ on $L/I$ and $I$. The image of $\phi$ can be calculated using $Aut(L/I)$ and $\ker \phi $ is equal to $\zone K I$. Then the group $Aut(L)$ can be calculated applying the first isomorphism theorem to $\phi$. Next we describe this process for derivations.
 
 Let $K$ be a Lie algebra and $I$ be a $K$-module. Let $\ztwo K I $ be the vector space of cocycles and $\comp K I$ de the subalgebra of compatible pairs. Let $(\alpha, \beta) \in \comp KI$ and $\vartheta \in \ztwo KI$, we define an action of $\comp K I$ over $\ztwo K I $ by 
 \begin{center}
@@ -389,7 +397,6 @@ $$
 $$
 Routine calculation shows that $\vartheta\in\ztwo {L/I}I$ and
 that $L\cong L_\vartheta$.
-    
 
  
 \subsection{Compatible pairs and derivations of semidirect sums}
@@ -407,7 +414,7 @@ $$
 $$
 When the $K$-action on $I$ is clear from the context, then we
 usually suppress the homomorphism `$\psi$' from the notation and write
-simply $I\sdsum K$. If $L$ is a Lie algebra such that $L$ has
+simply $K\sdsum I$. If $L$ is a Lie algebra such that $L$ has
 an ideal $I$ and a subalgebra $K$ in such a way that
 $L=K\dotplus I$, then $L\cong K\sdsum_\psi I$ where $\psi$
 is the restriction of $\ad {}I$ to $K$.
@@ -965,11 +972,55 @@ Now we can present a similar result the proposition \ref{0.6} but with a new pro
  
 \section{Solvable non-nilpotent modular Lie algebras with non-singular derivations}
 
-In this section we describe the structure of some solvable non-nilpotent modular Lie algebras $L$ with a non-singular derivation $d$. This description is based in decomposition of vector spaces using the eigenspaces $d$. The following is an example that will serve as a model of this Lie algebras
+In this section we will describe the structure of some examples of solvable non-nilpotent modular Lie algebras $L$ with a non-singular derivation $d$. Based in this examples we will state some questions about this algebras. These issues will serve as a reference for further work.
+
+ Let $V$ be a vector space and $x \in \gl V$. Denote the action of $x$ on $V$ by $\ad{}{x}(a)=[x,a]$, for all $a \in V$. A vector $a \in V$ is said to be $x$-cyclic if $$V=\langle a, \ad{}{x}(a), (\ad{}{x})^2(a), \cdots, (\ad{}{x})^{n-1}(a)\rangle.$$ The vector space $V$ is called $x$-cyclic if it has a $x$-cyclic vector. We can present some examples of Solvable non-nilpotent modular Lie algebras with non-singular derivations using cyclic spaces.
+ 
+  \begin{ex}{\label{1.9}} Let $V$ be a vector space over a field $\F$ of characteristic $p>0$ and $x \in \gl V$.
+  \begin{enumerate}
+ \item Let $K$ be the vector space generated by $x$ over $\F$ and $I$ a subspace of $V$ of dimension $p$. Let $\{a_1, a_2, \cdots, a_p\}$ a base of $I$ such that $[x,a_i]=a_{i+1 mod p}$. As seen in Example \ref{mattareiex}, $L=K \sdsum I$ has a non-singular derivation;
+ \item  Let $K$ be the vector space generated by $x$ over $\F$ and $I_1, I_2, \cdots, I_m$ be $x$-cyclic subspaces of $V$ of dimension $p$ such that $I_i \cap I_j=0$ for all $i \neq j$. Let $L$ be the Lie algebra $L= K \sdsum (I_1\oplus  \cdots \oplus I_m)$. Let $\lambda,\delta_1, \cdots, \delta_m $ be non-zero elements of $\F$ such that $\lambda \neq s \delta_i $, for all $s \in \F_p$; and $\{a_{i1}, \cdots a_{ip}\}$ a base of $I_i$ such that $[x,a_{ij}]=a_{i(j+1 modp)}$.  Define $d \in \gl L$ by $d(x)=\lambda x$ and $d(a_{ij})=(\delta_i+(j-1)\lambda)a_{ij}$. Then $d$ is a non-singular derivation of $L$.
+ 
+ \item Let $K$ be the vector space generated by $\{x, x^2, \cdots, x^{p-1}\}$ over $\F$ and $I$ a $x$-cyclic subspace of dimension $p$. Let $L=K \sdsum I$. Let $\lambda,\delta \in \F$ both non-zero and $\lambda \neq s \delta $, for all $s \in \F_p$. Define the endomorphism $d \in \ennd {L}$ by $d(x^j)=j\lambda x^j,$ $ 1 \leq j \leq p-1$ and  $d(a_i)=(\delta +(i-1)\lambda)a_i,$ $ 1 \leq i \leq rp$, $d$ is a non-singular derivation of $L_1$.
+\end{enumerate}
+\end{ex} 
+  
+  All Lie algebras in Example \ref{1.9} are solvable, non-nilpotent, with non-singular derivation and they have derived length 2. For Lie algebras over fields of characteristic $p> 3$ we could not find an example of derived length greater than 3 but in characteristic 2 we have the following example.
+  
+\begin{ex} Let $L$ be a vector space of dimension 6 over $\F_4$. Let $\lambda \in \F_4$ such that $\lambda^2=\lambda+1$ and $\{a_1,a_2,a_3,a_4,a_5,a_6\}$ a basis of $L$ over $\F_4$. Define the products
+
+\begin{center}
+\begin{tabular}{llll}
+$[a_1,a_3]=\lambda a_5+a_6,$ & $[a_1,a_4]=\lambda a_6,$ & $[a_1,a_5]=\lambda^2 a_3+a_4,$  & $[a_3,a_5]=\lambda a_2,$ \\
+$[a_1,a_6]=\lambda^2 a_4 ,$  & $[a_2,a_3]=\lambda a_6,$ & and $[a_2,a_5]=\lambda^2 a_4.$ & \\
+\end{tabular}
+\end{center}
+
+
+ $L$ is a solvable non-nilpotent Lie algebra of derived length 3. The linear map $d: L \to L$ defined by $d(a_1)=a_1$, $d(a_2)=a_2$, $d(a_3)=\lambda a_3$, $d(a_4)=\lambda a_4$, $d(a_5)=\lambda^2 a_5$ and $d(a_6)=\lambda^2 a_6$ is a non-singular derivation of $L$.
+\end{ex}  
+
+With this examples we can state our first question:
+
+\textbf{Problem 1.} Is there a solvable, non-nilpotent Lie algebra over a field of characteristic $p>3$ with non-singular derivation and derived length greater than 2? 
+
+Suppose that the answer to Problem 1 is yes and let $L$ be such Lie algebra. Let $I=L^{(2)}$ and $K=L/I$. As $L^{(3)}=0$ then $I$ is abelian and so $K$ acts on $I$ by adjoint representation. In this case, $K$ is a solvable Lie algebra of derived length 2 with non-singular derivation. By Proposition \ref{prop:cocic}, there is a cocycle $\vartheta \in \ztwo K I$ such that $L \cong K_{\vartheta}$. This calculation show us that every Lie algebra that answer Problem 1 can be obtained by an extension of a solvable Lie algebra of derived length 2 with non-singular derivation. So we need to understand this Lie algebras of derived length 2 to search for an answer of Problem 1. We will study a variation of this question.
+  
+\textbf{Problem 2.} Let $K$ be solvable, non-nilpotent Lie algebra over a field of characteristic $p>3$ with non-singular derivation and derived length 2. Is there a $K$-module $I$ and a cocycle $\vartheta \in \ztwo K I$ such that $K_\vartheta$ has a non-singular derivation? 
+
+As first step to study Problem 2 we will try to describe some cases of abelian Lie algebras $K$ acting over vector spaces. Next we present some questions that we are working.
+
+Let $x \in \gl V$ and $I$ a subspace of $V$ such that $L=\langle x \rangle \sdsum I$ has a non-singular derivation. 
+\begin{itemize} 
+\item In Example \ref{1.9}(2) $I$ can be decomposed in subspaces $I_j$ such that $\langle x \rangle \sdsum I_j$ has non-singular derivation. In general, can we define a smaller subspace of $J$ of $I$ such that $\langle x \rangle \sdsum J$ has non-singular derivation?   
+\item How the existence of non-singular derivations affect the structure of $\der L$? Can we define some algebra structure over non-singular derivations of $L$? 
+\end{itemize}  
+
 
  
-\begin{ex} Let $L$ be a vector space over a field $\F$ of characteristic $p$ and dimension $p+1$. Let $\{x, x_1, \cdots, x_p\}$ be a basis of $L$ and define the products $[x,x_i]=x_{i+1}$, indexes modulo $p$. Then $L$ is solvable, non-nilpotent Lie algebra of derived length 2. Let $\lambda, \delta \in \F$ and define the linear application $d:L \to L$ by $d(x)=\lambda x$ and $d(x_i)=(\delta + (i-1)\lambda) x_i, 1 \leq i \leq p$. Then $d$ is a derivation of $L$. Furthermore, if $\lambda, \delta$ are non-zero and $\lambda \neq k \delta,  k \in \F,$ then $d$ is non-singular with eigenvalues $\{\lambda, \delta, \delta+\lambda, \delta+2 \lambda, \cdots, \delta + (p-1) \lambda\}$ and we can write $L=L_{\lambda}\oplus L_{\delta} \oplus L_{\lambda+\delta} \oplus L_{\delta + 2\lambda} \oplus \cdots \oplus L_{\delta + (p-1)\lambda}$.   
-\end{ex}  
+ 
+ 
+ 
 \newpage
 \
 
