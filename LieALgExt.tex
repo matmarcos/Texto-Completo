@@ -30,9 +30,6 @@
 
 \parskip 5pt
 
-
-\newcommand{\dem}{{\bf Demonstração: }}
-
 \newcommand{\F}{\ensuremath{\mathbb{F}}}
 
 \newcommand{\cqd}{\rule{2mm}{2mm}}
@@ -53,7 +50,7 @@
 \newtheorem{lem}[teo]{Lemma}
 \newtheorem{obs}[teo]{Observation}
 
-\newtheorem{af}[teo]{Afirmação}
+
 \newtheorem{prop}[teo]{Proposition}
 
 \theoremstyle{definition}
@@ -179,6 +176,16 @@ Now we consider a Lie algebra $L$ and a nilpotent subalgebra $K \leq \der L $. T
  Let $L$ be a Lie algebra over an algebraically closed field. Let $K$ be a  subalgebra of $\der L$. If $\lambda,\mu:K \to \F^*$ are generalized eigenvalues of $K$  then $[L_\lambda,L_{\mu}] \subseteq L_{\lambda+\mu}$ if $\lambda+\mu$ is a  generalized eigenvalue of $K$. Otherwise $[L_{\mu}, L_{\lambda}]=0$.
 \end{prop}
 
+Following we present some general results about Lie algebras that will be used in the this text.
+
+\begin{prop} {\label{adnilp}}Let $L$ be a Lie algebra, let $I$ be an ideal of $L$ such that $L/I$ is nilpotent and such that $\ad{I}{x}: I \to I$ is nilpotent for all $x \in L$. Then $L$ is nilpotent.
+\end{prop}
+\begin{proof} As $L/I$ is nilpotent then for each $x \in L$, $(\ad{}{x+I})^n$ is a nilpotent endomorphism in $\ennd {L/I}$, i.e., there is $n>0$ such that $(\ad{}{x})^n(a) \in I$, for all $x \in L, a \in I$. On the other hand, $\ad{I}{x}$ is nilpotent, so we have a $m$ such that $(\ad{I}{x})^m(\ad{}{x})^n=0$, i.e., $(\ad{}{x})^{m+n}=0$. So $\ad{}{x}$ is a nilpotent endomorphism in $  \gl L$. By Engel's theorem, $L$ is nilpotent.
+\end{proof}
+
+\begin{teo}[\cite{deGraaf}, Theorem 2.4.4]{\label{Lie}}(Lie) Let $L$ be a finite-dimensional solvable Lie algebra over an algebraically closed field $\F$ of characteristic 0. Let $\psi:L \to \gl V$ be a finite-dimensional representation of $L$. Then there is a basis of $V$ relative to which then matrix of all $\psi(x)$ for all $x \in L$ are all upper triangular. 
+\end{teo}
+
 \subsection{Jacobson's Theorem}
 
  In the article \textit{A note on automorphism and derivations of Lie algebras} \cite{Jacobson}, Jacobson used a variation of Engel's Theorem for weakly closed sets to get sufficient conditions for a Lie algebra to be nilpotent. We recommend the reading of Sections 1 and 2 of Chapter 2 of Jacobson's book \cite{JacobsonBook} as reference for examples and proofs.
@@ -222,7 +229,7 @@ Let $A$ be an associative algebra with $1$ over a field $\F$. A subset $S$ of $A
 \end{teo}
 \begin{proof} Let $\bar{\F}$ be the algebraic closure of the base field. We can  extend all derivations of $L$ to $\bar{L}=L \otimes \bar{\F}$. If we prove that $\bar{L}$ is nilpotent then $L$ is nilpotent. So we will assume that $\F$ is algebraically closed. In this case the extension of $D$ is nilpotent and without 0 as common eigenvalue, i.e. if there is $c \in L$ such that $d(c)=0$ for all $d \in D$ then $c=0$. Let $L = L_{\gamma_1} \dotplus \cdots \dotplus L_{\gamma_t}$ be the decomposition of $L$ into generalized eigenspaces of $D$. By Proposition \ref{1.01} we have $[L_{\gamma_i},L_{\gamma_j}] \subseteq L_{\gamma_i+\gamma_j}$ if $\gamma_i+\gamma_j$ is a eigenvalue of $D$ and $[L_{\gamma_i},L_{\gamma_j}]=0$ otherwise. For a subset $Y \subseteq L$, we let $\ad {} {Y}$ denote the set of adjoint mappings induced by elements of $Y$. Then the inclusion just noted shows that the set $ S= \bigcup \ad {}{L_{\gamma_j}}$ is a weakly closed set of linear transformations. Let $a \in L_{\gamma_j}$ and $b \in L_{\gamma_i}$. Then $(\ad{}{a})^s(b) \in L_{\gamma_i+s \gamma_j}$, for all $s \geq 0$.(*) 
 
-The generalized eigenvalue $\gamma_j \neq 0$ and $\F$ has characteristic 0 then $\gamma_i+s \gamma_j$, for $s>0$, are pairwise distinct. Then for some $r$ large enough $(\gamma_i+r\gamma_j)$ is not an eigenvalue and $\ad{}{a}(b)=0$. Follow that $\ad{}{a}$ is nilpotent linear transformation. Thus every element of $S$ is nilpotent. By Proposition \ref{1.02} the associative subalgebra $\langle S \rangle  \leq \ennd V$ is nilpotent and hence $\ad{}{L}$ is nilpotent. Therefore $L$ is a nilpotent Lie algebra.   
+The generalized eigenvalue $\gamma_j \neq 0$ and $\F$ has characteristic 0 then $\gamma_i+s \gamma_j$, for $s>0$, are pairwise distinct. Then for some $r$ large enough $(\gamma_i+r\gamma_j)$ is not an eigenvalue and $\ad{}{a}(b)=0$. Follow that $\ad{}{a}$ is nilpotent linear transformation. Thus every element of $S$ is nilpotent. By Proposition \ref{1.02} the associative subalgebra $\langle S \rangle  \leq \ennd V$ is nilpotent. Observe that the Lie subalgebra $\langle S \rangle$ is subset of the associative subalgebra $\langle S \rangle$, then $\langle S \rangle$   is nilpotent as Lie subalgebra. But $\langle S \rangle =\ad{}{L}$ implies that $L$ is a nilpotent Lie algebra.   
 \end{proof}
 
 A review of the proof of Theorem \ref{Jacobsontheo} shows that the hypothesis of zero characteristic is essential to prove that every element in a homogeneous component is nilpotent. As the following examples shows, Theorem \ref{Jacobsontheo} fails to hold in characteristic $p>0$.  
@@ -538,45 +545,6 @@ $\gl{I\oplus K}$ by letting $(\alpha+\beta)(a+k)=
   In particular $\comp KI$ is a Lie subalgebra of $\der{K\sdsum I}$.
 \end{prop}
 \begin{proof}
-%%   First we show that $\comp IK$ is 
-%%   a Lie subalgebra of  $\der I\oplus
-%%   \der K$.
-%%   Suppose that $(\alpha,\beta),\ (\alpha',\beta') \in \comp KI$ and
-%% assume that the $K$-action on $I$ is given by the representation
-%% $\psi:K \to \der I$ such that $\psi(k)(a)=[a,k]$ for all
-%% $k \in K$ and $a \in I$. First we check that
-%% $\comp KI$ is a vector subspace using equation (\ref{compcomu}).
-%% If $\lambda \in \F$ and $k \in K$ then
-%% $$
-%% \begin{array}{rcl}
-%% [\psi(k),\beta+\lambda \beta'] & = & [\psi(k),\beta]+ \lambda[\psi(k), \beta'] \\
-%%  & = & -\psi(k)(\alpha)-\lambda\psi(k)(\alpha') \\
-%%   & = & \psi(k)(\alpha+\lambda\alpha').
-%% \end{array}
-%% $$
-%% Hence $(\alpha,\beta)+\lambda(\alpha',\beta') \in \comp KI$.
-%%
-%%%% Using the definition of compatible pairs, 
-%% $$
-%% \beta' \psi(k)=\psi(k)\beta'+\psi(\alpha'(k)).
-%% $$ 
-%% Then
-%% $$
-%% \begin{array}{rcl}
-%% \beta \beta' \psi(k) & = & \beta\psi(k)\beta'+\beta \psi (\alpha'(k)) \\
-%% &=& \psi(k)\beta\beta'+\psi (\alpha(k))\beta'+\psi(\alpha'(k)) \beta+ \psi(\alpha'\alpha(k)).
-%% \end{array}
-%% $$
-%% Similarly,
-%% $$
-%% \beta'\beta \psi(k)=\psi(k)\beta'\beta+\psi (\alpha'(k))\beta+\psi(\alpha(k)) \beta'+ \psi(\alpha\alpha'(k)).
-%% $$
-%% Therefore
-%% $$
-%% [\beta,\beta']\psi(k)=\psi(k)(\beta\beta'-\beta'\beta)+\psi((\alpha \alpha' - \alpha' \alpha)(k))=\psi(k)[\beta,\beta']+\psi([\alpha, \alpha'](k)).
-%% $$
-%% Hence $[(\alpha,\beta),(\alpha',\beta')] \in \comp KI$.
-
 
   Suppose that $\alpha+\beta\in\comp KI$ is a compatible pair
   and let $k+a,\ k'+a'\in K\sdsum I$.
@@ -614,6 +582,12 @@ $$
      $\comp KI=(\gl K\oplus\gl I)\cap\der{K\sdsum I}$.
 \end{proof}
 
+
+\begin{lem}{\label{comp^p}} Let $K$ and $I$ be Lie algebras over a field $\F$ of characteristic $p>0$. If $(\alpha,\beta) \in \comp KI$ then $(\alpha,\beta)^{p^t} \in \comp KI$ for all $t\geq 0$. 
+\end{lem}
+\begin{proof}
+Let $L=K \sdsum I$ be the semi-direct sum of $K$ and $I$. By Proposition \ref{compsdsum}, $(\alpha,\beta) \in \der L$. Then by Lemma \ref{leib}, $(\alpha,\beta)^{p^t} \in \der L$, for all $t \geq 0$. Hence, by Proposition \ref{compsdsum}, $(\alpha,\beta)^{p^t} \in \comp K I$.
+\end{proof}
 
 Let $K$ and $I$ be vector spaces. Consider the Lie algebra
 $\gl K\oplus\gl I$ and define an action of  $\gl K\oplus\gl I$
@@ -688,7 +662,7 @@ Hence we have  proved the following  proposition.
  \begin{equation}{\label{1}}
  (\alpha,\beta)\cdot \vartheta(h,k)=\beta(\vartheta(h,k))-\vartheta(\alpha(h),k)-\vartheta(h,\alpha(k)), \quad \mbox{ for all } h,k \in K.
  \end{equation}
-  Let  $(\alpha',\beta') \in \gl K \oplus \gl I$ then 
+  Let  $(\alpha',\beta') \in \gl K \oplus \gl I$, then 
     \begin{multline}{\label{5}}
  (\alpha,\beta)\cdot ((\alpha',\beta')\cdot \vartheta(h,k))= (\alpha,\beta)\cdot (\beta'(\vartheta(h,k))-\vartheta(\alpha'(h),k)-\vartheta(h,\alpha'(k))). 
  \end{multline} 
@@ -750,7 +724,6 @@ $$X=-[k,(\alpha,\beta)\cdot\vartheta(h,l)]-[h,(\alpha,\beta)\cdot\vartheta(l,k)]
  \begin{equation}
  {\label{1.4}} \vartheta_T(h,k)= T([h,k])+[k,T(h)]-[h,T(k)].
  \end{equation}
- 
 Let $Y=(\alpha,\beta)\cdot \vartheta_T(h,k)$. By (\ref{1.4}) we have 
  \begin{equation}{\label{1.7}}
   Y=\beta(\vartheta_T(h,k))-\vartheta_T(\alpha(h),k)-\vartheta_T(h,\alpha(k)).
@@ -821,7 +794,7 @@ We can see that $\beta$ is a derivation of $I$ because it is restriction of $d$ 
 \end{multline}
  Comparing the components of $K$ in (\ref{1.3}) and (\ref{1.6}) we have $$\alpha([h,k]_K)=[\alpha(h),k]_K+[h,\alpha(k)]_K,$$ and $\alpha \in \der K$. 
 
-Now it is possible define our homomorphism $\phi$. Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as an ideal of $K_\vartheta$, is invariant under derivations. For all $x+a \in  K_{\vartheta}$ and $ d \in \der K_{\vartheta}$  write $d(x+a)=\alpha(x)+\eta(x)+\beta(a)$ with $\alpha \in \der K$ and $\beta \in \der I$. Then define $\phi:\der{K_\vartheta} \to \der K \oplus \der I$ by \begin{equation}{\label{defphi2}}
+Now it is possible define our homomorphism $\phi$. Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as an ideal of $K_\vartheta$, is invariant under derivations. For all $x+a \in  K_{\vartheta}$ and $ d \in \der K_{\vartheta}$  write $d(h+a)=\alpha(h)+\eta(h)+\beta(a)$ with $\alpha \in \der K$ and $\beta \in \der I$. Then define $\phi:\der{K_\vartheta} \to \der K \oplus \der I$ by \begin{equation}{\label{defphi2}}
 \phi(d)=(\alpha,\beta).
 \end{equation}
  
@@ -836,7 +809,8 @@ $$\begin{array}{rcl}
 \end{array}$$ 
 Hence, $\pi_K dd'(h)=\alpha \alpha'(h).$ Analogously, $\pi_K d'd(h)=\alpha' \alpha(h).$ 
 So $\pi_K [d,d']=[\alpha,\alpha']$. As $\beta$ and $\beta'$ are defined by restriction of $d$ and $d'$ to $I$, respectively, then $\pi_I[d,d']=[\beta,\beta']$. Therefore,
-$$ \phi([d,d'])=([\alpha,\alpha'],[\beta, \beta'])=[(\alpha,\beta),(\alpha',\beta')]=[\phi(d),\phi(d')].$$ 
+$$ \phi([d,d'])=([\alpha,\alpha'],[\beta, \beta'])=[(\alpha,\beta),(\alpha',\beta')]=[\phi(d),\phi(d')],$$
+and $\phi$ is indeed a Lie algebra homomorphism. 
 
 The next result presents the first connection between compatible pairs and the homomorphism $\phi$. 
 
@@ -862,7 +836,7 @@ Now we present the main theorem of this section. Recall that for a Lie algebra $
   \item $\ker \phi \cong \sf \zone KI$
   \end{enumerate}
 \end{teo}
-\begin{proof} In this proof we will denote the product in $K_\vartheta$ of the $h \in K$ and $a \in I$ just by the action $[h,a]$ of $K$ on $I$, since $[h,a]_\vartheta=[h,a].$
+\begin{proof} In this proof we will denote the product in $K_\vartheta$ of $h \in K$ and $a \in I$ just by the action $[h,a]$ of $K$ on $I$, since $[h,a]_\vartheta=[h,a].$
 
  1) Let $(\alpha,\beta) \in \sf Indu(K,I,\vartheta)$. By definition  $$(\alpha,\beta)\cdot \vartheta=0  \mbox{ mod }  \btwo K I.$$ Then there is a linear map $T:K \to I$ such that, for all  $h,k \in K$,
  \begin{equation}{\label{2}}
@@ -957,61 +931,60 @@ $$ d([h+a,k+b]_\vartheta)=d([h,k]_K+\vartheta(h,k)+[h,b]-[k,a])
  \end{multline*}
  Since $\eta \in \zone KI$ then $d([h+a,k+b]_\vartheta)=[d(h+a),k+b]_\vartheta+[h+a,d(k+b)]_\vartheta,$ hence $d \in \der {K_\vartheta}$. It is immediate that $\phi(d)=0$. So $d \in \ker \phi$. As by definition, $\sigma(d)=\eta$ then $\sigma$ is onto and, therefore, is an isomorphism.
 \end{proof}
+
+\begin{ex}{\label{compex}} Let $L$ be a Lie algebra with an abelian ideal $I$ invariant by derivations. Set $K=L/I$. By Proposition \ref{prop:cocic}, there is a $\vartheta \in \ztwo K I$ such that $L \cong K_\vartheta$. Then we can apply the  map $\phi: \der {L} \to \der {L/I} \oplus \der I$ defined in Theorem \ref{DerExt}. Further, if $d \in \der {L}$ then $\phi(d)=(\alpha,\beta) \in \comp {L/I}{I}$. Hence, each derivation of $L$ gives rise to a pair of derivations $\alpha \in \der {L/I}$ and $\beta \in I$. In particular, if $d$ is non-singular then $\alpha$ and $\beta$ are non-singulars.
+\end{ex}
  
  \subsection{Compatible pairs and Jacobson Theorem}{\label{secJacobson}} 
  
-In this section we show some examples of the use of compatible pairs.
+In this section we show some examples of the use of compatible pairs in the study of non-singular derivations.
 
- \begin{ex}{\label{0.7}} Let $K$ and $I$ be finite dimensional Lie algebras over an algebraically closed field $\F$. Suppose that $K$ act on $I$ by representation $\psi:K \to Der(I)$. Let $D \subseteq \comp K I $ be a subalgebra. By Proposition \ref{compsdsum}, $D \subseteq \der L $. If $D$ is nilpotent then $L$ has a decomposition in generalized eigenspaces of $D$. This decomposition induces decompositions in $K$ and $I$, because as subspaces of $L$ they are invariants by $D$. Hence, $$L=K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_r} \oplus I_{\mu_1}\cdots\oplus I_{\mu_s}.$$ In particular, we have $[K_{\lambda_i},I_{\mu_j}]\subseteq I_{\lambda_i+\mu_j}$ if $\lambda_i+\mu_j$ is eigenvalue of $D$ in $I$. Otherwise $[K_{\lambda_i},I_{\mu_j}]=0$.
+ \begin{ex}{\label{0.7}} Let $K$ and $I$ be finite-dimensional Lie algebras over an algebraically closed field $\F$. Suppose that $K$ acts on $I$ by representation $\psi:K \to \der I$. Let $D \leq \comp K I $ be a subalgebra. Define $L= K \sdsum I$. By Proposition \ref{compsdsum}, $D \leq\der L $. If $D$ is nilpotent then $L$ has a decomposition into generalized eigenspaces of $D$. This decomposition induces decompositions in $K$ and $I$, since as $K$ and $I$ are invariants under $D$. Hence, $$L=K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_r} \oplus I_{\mu_1}\cdots\oplus I_{\mu_s}.$$ In particular, we have $[K_{\lambda_i},I_{\mu_j}]\subseteq I_{\lambda_i+\mu_j}$ if $\lambda_i+\mu_j$ is eigenvalue of $D$ in $I$. Otherwise $[K_{\lambda_i},I_{\mu_j}]=0$.
 \end{ex} 
 From this example we can state a result:
 
-\begin{prop} \label{0.6} Let $K$ and $I$ be finite dimensional Lie algebras over an algebraically closed field $\F$. Suppose that $K$ act on $I$ by representation $\psi:K \to Der(I)$. Let $D \subseteq \comp K I $ be a subalgebra.  Suppose that 0 is not generalized eigenvalue of $D$. Then if either characteristic of $\F$ is zero or either characteristic of $\F$ is $p$ and $D$ has at most $p-1$ generalized eigenvalues the   $\psi(K)$ is nilpotent.
+\begin{prop} \label{0.6} Let $K$ and $I$ be finite-dimensional Lie algebras over an algebraically closed field $\F$. Suppose that $K$ acts on $I$ by representation $\psi:K \to \der I$. Let $D \leq \comp K I $ be a subalgebra.  Suppose that 0 is not generalized eigenvalue of $D$. Then if either the characteristic of $\F$ is zero or the characteristic of $\F$ is $p$ and $D$ has at most $p-1$ generalized eigenvalues, then the Lie subalgebra $\psi(K) \leq \gl I$ is nilpotent.
 \end{prop}
 
-\begin{proof}Let $L=K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_r} \oplus I_{\mu_1}\cdots\oplus I_{\mu_s}$ the eigenspace decomposition present in Example \ref{0.7}. Suppose that 0 is not generalized eigenvalue of $D$. Let $E_K= \{ \lambda_1, \cdots, \lambda_r \}$ and $E_I=\{\mu_1, \cdots, \mu_s \}$ be generalized eigenvalue  of $D$ in $K$ and $I$, respectively. Let $k \in K_{\alpha_j}, a \in I_{\mu_i}$ then
+\begin{proof} Let $L=K_{\lambda_1} \dotplus \cdots \dotplus K_{\lambda_r} \dotplus I_{\mu_1}\cdots\dotplus I_{\mu_s}$ the generalized eigenspace decomposition presented in Example \ref{0.7}. Suppose that 0 is not generalized eigenvalues of $D$. Let $E_K= \{ \lambda_1, \cdots, \lambda_r \}$ and $E_I=\{\mu_1, \cdots, \mu_s \}$ be the generalized eigenvalues  of $D$ in $K$ and $I$, respectively. Let $k \in K_{\alpha_j}, a \in I_{\mu_i}$ then
  
  $$\left\lbrace\begin{array}{ccl}
 \psi^n(k)(a) \in I_{\mu_i+n\lambda_j} & if & \mu_i+n\lambda_j \in E_I \\ 
-\psi^n(k)(a) =0  & if & \mu_i+n\lambda_j \notin E_I \\ 
+\psi^n(k)(a) =0  & if & \mu_i+n\lambda_j \notin E_I. \\ 
 \end{array} \right.$$
 \begin{itemize}
-\item If characteristic of $\F$ is zero then the linear functions $\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+n \lambda_j \cdots$ are all distinct because $\lambda_j \neq 0$, so $\mu_i+n \lambda_j \notin E_I$ for some $n$ and $\psi(k)^n=0 $.
-\item  If $char(\F)=p$ and $s < p$ the set $\{\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+(p-1)\lambda_j,\mu_i\}$ has $p$ distinct elements and $E_I$ has at most $p-1$, then $\psi^n(k)=0$ for some $ n$ with $1 \leq n \leq p$.
+\item If the characteristic of $\F$ is 0 then the linear functions $\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+n \lambda_j \cdots$ are all distinct since $\lambda_j \neq 0$. Since $\dim I$ is finite, so $\mu_i+n \lambda_j \notin E_I$ for some $n>0$. Hence $\psi(k)^n=0$.
+\item  If the characteristic of $\F$ is $p>0$ and $s < p$ then the linear forms $\{\mu_i+ \lambda_j, \mu_i+2 \lambda_j, \cdots, \mu_i+(p-1)\lambda_j,\mu_i\}$ cannot be all non-trivial, and so $\mu_i+ n \lambda_j=0$ for some $1 \leq n \leq p$, and so $\psi^n(k)=0$ for some $n$, $1 \leq n \leq p$.
 \end{itemize} 
- In both cases  $\psi(k)$ is nilpotent for all $k \in K_{\lambda_j}$, $1 \leq j \leq r$. Let $S= \bigcup \psi(K_{\lambda_j})$. $S$ is a weakly closed set such that each element is associative nilpotent then $\psi(K)$ is nilpotent.
+ In both cases $\psi(k)$ is nilpotent for all $k \in K_{\lambda_j}$, $1 \leq j \leq r$. Let $S= \bigcup \psi(K_{\lambda_j})$. Since $S$ is a weakly closed set such that each element is nilpotent. Then the associative subalgebra $\langle S \rangle \leq \ennd I$ is nilpotent. We conclude that the Lie algebra $\langle S \rangle =\psi(K)\leq \gl I$ is nilpotent.
 \end{proof}
 
   For our next example we need some result about traces of matrices.
  
-\begin{prop}{\label{0.9}} Let $\F$ be a field of characteristic $p$. Suppose that $A \in  M(n, \F)$ with n<p or p=0. Then $A$ is nilpotent if, and only if, the trace of matrices $A^r$ is zero, for $1 \leq r \leq n$.
+\begin{prop}{\label{0.9}} Let $\F$ be a field of characteristic $p \geq 0$. Suppose that $A \in {\sf M}(n, \F)$ with $n<p$ or $p=0$. Then $A$ is nilpotent if, and only if, the trace of matrices $A^r$ is zero, for $1 \leq r \leq n$.
 \end{prop}
-\begin{proof} Let $\bar{\F}$ the algebraic closure of $F$ e consider $A$ in its Jordan normal form. This can be done because Jordan normal form is obtained from $A$ by conjugation of matrices over $\F$. But since trace and nilpotency of matrices are invariants by conjugation our results still valid for $A$. We will use that a matrix is nilpotent if, and only if, zero is its only eigenvalue.
+\begin{proof} Let $\bar{\F}$ be the algebraic closure of $\F$ and assume without loss of generality that $A$ is in Jordan normal form. We will use that a matrix is nilpotent if, and only if, zero is the only eigenvalue of $A$. 
 
-$A$ can be seen as a diagonal block matrix where each block is formed by grouping the blocks associated to same eigenvalue. Denote by $A_j$ the block associated to eigenvalue $\lambda_t \in \overline{\F}$ and by $n_j$ its order. Let $\lambda_1, \cdots,\lambda_k$ be the non-zero eigenvalues of $A$. Then 
+Hence $A$ is as a diagonal block matrix where each block is formed by grouping the Jordan blocks associated to same eigenvalue. Let $\lambda_1, \cdots,\lambda_k$ be the non-zero eigenvalues of $A$. Denote by $A_t$ the diagonal block in $A$ associated with eigenvalue $\lambda_t$ and let assume that $A_t$ is an $n_j \times n_j$-matrix. Then 
 \begin{equation}{\label{1.0}}
-tr(A^r)=n_1 \lambda_1^n+\cdots+n_k\lambda_k^n 
+tr(A^r)=n_1 \lambda_1^n+\cdots+n_k\lambda_k^n. 
 \end{equation}
 
-Suppose that $A$ is nilpotent. Then zero is the only eigenvalue of $A$ and by equation ({\ref{1.0}}) we have $tr(A^r)=0$ for $1 \leq r \leq n$.
+Suppose that $A$ is nilpotent. Then zero is the only eigenvalue of $A$, and also of $A^r$ for all $r \geq 1$, and by equation ({\ref{1.0}}) we have $tr(A^r)=0$ for $1 \leq r \leq n$.
 
  Conversely, suppose that $tr(A^r)=0$ for $1 \leq r \leq n$. From equation  ({\ref{1.0}}) we can extract the system 
- 
- \begin{equation}{\label{0.8}}
+  \begin{equation}{\label{0.8}}
 n_1 \lambda_1^r+\cdots+n_k\lambda_k^r=0, \hspace{1cm} 1 \leq r \leq k,
 \end{equation} 
-
-in the variables  $n_1, \cdots, n_k$, whose matrix of coefficients is
+of linear equations in the variables $n_1, \cdots, n_k$ over $\F$ considering each $n_j$ as the element $n_j \cdot 1$ in $\F$, whose matrix of coefficients is
 
 $$C= \begin{bmatrix}
 \lambda_1 & \lambda_2 & \cdots & \lambda_k \\
 \lambda_1^2 & \lambda_2^2 & \cdots & \lambda_k^2 \\
 \vdots & \vdots &\ddots & \vdots \\
 \lambda_1^k & \lambda_2^k & \cdots & \lambda_k^k \\
-
 \end{bmatrix}. $$ 
-
-Denote by $m_i(\lambda)$ the operation that multiplies the line $i$ of a matrix by $\lambda$ and $A^t$ the transposed matrix of $A$. So we can write $$C= m_1(\lambda_1).m_2(\lambda_2) \cdots m_k(\lambda_k).V,$$ where
+Denote by $m_i(\lambda)$ the operation that multiplies line $i$ of a matrix by $\lambda$ and $A^t$ the transposed matrix of $A$. So we can write $$C= m_1(\lambda_1).m_2(\lambda_2) \cdots m_k(\lambda_k).V^t,$$ where
 
 $$V= \begin{bmatrix}
 1 & \lambda_1 & \lambda_1^2 \cdots & \lambda_1^{k-1} \\
@@ -1019,43 +992,36 @@ $$V= \begin{bmatrix}
 \vdots & \vdots& \vdots  & \vdots \\
 1 & \lambda_k & \lambda_k^2 \cdots & \lambda_k^{k-1} \\
 
-\end{bmatrix} $$ is the Vandermonde matrix in the variables $\lambda_1, \lambda_2, \cdots, \lambda_k$ whose determinant is $\det V=\prod_{1 \le i<j\le n}(\lambda_j-\lambda_i)$. As $\lambda_i$ are distinct we have that $\det V$ is non-zero. Then the determinant of $C$ is $\lambda_1.\lambda_2 \cdots \lambda_k . \det V$ and $C$ is non-singular. Follow that the system (\ref{0.8}) has only trivial solution. Therefore each $n_j$ is zero. If $p=0$ then zero is the only eigenvector of $A$, but if $p \neq 0$ then $n_j=0$ modulo $p$ doesn't imply $n_j=0$ and its necessary to use that each $n_j<p$ to conclude that zero is the only eigenvalue of $A$.  
+\end{bmatrix} $$ is the Vandermonde matrix in the variables $\lambda_1, \lambda_2, \cdots, \lambda_k$ whose determinant is $\det V=\prod_{1 \le i<j\le n}(\lambda_j-\lambda_i)$. As the $\lambda_i$ are pairwise distinct we have that $\det V$ is non-zero. Then the determinant of $C$ is $\lambda_1.\lambda_2 \cdots \lambda_k. \det V$. As we assume that $\lambda_i \neq 0$ for $1, \cdot, k$, $C$ is non-singular. It follows that the system (\ref{0.8}) has only trivial solution. Therefore, considered as an element of $\F$, each $n_j$ is zero. If $p=0$ then zero is the only eigenvector of $A$. If $p>0$, then, since we assume that $n<p$, we also have that $n_j<p$ for all $j$. Hence the fact that $n_j=0$ in $\F$, implies that $n_j=0$ as a natural number. Conclude that zero is the only eigenvalue of $A$.  
 \end{proof}
 
-
-\begin{prop}{\label{1.2}} Let $\F$ be a field of characteristic $p$. Let $A,B,C \in M(n,\F)$ with $p=0$ or $n<p$. If $[A,B]=C+\lambda B$, $\lambda \in \F$ and $[B,C]=0$ then $[A,B^r]=rB^{r-1} C+\lambda r B^r$ for all $r \geq 1$. In particular, if $\lambda \neq 0$ and  $C$ is nilpotent then $B$ is nilpotent.
+\begin{prop}[\cite{Bernstein}, Fact 3.17.13]{\label{1.2}} Let $\F$ be a field of characteristic $p>0$. Let $A,B,C \in {\sf M}(n,\F)$ with $p=0$ or $n<p$. If $[A,B]=C+\lambda B$, for some $\lambda \in \F$ and $[B,C]=0$ then $[A,B^r]=rB^{r-1} C+\lambda r B^r$ for all $r \geq 1$. In particular, if $\lambda \neq 0$ and  $C$ is nilpotent then $B$ is nilpotent.
 \end{prop}
-\begin{proof} We proof this result by induction on $r$. The case $r=1$ follow from hypotheses. Suppose that resultis valid for $(r-1)$. Then, $[A,B^{r-1}]=(r-1)B^{r-2}C+\lambda (r-1)B^{r-1}$. We can rewrite this equation as
+\begin{proof} We prove this result by induction on $r$. The case $r=1$ follows from the conditions. Suppose that result is valid for $(r-1)$. Then, $$[A,B^{r-1}]=(r-1)B^{r-2}C+\lambda (r-1)B^{r-1}.$$ We can rewrite this equation as
  $$\lambda (r-1)B^{r-1} =  AB^{r-1}-B^{r-1}A -(r-1)B^{r-2}C.$$
- Multiplying last equation to right by $B$ we have
- $$\lambda (r-1)B^r =  AB^r-B^{r-1}(AB) -(r-1)B^{r-2}(CB),$$
- From hypotheses we can write $AB=BA+C +\lambda B$ and $CB=BC$. Replacing them above we obtain  
+ Multiplying the the last equation on the right by $B$ we have
+ $$\lambda (r-1)B^r =  AB^r-B^{r-1}(AB) -(r-1)B^{r-2}(CB).$$
+ By the conditions we can write $AB=BA+C +\lambda B$ and $CB=BC$. Replacing these terms above we obtain  
   $$\lambda (r-1)B^r = AB^r-B^rA -B^{r-1}C-\lambda B^r -(r-1)B^{r-1}C.$$
   Therefore,  $$AB^r-B^rA = \lambda r B^r +r B^{r-1}C .$$
   
-For the second result suppose $\lambda \neq 0$ and $C$ nilpotent with nilpotency index $m$. Using first part we have
+For the second statement suppose $\lambda \neq 0$ and $C$ is nilpotent with nilpotency index $m$. Using the first assertion we have
 $$B^r = (1/\lambda r)[A,B^r] -(1/\lambda)B^{r-1}C, \mbox{ for all } r \geq 1.$$
-
-Observe that $(B^{r-1}C)^m=(B^{r-1})^m(C)^m=0$, Hence,for all $r \geq 1$ $B^{r-1}C$ is nilpotent and has trace zero by Proposition {\ref{0.9}}. As trace of commutators are always zero then $tr([A,B^r])=0$ for all $r \geq 1$. Follows that $tr(B^r)=0$ for all $r \geq 1$ and again by Proposition {\ref{0.9}} we conclude that $B$ is nilpotent.
+Since, $B$ and $C$ commute, $(B^{r-1}C)^m=(B^{r-1})^m(C)^m=0$, Hence, for all $r \geq 1$ $B^{r-1}C$ is nilpotent and has trace zero by Proposition {\ref{0.9}}. As the trace of commutators is always zero then $tr([A,B^r])=0$ for all $r \geq 1$. It follows that $tr(B^r)=0$ for all $r \geq 1$ and again by Proposition {\ref{0.9}} we conclude that $B$ is nilpotent.
 \end{proof}
 
-\begin{prop} {\label{adnilp}}Let $L$ be a Lie algebra, $I$ an ideal of $L$ such that $L/I$ is nilpotent and such that $\ad{I}{x}: I \to I$ is nilpotent for all $x \in L$. Then $L$ is nilpotent.
-\end{prop}
-\begin{proof} As $L/I$ is nilpotent then for each $x \in L$, $(\ad{I}{x+I})^n$ is a nilpotent endomorphism in $\ennd {L/I}$, i.e., there is $n>0$ such that $(\ad{}{x})^n(a) \in I$, for all $x \in L, a \in I$. In the other hand, $\ad{I}{x}$ is nilpotent, so we have a $m$ such that $(\ad{I}{x})^m(\ad{}{x})^n=0$, i.e., $(\ad{I}{x})^{m+n}=0$. So $\ad{}{x}$ is a nilpotent endomorphism in $  \gl L$. By Engel's theorem, $L$ is nilpotent.
-\end{proof}
+Now we can present a result similar to the Proposition \ref{0.6} but with a new proof using compatible pairs.
 
-Now we can present a similar result the proposition \ref{0.6} but with a new proof using compatible pairs.
-
-\begin{teo}{\label{1.8}} Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p$ such that $K$ is nilpotent. Suppose that $K$ act on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and dimension of $I$ is less than $p$ then $Tr(\psi^n(k))=0$, for all $k \in K$. In these two cases, $\psi(k)$ is nilpotent. 
+\begin{teo}{\label{1.8}} Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p \geq 0$ such that $K$ is solvable. Suppose that $K$ acts on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and dimension of $I$ is less than $p$ then $Tr(\psi^n(k))=0$, for all $k \in K$. In these two cases, $\psi(k)$ is nilpotent for all $k \in K$. 
 \end{teo}
 
-\begin{proof} As $\alpha$ has no eigenvalue 0 then it is non-singular and by Proposition \ref{NonSDiag} $\alpha$ is diagonalizable. Let $x_1,...,x_s$ be a basis of $K$ such that $\alpha(x_i)=\lambda_i x_i$. For all $a \in \gl I$ denote by $[a]$ the matrix of $a$ in this base. Then $$[[\beta],[\psi(x_i)]]=\lambda_i[\psi(x_i)].$$ We can apply Proposition {\ref{1.2}} in this last equation for $A=\beta$, $B=\psi(x_{i})$, $C=0$ and  $\lambda=\lambda_i \neq 0$ to conclude that $\psi(x_i)$ is nilpotent for $1 \leq i \leq s$. Now we observe that if $K$ is a nilpotent Lie algebra in either characteristic is 0 or characteristic $p$ with dimension of $L$ less than $p$ then Lie theorem is valid. Lie theorem grants that there is a basis of $I$ such that all matrices of representation $\psi$ is upper triangular. Therefore, the matrices $[\psi(x_i)]$ are strictly upper triangular. Then all $\psi(k)$, for all $k \in K$, has only 0 in diagonal, because they are linear combination of $\psi(x_i)$. Hence every $\psi(k)$ is nilpotent.
+\begin{proof} As $\alpha$ has no eigenvalue 0, it is non-singular. Suppose that the order of $\alpha$, considered as an endomorphism of $I$, is $p^tm$. Then by Lemma \ref{comp^p}, $(\alpha,\beta)^{p^t}=(\alpha^{p^t},\beta^{p^t})$ is a compatible pair and by Proposition \ref{NonSDiag}, $\alpha^{p^t}$ is diagonalizable. Hence by possibly replacing $(\alpha, \beta)$ by $(\alpha,\beta)^{p^t}$, we may assume without loss of generality that $\alpha$ is diagonalizable. Let $x_1,...,x_s$ be a basis of $K$ such that $\alpha(x_i)=\lambda_i x_i$. For all $a \in \gl I$ denote by $[a]$ the matrix of $a$ in this basis. Then, by equation \eqref{compcomu}, $$[[\beta],[\psi(x_i)]]=\lambda_i[\psi(x_i)].$$ We can apply Proposition {\ref{1.2}} to this last equation for $A=[\beta]$, $B=[\psi(x_{i})]$, $C=0$ and  $\lambda=\lambda_i \neq 0$ to conclude that $\psi(x_i)$ is nilpotent for $1 \leq i \leq s$. Now we observe that if $K$ is a nilpotent Lie algebra in either characteristic is 0 or characteristic $p$ with dimension of $L$ less than $p$ then Lie's Theorem (Theorem \ref{Lie}) is valid. Lie's Theorem grants that there is a basis of $I$ such that the image of $\psi$ lies in the subalgebra of $\gl I$ formed by upper triangular matrices. Since $[\psi(x_i)]$ is nilpotent and upper triangular, it must be strictly upper triangular (that is, it contains zeros in the diagonal). Then all $\psi(k)$, for all $k \in K$, are also strictly upper triangular matrices, since they are linear combinations of the $\psi(x_i)$. Hence every $\psi(k)$ is nilpotent.
 \end{proof} 
 
-\begin{cor}{\label{teo1.8cor}} Let $L$ be a solvable Lie algebra over a field $\F$ of characteristic $p$. Suppose that $L$ has a nonsingular derivation. If either $p=0$ or $p>0$ and dimension of $L^{(i)}/L^{(i+1)} <p$ then $L$ is nilpotent.
+\begin{cor}{\label{teo1.8cor}} Let $L$ be a solvable Lie algebra over a field $\F$ of characteristic $p\geq 0$. Suppose that $L$ has a nonsingular derivation. If either $p=0$ or $p>0$ and dimension of $L^{(i)}/L^{(i+1)} <p$, for all $i$, then $L$ is nilpotent.
 \end{cor}
 
-\begin{proof} Suppose that $L \geq L^{(1)} \geq \cdots \geq L^{(k)} \geq L^{(k+1)}=0 $ is the derived series of $L$. Define $L_0=L$ and $L_i=L_{i-1}/L_{i-1}^{(k+1-i)}, 1 \leq i \leq k-1$. As each term of derived series are invariant by derivations then each $L_i$ has a non-singular derivation. In particular, $L_{k-1}$ is an solvable Lie algebra of derived length 2 with non-singular derivation. Then by theorem \ref{1.8} $\ad{}{k}$ is nilpotent for all $k \in L_{k-1}$ and by Proposition \ref{adnilp} $L_{k-1}$ is nilpotent. By induction we have that $L_i$ is nilpotent for every $0 \leq i \leq k-1$. Hence $L$ is nilpotent
+\begin{proof} Suppose that $L > L^{(1)} > \cdots > L^{(k)} > L^{(k+1)}=0 $ is the derived series of $L$. We prove this result by induction on $k$. When $k=1$, then $L$ is clearly nilpotent, as it is actually abelian. Suppose that the result holds for Lie algebras of derived length $k-1$ and assume that L has derived length $k.$ Then $I=L^{(k)}$ is an abelian ideal of L. Setting $K=L/I$, we have that $K$ acts on $I$ (see Example \ref{adjrepex}) and let us call the corresponding representation $\psi$.  Further, since the terms of the  derived series are invariant under derivations, a non-singular derivation $\delta \in \der L$ gives rise to a compatible pair $(\alpha,\beta) \in \comp KI$ as explained in Example \ref{compex}. Since $\delta$ is non-singular, so are $\alpha \in \der K$ and $\beta\in \der I$. Note that $K$ is solvable of solvable length $k-1$ and $K^{(i)}/K^{(i+1)} \cong L^{(i)}/L^{(i+1)}$ for all $i\leq k-1$. Hence the induction hypothesis is valid for $K$ and we obtain that $K$ is nilpotent. Further, since $\dim I<p$, we have that $\psi(k)$ is nilpotent for all $k$. Now Proposition \ref{adnilp} implies that $L$ is nilpotent.
 \end{proof}
  
 \newpage
