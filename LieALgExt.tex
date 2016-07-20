@@ -120,28 +120,28 @@ marcosgoulart@decea.ufop.br }
 
 Let $L$ be a Lie algebra and $d$ be a derivation of $L$. The derivation $d$ is non-singular if it is injective as linear transformation. We are interested in studying what information we can obtain about a Lie algebra if it has a nonsingular derivation. Jacobson's famous theorem \cite{Jacobson} states that a finite-dimensional Lie algebra over a field of characteristic zero that admits a non-singular derivation must be nilpotent. It is well-known that this theorem is not valid when the characteristic is non-zero. Non-nilpotent and solvable examples were constructed by Shalev~\cite{Shalev} and Mattarei~\cite{Mattarei}, whereas the simple Lie algebras with non-singular derivations were classified by Benkart and her collaborators in~\cite{Benkart}. A significant application of Lie algebras with non-singular derivation in characteristic $p$ was presented by Shalev \cite{Shalev2}. In his proof of the coclass conjectures of Leddham-Green and Newman for pro-$p$ groups, Shalev uses the fact that finite-dimensional Lie algebras over a field of characteristic $p>0$ with non-singular derivation $d$ such that $d^{p-1}=1$, must be nilpotent. 
  
-Despite the existing examples, little is known about non-nilpotent Lie algebras with non-singular derivations. In these project we propose to explore the structure of solvable, non-nilpotent Lie algebras with non-singular derivations. In order to study these algebras we develop a theory of derivations of Lie algebra extensions. We adopt the concept of a compatible pair of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
+Despite the existing examples, little is known about non-nilpotent Lie algebras with non-singular derivations. In this project we propose to explore the structure of solvable, non-nilpotent Lie algebras with non-singular derivations. In order to study these algebras we develop a theory of derivations of Lie algebra extensions. We adopt the concept of a compatible pair of automorphisms introduced in~\cite{Eick} for derivations of Lie algebras. 
 
-Let $K$ and $I$ be Lie algebras such that $K$ acts on $I$, then we can define the subalgebra $\comp K I$ of $\der K \oplus \der I$ as the set of derivations of $\der K \oplus \der I$ that are derivations of semi-direct sum $K \sdsum I$. Formally,
+Let $K$ and $I$ be Lie algebras such that $K$ acts on $I$, then we can define the subalgebra $\comp K I$ of {\em compatible pairs} of $\der K \oplus \der I$ as the set of derivations of $\der K \oplus \der I$ that are derivations of the semi-direct sum $K \sdsum I$. Formally,
 $$\comp KI=\{\alpha+\beta\in\gl K\oplus\gl I\mid
-  \alpha+\beta\in\der{K\sdsum I}\}.$$ The algebra $\der K$ carries information about the multiplicative structure of $K$. Analogously, the algebra $\comp K I$ carries information about the action of $K$ on $I$. In section \ref{secJacobson} we present an example of this by exploring the proof of Jacobson's Theorem and we prove a version for Lie algebras representations over a field of characteristic  $p>0$. 
+  \alpha+\beta\in\der{K\sdsum I}\}.$$ The algebra $\der K$ carries information about the multiplicative structure of $K$. Analogously, the algebra $\comp K I$ carries information about the action of $K$ on $I$. In Section \ref{secJacobson} we present an example of this by exploring the proof of Jacobson's Theorem and we prove a version for Lie algebra representations over a field of characteristic  $p>0$. 
 
-\textbf{Theorem \ref{1.8}} \textit{ Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p$ where $p \geq 0$ such that $K$ is nilpotent. Suppose that $K$ act on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and $\dim I < p $ then $Tr(\psi^n(k))=0$, for all $k \in K$ and  $n>0$. In these two cases, $\psi(k), k \in K$ is nilpotent.}
+\textbf{Theorem \ref{1.8}} \textit{ Let $K$ and $I$ be finite dimensional Lie algebras over a field of characteristic $p$ where $p \geq 0$ such that $K$ is nilpotent. Suppose that $K$ act on $I$ by representation $\psi:K \to \der I$. Let $(\alpha, \beta) \in \comp K I$ such that $\alpha$ has no eigenvalue 0. If either $p=0$ or $p>0$ and $\dim I < p $ then $Tr(\psi^n(k))=0$, for all $k \in K$ and  $n>0$. In these two cases, $\psi(k)$ is nilpotent for all $k \in K$.}
 
-We also adapt an algorithm presented by Bettina Eick \cite{Eick} for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$ such that $I$ is invariant by $\aut L$. Then there exists a homomorphism $\phi: \aut L \to \aut L/I \times \aut I$ induced by the actions of $\aut L$ on $L/I$ and $I$. The image of $\phi$ can be calculated using $Aut(L/I)$, while $\ker \phi $ is equal to $\zone K I$. Then the group $\aut L$ can be obtained applying the first isomorphism theorem to $\phi$. It is possible to use this process to derivations.
+We also adapt an algorithm presented by Bettina Eick \cite{Eick} for calculating the automorphism group of solvable Lie algebras. A key step in the algorithm is the following. Let $L$ be a Lie algebra and $I$ an abelian ideal of $L$ such that $I$ is invariant under $\aut L$. Then there exists a homomorphism $\phi: \aut L \to \aut {L/I} \times \aut I$ induced by the actions of $\aut L$ on $L/I$ and $I$. The image of $\phi$ can be calculated using $\aut{L/I}$, while $\ker \phi $ is equal to $\zone K I$. Then the group $\aut L$ can be obtained applying the first isomorphism theorem to $\phi$. It is possible to use this process to derivations.
 
 We can define a Lie algebra homomorphism similar to $\psi$ in the previous paragraph. Let $L$ be a Lie algebra and $I\unlhd L$ an ideal such that $I$ is invariant under $\der L$. Then if $d \in \der L$, $d$ induces derivations $\alpha$ and $\beta$ of $L/I$ and $I$, respectively. Hence we obtain a Lie algebra homomorphism $$\psi:\der L \to \der {L/I} \oplus \der I.$$
 
-Let $K$ be a Lie algebra and $I$ be a $K$-module. Let $\ztwo K I $ be the vector space of cocycles and $\comp K I$ the Lie algebra of compatible pairs. Let $(\alpha, \beta) \in \comp KI$ and $\vartheta \in \ztwo KI$. Define an action of $\comp K I$ over $\ztwo K I $ by 
+Let $K$ be a Lie algebra and $I$ be a $K$-module. Let $\ztwo K I $ be the vector space of cocycles and $\comp K I$ the Lie algebra of compatible pairs. Let $(\alpha, \beta) \in \comp KI$ and $\vartheta \in \ztwo KI$. Define an action of $\comp K I$ on $\ztwo K I $ by 
 \begin{center}
-$(\alpha,\beta)\cdot \vartheta(h,k)=\beta(\vartheta(h,k))-\vartheta(\alpha(k),h)-\vartheta(k,\alpha(h)), \quad \mbox{ for all } h,k \in K.$
+$(\alpha,\beta)\cdot \vartheta(h,k)=\beta(\vartheta(h,k))-\vartheta(\alpha(h),k)-\vartheta(h,\alpha(k)), \quad \mbox{ for all } h,k \in K.$
 \end{center}
-The elements of the annihilator of this action will be called induced pairs and we denote the set of induced pairs by $\indu K I \vartheta$. Let $\vartheta \in \ztwo K I$ a cocycle and $K_\theta$ be the Lie algebra extension obtained from $K$ by $\vartheta$. Then we can lift the derivation of $\indu K I \vartheta$ to $Der(K_\theta)$. Thus we obtained the following theorem.
+The elements of the annihilator of $\vartheta$ under this action will be called {\em induced pairs} and we denote the set of induced pairs by $\indu K I \vartheta$. Let $\vartheta \in \ztwo K I$ a cocycle and $K_\vartheta$ be the Lie algebra extension obtained from $K$ by $\vartheta$. Then we can lift the derivation of $\indu K I \vartheta$ to $\der{K_\vartheta}$. Thus we obtained the following theorem.
 
-\textbf{Theorem  \ref{DerExt}} \textit{ Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as ideal of $K_\vartheta$, invariant under derivations of $K_\vartheta$. Let $\phi:\der {K_\vartheta} \to \der K \oplus \der I$ given by $\phi(d)=(\alpha,\beta)$. Then:
+\textbf{Theorem  \ref{DerExt}} \textit{ Let $K$ be a Lie algebra and $I$ a $K$-module. Let $\vartheta \in \htwo KI$ and suppose  that $I$, as an ideal of $K_\vartheta$, is invariant under derivations of $K_\vartheta$. Let $\phi:\der {K_\vartheta} \to \der K \oplus \der I$ the natural homomorphism. Then:
   \begin{enumerate}
  \item $\im \phi=  \indu K I \vartheta$
-  \item $\ker \phi \cong  \zone KI$
+  \item $\ker \phi \cong  \zone KI.$
   \end{enumerate}}
   
 The details of this construction can be seen in Section \ref{extensions}. There is a significant difference between the application of this approach to automorphisms and to derivations: calculating the automorphism groups of Lie algebras is usually a difficult task that may involve a large orbit-stabilizer calculation, while calculating the algebra $\der {K_\vartheta}$ can be done by solving a system of linear equations. Thus, to understand the importance of Theorem \ref{DerExt} we must discover what additional information of $\der {K_\vartheta}$ we are able to obtain through information concerning the algebras $\der{K}$ and $\der I$.
@@ -162,7 +162,7 @@ direct sum of vector spaces will be denoted by `$\dotplus$'.
 Let $V$ be a finite-dimensional vector space over a field $\F$ and $a \in \ennd V$. Let $p \in \F[X]$ be a univariate polynomial and define $$V_0(p(a))=\{v \in V \mid  \mbox{ there is an } m>0  \mbox{ such that } p(a)^mv=0\}.$$ 
  $V_0(p(a))$ is a vector subspace of $V$ invariant under $a$. Now let $A$ be the associative sualgebra of $\ennd V$ with 1 generated by $a$. Let  $p_a$ be the minimum polynomial of $a$ and suppose that  $$p_a=p_1^{k_1} \cdots p_r^{k_r}$$ is the factorization of $p_a$ into irreducible factors, such that $p_i$ has leading coefficient 1 and $p_i \neq p_j$ for $1 \leq i, j \leq r$. Then $V$ decomposes as a direct sum of subspaces $$V=V_0(p_1(a)) \dotplus \cdots \dotplus V_0(p_r(a)),$$ each space $V_0(p_i(a))$ being invariant under $A$. Furthermore, the minimum polynomial of the restriction of $a$ to $V_0(p_i(a))$ is $p_i^{k_i}$. A proof of this result can be found in \cite{deGraaf} Lemma A.2.2.   
  
-We can generalize this decomposition to subalgebras of $\gl V$ generated by more than one element. Let $K$ be a subalgebra of $\gl V$. A decomposition $V = V_1 \oplus \cdots \oplus V_s$ of $V$ into $K$-modules $V_i$ is said to be \textit{primary} if the minimum polynomial of the restriction of $a$ to $V_i$ is a power of an irreducible polynomial for all $a \in K$ and $1 \leq i \leq s$. The subspaces $V_i$ are called primary components. If for any two components $V_i$ and $V_j$ $(i \neq j)$, there is an $x \in K$ such that the minimum polynomials of the restrictions of $x$ to $V_i$ and $V_j$ are powers of different irreducible polynomial, then the decomposition is called \textit{collected}. In general $V$ will not have a primary (or primary collected) decomposition into $K$-modules but such a decomposition is guaranteed to exist if the base field of $V$ is algebraically closed and $K \leq \gl V$ is nilpotent. 
+We can generalize this decomposition to subalgebras of $\gl V$ generated by more than one element. Let $K$ be a subalgebra of $\gl V$. A decomposition $V = V_1 \dotplus \cdots \dotplus V_s$ of $V$ into $K$-modules $V_i$ is said to be \textit{primary} if the minimum polynomial of the restriction of $a$ to $V_i$ is a power of an irreducible polynomial for all $a \in K$ and $1 \leq i \leq s$. The subspaces $V_i$ are called primary components. If for any two components $V_i$ and $V_j$ $(i \neq j)$, there is an $x \in K$ such that the minimum polynomials of the restrictions of $x$ to $V_i$ and $V_j$ are powers of different irreducible polynomial, then the decomposition is called \textit{collected}. In general $V$ will not have a primary (or primary collected) decomposition into $K$-modules but such a decomposition is guaranteed to exist if the base field of $V$ is algebraically closed and $K \leq \gl V$ is nilpotent. 
 
 \begin{prop}[\cite{deGraaf}, Theorem 3.1.10] Let $V$ be finite-dimensional vector space. Let $K \leq \gl V$ be a nilpotent subalgebra. Then $V$ has a unique collected primary decomposition relative to $K$
 \end{prop}
@@ -180,17 +180,17 @@ Following we present some general results about Lie algebras that will be used i
 
 \begin{prop} {\label{adnilp}}Let $L$ be a Lie algebra, let $I$ be an ideal of $L$ such that $L/I$ is nilpotent and such that $\ad{I}{x}: I \to I$ is nilpotent for all $x \in L$. Then $L$ is nilpotent.
 \end{prop}
-\begin{proof} As $L/I$ is nilpotent then for each $x \in L$, $(\ad{}{x+I})^n$ is a nilpotent endomorphism in $\ennd {L/I}$, i.e., there is $n>0$ such that $(\ad{}{x})^n(a) \in I$, for all $x \in L, a \in I$. On the other hand, $\ad{I}{x}$ is nilpotent, so we have a $m$ such that $(\ad{I}{x})^m(\ad{}{x})^n=0$, i.e., $(\ad{}{x})^{m+n}=0$. So $\ad{}{x}$ is a nilpotent endomorphism in $  \gl L$. By Engel's theorem, $L$ is nilpotent.
+\begin{proof} As $L/I$ is nilpotent then for each $x \in L$, $(\ad{}{x+I})^n$ is a nilpotent endomorphism in $\ennd {L/I}$, i.e., there is $n>0$ such that $(\ad{}{x})^n(a) \in I$, for all $x \in L, a \in I$. On the other hand, $\ad{I}{x}$ is nilpotent, so we have a $m$ such that $(\ad{I}{x})^m(\ad{}{x})^n=0$, i.e., $(\ad{}{x})^{m+n}=0$. So $\ad{}{x}$ is a nilpotent endomorphism in $  \gl L$. By Engel's Theorem, $L$ is nilpotent.
 \end{proof}
 
-\begin{teo}[\cite{Humphreys}, Theorem 4.1]{\label{Lielemma}} Let $L$ be a solvable subalgebra of $\gl V$, $V$ finite dimensional. If $V\neq 0$, then $V$ contains a common eigenvector for all the endomorphism in $L$.
+\begin{teo}[\cite{Humphreys}, Theorem 4.1]{\label{Lielemma}} Let $L$ be a solvable subalgebra of $\gl V$, $V$ finite-dimensional. If $V\neq 0$, then $V$ contains a common eigenvector for all the endomorphism in $L$.
 \end{teo}
   
-\begin{teo}[\cite{Humphreys}, Corollary A of Theorem 4.1]{\label{Lie0}}(Lie) Let $L$ be a finite-dimensional solvable Lie algebra over an algebraically closed field $\F$ of characteristic 0. Let $\psi:L \to \gl V$ be a finite-dimensional representation of $L$. Then there is a basis of $V$ relative to which then matrix of all $\psi(x)$ for all $x \in L$ are all upper triangular. 
+\begin{teo}[\cite{Humphreys}, Corollary A of Theorem 4.1]{\label{Lie0}}(Lie) Let $L$ be a finite-dimensional solvable Lie algebra over an algebraically closed field $\F$ of characteristic 0. Let $\psi:L \to \gl V$ be a finite-dimensional representation of $L$. Then there is a basis of $V$ relative to which the matrix of all $\psi(x)$ for all $x \in L$ are all upper triangular. 
 \end{teo}
  The Theorems \ref{Lielemma} and \ref{Lie0} still valid in characteristic $p>0$ if $\dim V<p$. The proof of Theorem \ref{Lielemma} in prime characteristic goes through as in the Humphreys' book except for the last sentence. In the book's version, we have $n\lambda([x, y]) = 0$ and conclude $\lambda([x, y]) = 0$ because the characteristic of $\F$ is 0. In this case, since $ p > \dim V = n$, we can still make the same conclusion since $n$ will not be a zero divisor. The proof of Theorem \ref{Lie0} goes through exactly as in the book. For future reference in the text we will report a version of the Lie's Theorem in positive characteristic.
 
-\begin{teo}{\label{Lie}} Let $L$ be a finite-dimensional solvable Lie algebra over an algebraically closed field $\F$ of characteristic $p>0$. Let $V$ be a finite-dimensional vector space of dimension $n<p$. Let $\psi:L \to \gl V$ be a finite-dimensional representation of $L$. Then there is a basis of $V$ relative to which then matrix of all $\psi(x)$ for all $x \in L$ are all upper triangular. 
+\begin{teo}{\label{Lie}} Let $L$ be a finite-dimensional solvable Lie algebra over an algebraically closed field $\F$ of characteristic $p>0$. Let $V$ be a finite-dimensional vector space of dimension $n<p$. Let $\psi:L \to \gl V$ be a finite-dimensional representation of $L$. Then there is a basis of $V$ relative to which the matrix of all $\psi(x)$ for all $x \in L$ are all upper triangular. 
 \end{teo}
 
 \subsection{Jacobson's Theorem}
@@ -297,9 +297,9 @@ Moreover, $[e_i,e_j]=0$ if it is not in table above. Then $L$ is nilpotent with 
 \begin{proof} The proof of this theorem is identical to proof of Theorem $\ref{Jacobsontheo}$ up to point marked by (*). The generalized eigenvalue $\gamma_j \neq 0$ then the set $\{\gamma_i, \gamma_i+\gamma_j, \cdots , \gamma_i+(p-1)\gamma_j\}$ has $p$ distinct elements. As $D$ has at most $p-1$ generalized eigenvalues then for some $r$, $0 < r \leq p-1$, $(\gamma_i+r\gamma_j)$ is not an eigenvalue. Follow that $\ad{}{a}$ is nilpotent linear transformation, for every $a \in L_{\gamma_i}$. Thus every element of $S$ is nilpotent. By Proposition \ref{1.02} the associative subalgebra $\langle S \rangle  \leq \ennd V$ is nilpotent and hence $\ad{}{L}$ is nilpotent. Therefore $L$ is a nilpotent Lie algebra.
 \end{proof}
 
-\subsection{The orders of non-singular derivations} An interesting approach by  Shalev in article \cite{Shalev} is to study the order of nonsingular derivations, establishing conditions for a Lie algebra over a field of characteristic $p$ with non-singular derivations to be nilpotent. More precisely, Shalev studied the set of orders of nonsingular derivations of non-nilpotent Lie algebras of characteristic $p$. Later, Mattarei in \cite{Mattarei} showed that this set of numbers corresponds to the set of solutions of some polynomial equation over a field of characteristic $p$. Below we present some results of these articles.
+\subsection{The orders of non-singular derivations} An interesting approach by  Shalev in article \cite{Shalev} is to study the order of nonsingular derivations, establishing conditions for a Lie algebra over a field of characteristic $p$ with non-singular derivations to be nilpotent. More precisely, Shalev studied the set of orders of nonsingular derivations of non-nilpotent Lie algebras of characteristic $p>0$. Later, Mattarei in \cite{Mattarei} showed that this set of numbers corresponds to the set of solutions of some polynomial equation over a field of characteristic $p$. Below we present some results of these articles.
 
-Let $L$ be a Lie algebra over an algebraically closed field of characteristic $p$. We can characterize the matrix of a non-singular derivation of $L$. We need a result for derivations in Lie algebras over a field of characteristic $p$. 
+Let $L$ be a Lie algebra over an algebraically closed field of characteristic $p$. We can characterize the matrix of a non-singular derivation of $L$. We need a result for derivations in Lie algebras over a field of characteristic $p>0$. 
 
 \begin{lem}{\label{leib}} Let $L$ be a Lie algebra over a field $\F$ of characteristic $p>0$. If $d \in \der L$ then $d^{p^m} \in \der L,$ for all $m \geq 1.$
 \end{lem}
@@ -318,7 +318,7 @@ d^{n+1}([x,y]) = \sum_{k=0}^n \binom{n}{k}[d^{k+1}(x),d^{n-k}(y)]+\sum_{k=0}^n \
 \end{equation*}
 As $\binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k}$ then 
  $$d^{n+1}([x,y])=\sum_{k=0}^{n+1} \binom{n+1}{k}[d^k(x),d^{n+1-k}(y)].$$
- Then by induction Leibniz's formula is proved. As the field $\F$ has characteristic $p$ then setting $n=p^m$ the Leibniz's formula is reduced to $$d^{p^m}([x,y])=[d^{p^m}(x),y]+[x,d^{p^m}(y)].$$
+ Then by induction Leibniz's formula is proved. As the field $\F$ has characteristic $p>0$ then setting $n=p^m$ the Leibniz's formula is reduced to $$d^{p^m}([x,y])=[d^{p^m}(x),y]+[x,d^{p^m}(y)].$$
 \end{proof}
 
 \begin{prop}{\label{NonSDiag}}  Let $V$ be a finite-dimensional vector space over an algebraically closed field of characteristic $p>0$ and $f \in \ennd V$ non-singular with order $r$ coprime to $p$. Then $f$ is diagonalizable.
@@ -471,7 +471,7 @@ a right inverse of $\pi$; that is,
 $\pi\sigma=\mbox{id}_{L/I}$. Then, for $k+I,\ h+I\in L/I$,
 set
 $$
-\vartheta(k+I,h+I)=\sigma([k+I,h+I])-[\sigma(k+I),\sigma(h+I)].
+\vartheta(h+I,k+I)=\sigma([h+I,k+I])-[\sigma(h+I),\sigma(k+I)].
 $$
 Routine calculation shows that $\vartheta\in\ztwo {L/I}I$ and
 that $L\cong L_\vartheta$.
@@ -539,8 +539,8 @@ A compatible pair $(\alpha,\beta)\in
 \der K\oplus\der I$ will usually be written as $\alpha+\beta$.
 If $\alpha+\beta\in\der K\oplus\der I$ as above,
 then $\alpha+\beta$ can be considered a element of
-$\gl{I\oplus K}$ by letting $(\alpha+\beta)(a+k)=
-\alpha(a)+\beta(k)$ for all $a\in I$ and $k\in K$.
+$\gl{I\oplus K}$ by letting $(\alpha+\beta)(k+a)=
+\alpha(k)+\beta(a)$ for all $a\in I$ and $k\in K$.
 
 \begin{prop}{\label{compsdsum}}
   Using the notation above,
